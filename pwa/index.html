@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>ChocaIoT</title>
+  <meta name="description" content="Chocadeira inteligente — monitoramento e controle via IoT" />
+  <meta name="theme-color" content="#0a0e1a" />
+
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+
+    <!-- Tela: carregando (decidindo se há sessão ativa) -->
+    <section id="screen-loading" class="screen active">
+      <div class="boot-scene">
+        <span class="boot-egg" aria-hidden="true">🥚</span>
+        <span class="boot-chick" aria-hidden="true">🐤</span>
+        <span class="boot-title">ChocaIoT</span>
+      </div>
+    </section>
+
+    <!-- Tela: login -->
+    <section id="screen-login" class="screen">
+      <div class="login-card">
+        <div class="logo">🥚</div>
+        <h1>ChocaIoT</h1>
+        <p>Monitoramento e controle da chocadeira</p>
+
+        <button id="btn-google-login" class="btn-google">
+          Entrar com Google
+        </button>
+
+        <p id="login-convite-aviso" class="login-convite-aviso" hidden>Você recebeu um convite: entre com o e-mail que foi convidado para aceitar.</p>
+        <p id="login-error" class="login-error"></p>
+      </div>
+    </section>
+
+    <!-- Tela: vincular chocadeira (1ª vez, ou conta sem dispositivo associado) -->
+    <section id="screen-vincular" class="screen">
+      <div class="login-card">
+        <div class="logo">🔗</div>
+        <h1>Vincule sua chocadeira</h1>
+        <p>
+          Digite o ID do dispositivo — ele aparece na tela
+          "Sistema" (dentro de Configurações) no display físico da chocadeira.
+        </p>
+
+        <form id="form-vincular">
+          <input
+            type="text"
+            id="input-device-id"
+            placeholder="ID do dispositivo"
+            autocapitalize="off"
+            autocorrect="off"
+            spellcheck="false"
+            required
+          />
+          <button type="submit" id="btn-vincular" class="btn-primary">Vincular</button>
+        </form>
+
+        <p id="vincular-error" class="login-error"></p>
+      </div>
+    </section>
+
+    <!-- Tela: dashboard -->
+    <section id="screen-dashboard" class="screen">
+      <div class="topbar">
+        <div class="topbar-left">
+          <div class="brand-title">ChocaIoT</div>
+          <!-- So aparece quando uma acao e feita com a chocadeira offline/sem conexao —
+               ver mostrarFeedbackHeader() em app.js. Fica vazio/invisivel no resto do tempo. -->
+          <span class="action-feedback" id="header-feedback"></span>
+        </div>
+
+        <div class="topbar-right">
+          <!-- Sem ciclo ativo: inicia direto. Com ciclo ativo (ou pausado): abre o
+               modal de Configurações do Ciclo (pausar/retomar/parar/duração). -->
+          <button id="btn-iniciar-ciclo" class="btn-iniciar" type="button" hidden
+                  title="Inicia a contagem do ciclo. Controle automático de temperatura/umidade ainda está em desenvolvimento.">
+            <span class="btn-iniciar-icon">🥚</span> Iniciar Chocadeira
+          </button>
+
+          <button id="btn-menu" class="btn-menu" aria-label="Menu" aria-expanded="false" aria-controls="menu-dropdown">
+            <span class="menu-icon"></span>
+          </button>
+
+          <div class="menu-dropdown" id="menu-dropdown">
+            <div class="menu-status">
+              <div class="menu-status-linha"><span class="status-dot" id="status-dot"></span><span id="status-label">Offline</span></div>
+              <!-- Diagnóstico do heartbeat (atualizarUltimoSinal em app.js) -->
+              <div class="menu-last-seen" id="menu-last-seen">Último sinal: --</div>
+            </div>
+            <button id="btn-configuracoes" class="menu-config-btn" type="button">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm8.2 5.1-1.7-1 .1-1.2 1.6-1.1a.6.6 0 0 0 .2-.8l-1.6-2.7a.6.6 0 0 0-.8-.2l-1.7.8-1-.7-.2-1.9a.6.6 0 0 0-.6-.5h-3.2a.6.6 0 0 0-.6.5l-.2 1.9-1 .7-1.7-.8a.6.6 0 0 0-.8.2L4.4 9.3a.6.6 0 0 0 .2.8l1.6 1.1.1 1.2-1.7 1a.6.6 0 0 0-.2.8l1.6 2.7c.2.3.5.4.8.2l1.7-.8 1 .7.2 1.9c0 .3.3.5.6.5h3.2c.3 0 .6-.2.6-.5l.2-1.9 1-.7 1.7.8c.3.1.6 0 .8-.2l1.6-2.7a.6.6 0 0 0-.2-.8Z"/></svg>
+              <span>Configurações</span>
+            </button>
+            <!-- Fase 98 — atalhos: gestão de usuários compartilhados e registro de acessos (abrem Configurações já no cartão) -->
+            <button id="btn-atalho-usuarios" class="menu-config-btn menu-atalho" type="button">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 11a3 3 0 1 0-3-3 3 3 0 0 0 3 3Zm-8 0a3 3 0 1 0-3-3 3 3 0 0 0 3 3Zm0 2c-2.3 0-7 1.2-7 3.5V19h8v-2.5c0-1.2.5-2.2 1.2-3A9 9 0 0 0 8 13Zm8 0c-2.3 0-7 1.2-7 3.5V19h14v-2.5c0-2.3-4.7-3.5-7-3.5Z"/></svg>
+              <span>Usuários compartilhados</span>
+            </button>
+            <button id="btn-atalho-tampa" class="menu-config-btn menu-atalho" type="button">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11h18v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9Zm1.6-1.2 14.2-6.1 1 2.3L5.6 12.1l-1-2.3ZM9 14v4h6v-4H9Z"/></svg>
+              <span>Tampa (sensor ADXL)</span>
+            </button>
+            <button id="btn-atalho-acessos" class="menu-config-btn menu-atalho" type="button">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Zm0 5a2.5 2.5 0 1 1-2.5 2.5A2.5 2.5 0 0 1 12 7Zm0 11.2c-2.1-.6-3.9-2.2-4.7-4.2.1-1.7 3.1-2.6 4.7-2.6s4.6.9 4.7 2.6c-.8 2-2.6 3.6-4.7 4.2Z"/></svg>
+              <span>Acessos e privacidade</span>
+            </button>
+            <!-- Escape hatch manual pro cache do service worker (Fase 15) -->
+            <div class="menu-icones">
+              <button id="btn-forcar-atualizacao" class="menu-ic ic-refresh" type="button" aria-label="Forçar atualização" title="Forçar atualização">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 0 1-14.3 4.9M4 12a8 8 0 0 1 14.3-4.9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M18.8 3.5v4.6h-4.6M5.2 20.5v-4.6h4.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Atualizar</span>
+              </button>
+              <button id="btn-desligar" class="menu-ic ic-power" type="button" aria-label="Desligar a chocadeira" title="Desligar a chocadeira">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v8.5M7.2 6.6a8 8 0 1 0 9.6 0" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+                <span>Desligar</span>
+              </button>
+              <button id="btn-logout" class="menu-ic ic-logout" type="button" aria-label="Sair da conta" title="Sair da conta">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h3.5A1.5 1.5 0 0 1 19 5.5v13a1.5 1.5 0 0 1-1.5 1.5H14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M4 12h10M10.5 8.2 14.3 12l-3.8 3.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Sair</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info secundária (era um banner destacado; agora é só uma linha discreta) -->
+      <div class="cycle-subtitle" id="cycle-banner">
+        Ciclo de incubação — dados aparecerão aqui quando o firmware estiver conectado.
+      </div>
+
+      <!-- Câmera ocupa metade da tela; sensores/atuadores ficam ao lado.
+           Reserva de espaço pro módulo de câmera futuro (ESP32-CAM) — só
+           placeholder por enquanto, sem feed real. -->
+      <div class="dashboard-main">
+        <div class="camera-panel" id="camera-panel">
+          <svg class="camera-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 8.5C4 7.67 4.67 7 5.5 7h2.4l.9-1.5c.27-.45.75-.72 1.28-.72h3.84c.53 0 1.01.27 1.28.72L16.1 7h2.4c.83 0 1.5.67 1.5 1.5v9c0 .83-.67 1.5-1.5 1.5h-13A1.5 1.5 0 0 1 4 17.5v-9Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            <circle cx="12" cy="13" r="3.4" stroke="currentColor" stroke-width="1.4"/>
+          </svg>
+          <div class="camera-placeholder-text">Câmera</div>
+          <div class="camera-placeholder-sub" id="camera-vazio-sub">Módulo ainda não conectado</div>
+          <img id="camera-img" class="camera-img" alt="Última foto da câmera" hidden />
+          <!-- Fase 66 — vídeo ao vivo: direto do navegador para a câmera (http://IP:81/stream), NUNCA passa
+               pela nuvem/Firebase — só funciona com o celular na MESMA rede Wi-Fi da câmera. O canvas oculto
+               serve só para a detecção de movimento (compara quadros) e para "Capturar foto" (baixa o quadro
+               atual) — tudo no próprio navegador, sem gastar cota nenhuma. -->
+          <img id="camera-live-img" class="camera-img" alt="Câmera ao vivo" hidden crossorigin="anonymous" />
+          <canvas id="camera-live-canvas" hidden></canvas>
+          <div class="camera-live-badge" id="camera-live-badge" hidden>● AO VIVO</div>
+          <div class="camera-live-aviso" id="camera-live-aviso" hidden></div>
+          <!-- Fase 65 — visão computacional leve (heurística, sem modelo treinado: sem fotos reais da
+               chocadeira ainda pra calibrar contagem/classificação de ovos). Só gera avisos/registro —
+               nunca ajusta temperatura/umidade/viragem sozinha (isso continua vindo só de sensores +
+               parâmetros do tipo de ovo). -->
+          <div class="camera-info" id="camera-info">
+            <span id="camera-visao-linha">Contagem de ovos: indisponível (precisa calibrar com fotos reais)</span>
+          </div>
+          <div class="camera-barra">
+            <span class="camera-status" id="camera-status"></span>
+            <label class="camera-auto-toggle"><input type="checkbox" id="camera-auto-toggle" /> Auto</label>
+            <button type="button" class="btn-camera" id="btn-camera-live-toggle">Ao vivo</button>
+            <button type="button" class="btn-camera" id="btn-camera-live-foto" hidden>Capturar</button>
+            <button type="button" class="btn-camera" id="btn-camera-foto">Tirar foto</button>
+          </div>
+          <a id="camera-live-abrir" class="camera-live-abrir" href="#" target="_blank" rel="noopener" hidden>Não carregou? Abrir o vídeo numa aba nova ↗</a>
+        </div>
+
+        <div class="dashboard-side">
+          <!-- Mesmo layout 3x2 do display físico do firmware. Atuadores saiu
+               daqui (foi pra Configurações — o firmware vai controlar os
+               atuadores automaticamente no futuro, isso deixa de ser o
+               painel principal do dia a dia). -->
+          <div class="cards">
+            <!-- Fase 21 — clicáveis: abrem o modal de histórico/estatísticas
+                 (ver abrirModalSensor() em app.js). Cor do valor muda por
+                 faixa (ideal/alerta/crítico, mesmos limites do firmware —
+                 ver corPorFaixa()). -->
+            <div class="card card-clickable" data-sensor="temperatura" role="button" tabindex="0">
+              <div class="label">Temperatura</div>
+              <div class="value" id="card-temp"><span id="card-temp-value">--</span><span class="unit">°C</span></div>
+            </div>
+            <div class="card card-clickable" data-sensor="umidade" role="button" tabindex="0">
+              <div class="label">Umidade</div>
+              <div class="value" id="card-umid"><span id="card-umid-value">--</span><span class="unit">%</span></div>
+            </div>
+            <div class="card card-clickable" data-sensor="co2" role="button" tabindex="0">
+              <div class="label">CO₂</div>
+              <div class="value" id="card-co2"><span id="card-co2-value">--</span><span class="unit">ppm</span></div>
+            </div>
+            <div class="card card-clicavel" id="card-status" role="button" tabindex="0" title="Ver detalhes do ambiente">
+              <div class="label">Status<span class="status-dots" id="card-status-dots" aria-hidden="true"></span></div>
+              <div class="value value-ok" id="card-status-value">OK</div>
+            </div>
+            <div class="card">
+              <div class="label">Viragem</div>
+              <div class="value">--</div>
+            </div>
+            <!-- Bug corrigido: esse card existia mas nunca era atualizado
+                 (ficava travado em "--:--"). Agora mostra o progresso real
+                 do ciclo (ver atualizarDiaCiclo() em app.js). Clicável —
+                 mesmo gatilho de "gerenciar o ciclo" que o card "Ciclo" da
+                 tela inicial do firmware. -->
+            <div class="card card-clickable" id="card-ciclo" role="button" tabindex="0">
+              <div class="label">Ciclo</div>
+              <div class="value" id="card-ciclo-value">--</div>
+            </div>
+            <!-- Fase 37 — atalho do Guia de incubação (mesmo card do display
+                 físico); ocupa a linha inteira pra não deixar um card órfão
+                 na grade de 3 colunas. -->
+            <div class="card card-clickable card-guia" id="card-guia" role="button" tabindex="0">
+              <div class="label">Guia</div>
+              <div class="value card-guia-valor"><span class="card-guia-icone" aria-hidden="true">📖</span><span>Guia de Incubação</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tela: Configurações — Atuadores mora aqui agora (não mais no
+         dashboard principal). Ver menu hambúrguer para abrir. -->
+    <section id="screen-configuracoes" class="screen">
+      <div class="topbar">
+        <div class="topbar-left">
+          <button id="btn-config-voltar" class="btn-ghost" type="button">← Voltar</button>
+          <div class="brand-title" style="font-size:16px;">Configurações</div>
+        </div>
+      </div>
+
+      <div class="config-content">
+        <!-- Fase 56 — Conta: o e-mail do usuário saiu do menu do topo e mora aqui -->
+        <div class="atuadores-card">
+          <div class="section-title-row"><div class="section-title">Conta</div></div>
+          <div class="config-row">
+            <span>E-mail da conta</span>
+            <span class="config-valor-fixo conta-email" id="user-email">--</span>
+          </div>
+          <div class="config-row">
+            <span>E-mail de recuperação do PIN</span>
+            <span class="config-valor-fixo conta-email" id="conta-email-rec">--</span>
+          </div>
+          <div class="ciclo-actions conta-acoes">
+            <button type="button" class="btn-secondary" id="btn-conta-copiar">Copiar e-mail</button>
+            <button type="button" class="btn-secondary" id="btn-conta-rec">Usar como recuperação</button>
+            <button type="button" class="btn-warn" id="btn-conta-trocar">Trocar de conta</button>
+          </div>
+          <div class="logs-sub" id="conta-fb">"Trocar de conta" sai desta conta e abre o seletor de contas Google. A nova conta precisa ser a dona da chocadeira (senão será pedido o vínculo de novo).</div>
+        </div>
+
+        <!-- Fase 55 — nome da chocadeira (sincroniza com o aparelho: Configurações > Nome) -->
+        <div class="atuadores-card">
+          <div class="section-title-row"><div class="section-title">Chocadeira</div></div>
+          <div class="nome-choc-row">
+            <input type="text" id="nome-choc-input" maxlength="24" autocomplete="off" placeholder="Nome da chocadeira" />
+            <button type="button" class="btn-warn" id="btn-nome-choc">Salvar nome</button>
+          </div>
+          <div class="logs-sub" id="nome-choc-fb">O nome aparece no topo do app e no aparelho.</div>
+        </div>
+
+        <!-- Fase 88 — Compartilhamento: o convidado vê "Acesso compartilhado"; o dono gerencia os convidados -->
+        <div class="atuadores-card" id="share-card-guest" hidden>
+          <div class="section-title-row"><div class="section-title">Acesso compartilhado</div></div>
+          <div class="config-row"><span>Proprietário</span><span class="config-valor-fixo" id="share-g-dono">--</span></div>
+          <div class="config-row"><span>Suas permissões</span><span class="config-valor-fixo share-perm-txt" id="share-g-perm">--</span></div>
+          <div class="ciclo-actions conta-acoes">
+            <button type="button" class="btn-danger" id="btn-share-sair">Sair do compartilhamento</button>
+          </div>
+        </div>
+
+        <div class="atuadores-card" id="share-card-owner" hidden>
+          <div class="section-title-row">
+            <div class="section-title">Usuários compartilhados</div>
+            <button type="button" class="btn-warn share-btn-novo" id="btn-share-convidar">+ Convidar usuário</button>
+          </div>
+          <div class="share-lista" id="share-lista"><div class="logs-empty">Ninguém tem acesso além de você.</div></div>
+          <div class="logs-sub" id="share-fb">Convide por e-mail ou WhatsApp e escolha o que cada pessoa pode fazer. Você pode mudar ou remover o acesso quando quiser.</div>
+        </div>
+
+        <!-- Atuadores — um único card agrupando os 8 canais do relé do firmware.
+             O dia de incubação fica junto do título, mesma posição do display
+             físico (que mostra a data ao lado do card de Atuadores). -->
+        <div class="atuadores-card">
+          <div class="section-title-row">
+            <div class="section-title">Atuadores</div>
+            <span class="action-feedback" id="action-feedback"></span>
+            <div class="section-day">Dia <span id="card-dia-value">--</span>/21</div>
+          </div>
+          <!-- Fase 110 — chave da automação aqui também (mesma função de "Automação ativa" do card Automação). Mexer num atuador que a
+               automação controla desliga esta chave; ligue de novo para devolver o controle. -->
+          <div class="config-row atu-auto-row">
+            <span>Automação <small class="pn-rpm" id="atu-auto-estado"></small></span>
+            <label class="toggle"><input type="checkbox" id="atu-auto" /><span class="slider"></span></label>
+          </div>
+          <div class="atuadores-grid" id="atuadores-grid">
+            <!-- Preenchido dinamicamente por montarGridAtuadores() em app.js -->
+          </div>
+        </div>
+
+        <!-- Fase 53 — Histórico de temperatura e umidade (página dedicada) -->
+        <div class="atuadores-card">
+          <div class="section-title-row">
+            <div class="section-title">Histórico dos ciclos</div>
+          </div>
+          <div class="logs-sub">Cada ciclo (lote) tem os seus gráficos de temperatura e umidade. Filtre por em andamento, concluídos, interrompidos ou excluídos e ordene como preferir.</div>
+          <div class="ciclo-actions">
+            <button type="button" class="btn-warn" id="btn-abrir-historico">Ver histórico dos ciclos</button>
+          </div>
+        </div>
+
+        <!-- Fase 21 — Logs. Eventos importantes (boot/reset, WiFi, comando
+             de desligar/reiniciar, atuador, sensor, alerta, erro — Fase 30
+             ampliou a cobertura) que o firmware sincroniza do SD pro
+             Firestore (ver chocadeiras/{id}/logs). O log COMPLETO (tudo,
+             incl. toggles de atuador rotineiros) só existe no cartão SD do
+             firmware -- aqui é o histórico "importante". Fase 29 -- layout
+             redesenhado: busca por texto/data, paginação (o listener já
+             traz um lote generoso, paginado no client) e um ícone de
+             lixeira pra limpar o histórico sincronizado. Fase 30 -- filtro
+             por tipo de evento e botão "Sincronizar" (re-assina o listener
+             na hora, sem esperar o próximo evento novo). -->
+        <div class="atuadores-card">
+          <div class="section-title-row">
+            <div class="section-title">Logs</div>
+            <div class="logs-header-actions">
+              <button type="button" class="icon-btn" id="btn-logs-sync" aria-label="Sincronizar logs" title="Sincronizar">
+                <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 10a6 6 0 0 1 10.2-4.2M16 10a6 6 0 0 1-10.2 4.2"/><path d="M14 3.2V6h-2.8"/><path d="M6 16.8V14h2.8"/></svg>
+              </button>
+              <button type="button" class="icon-btn" id="btn-logs-search" aria-label="Buscar nos logs" title="Buscar">
+                <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8.5" cy="8.5" r="5.5"/><line x1="17" y1="17" x2="12.7" y2="12.7"/></svg>
+              </button>
+              <button type="button" class="icon-btn icon-btn-danger" id="btn-logs-clear" aria-label="Limpar logs" title="Limpar">
+                <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5.5h12"/><path d="M7.5 5.5V4a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v1.5"/><path d="M5.5 5.5 6.2 16a1 1 0 0 0 1 .9h5.6a1 1 0 0 0 1-.9l.7-10.5"/><line x1="8.3" y1="8.5" x2="8.6" y2="14"/><line x1="11.7" y1="8.5" x2="11.4" y2="14"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="logs-sub" id="logs-sub">Eventos sincronizados do dispositivo (log completo fica no cartão SD do firmware)</div>
+
+          <div class="logs-filtro-row">
+            <select id="logs-filtro-tipo" class="logs-filtro-select" aria-label="Filtrar por tipo de evento">
+              <option value="">Todos os tipos</option>
+              <option value="Atuador">Atuador</option>
+              <option value="Sensor">Sensor</option>
+              <option value="Alerta">Alerta</option>
+              <option value="Erro">Erro</option>
+              <option value="Boot">Boot / reinício</option>
+              <option value="Sistema">Sistema (cooler automático)</option>
+              <option value="Ciclo">Ciclo / relatório</option>
+              <option value="Seguranca">Segurança (PIN)</option>
+              <option value="Camera">Câmera</option>
+              <option value="WiFi">WiFi</option>
+              <option value="Desligar">Desligar</option>
+              <option value="Reiniciar">Reiniciar</option>
+              <option value="Comando">Comando / alteração (quem fez)</option>
+              <option value="Automacao">Automação</option>
+              <option value="Compartilhamento">Compartilhamento</option>
+            </select>
+            <input type="date" id="logs-filtro-dia" class="logs-filtro-select logs-filtro-dia" aria-label="Ver os logs de um dia" title="Ver os logs de um dia" />
+            <button type="button" class="icon-btn" id="btn-logs-dia-limpar" aria-label="Voltar aos mais recentes" title="Voltar aos mais recentes" hidden>×</button>
+          </div>
+
+          <div class="logs-search-row" id="logs-search-row" hidden>
+            <input type="text" id="logs-search-input" class="logs-search-input" placeholder="Buscar texto ou data..." autocomplete="off" />
+            <button type="button" class="icon-btn" id="btn-logs-search-close" aria-label="Fechar busca">×</button>
+          </div>
+
+          <div class="logs-clear-confirm" id="logs-clear-confirm" hidden>
+            <p>Apagar todo o histórico de logs sincronizado deste dispositivo? (não afeta o log local do cartão SD do firmware)</p>
+            <div class="ciclo-actions">
+              <button type="button" class="btn-secondary" id="btn-logs-clear-cancel">Cancelar</button>
+              <button type="button" class="btn-danger" id="btn-logs-clear-confirm">Apagar</button>
+            </div>
+          </div>
+
+          <div class="logs-list" id="logs-list">
+            <div class="logs-empty">Nenhum evento ainda.</div>
+          </div>
+
+          <div class="logs-pagination" id="logs-pagination" hidden>
+            <button type="button" class="logs-page-arrow" id="logs-page-prev" aria-label="Página anterior">‹</button>
+            <span class="logs-page-indicator" id="logs-page-indicator">1/1</span>
+            <button type="button" class="logs-page-arrow" id="logs-page-next" aria-label="Próxima página">›</button>
+          </div>
+        </div>
+
+        <!-- Fase 42 — Tipos de ovos (CRUD). Galinha e Codorna são os padrões (usados
+             enquanto o campo "tiposOvos" não existir no Firestore); sincroniza com o
+             firmware (Configurações > pág. 2 > Tipos de ovos). -->
+        <div class="atuadores-card">
+          <div class="section-title-row">
+            <div class="section-title">Tipos de ovos</div>
+            <div class="logs-header-actions">
+              <button type="button" class="icon-btn" id="btn-tipo-novo" aria-label="Novo tipo de ovo" title="Novo tipo">+</button>
+            </div>
+          </div>
+          <div class="logs-sub">Cada tipo define a duração e os parâmetros ideais de um lote.</div>
+          <div class="tipos-lista" id="tipos-lista"></div>
+        </div>
+
+        <!-- Fase 78 — Hardware: o que está instalado (caixa, aquecedor, relé, umidificador, fans). O firmware usa esses dados
+             para dimensionar o controle (período do chaveamento, ganho, duty inicial). Vai junto da string cmd.auto ("H,..."). -->
+        <div class="atuadores-card" id="hw-card">
+          <div class="section-title-row">
+            <div class="section-title">Hardware</div>
+            <div class="logs-header-actions"><button type="button" class="ajuda-btn" data-ajuda="hwGeral" aria-label="Ajuda">?</button></div>
+          </div>
+          <div class="logs-sub">Informe o que está instalado: o aparelho usa estes dados para dosear aquecimento e umidificação.</div>
+          <div id="hw-campos"></div>
+          <div class="hw-resumo" id="hw-resumo"></div>
+          <div class="ciclo-actions">
+            <button type="button" class="btn-secondary" id="btn-hw-padrao">Padrão (caixa de teste)</button>
+            <button type="button" class="btn-warn" id="btn-hw-salvar">Salvar hardware</button>
+          </div>
+          <div class="logs-sub" id="hw-feedback"></div>
+        </div>
+
+        <!-- Fase 104 — Tela e Fans do aparelho (painel.js). Os valores atuais chegam no campo "painel" do heartbeat; cada ajuste vira
+             cmd.telaSet / cmd.fansSet e o aparelho aplica na hora (o app não faz leitura extra). -->
+        <div class="atuadores-card" id="pn-tela-card">
+          <div class="section-title-row">
+            <div class="section-title">Tela do aparelho</div>
+          </div>
+          <div class="logs-sub">Sem toque, o brilho cai e depois a tela apaga. Com "relógio sempre ligado" a tela de repouso mostra a hora com brilho reduzido em vez de apagar.</div>
+          <div class="logs-sub pn-nota" id="pn-tela-nota"></div>
+          <div class="config-row">
+            <span>Brilho da tela</span>
+            <span class="pn-ctl"><input type="range" class="config-slider" id="pn-brilho" min="10" max="100" step="10" value="100" /><b id="pn-brilho-v">100%</b></span>
+          </div>
+          <div class="config-row">
+            <span>Reduzir o brilho após</span>
+            <span class="pn-ctl"><input type="range" class="config-slider" id="pn-dim" min="0" max="110" step="10" value="30" /><b id="pn-dim-v">30 s</b></span>
+          </div>
+          <div class="config-row">
+            <span>Apagar a tela após</span>
+            <span class="pn-ctl"><input type="range" class="config-slider" id="pn-off" min="30" max="600" step="15" value="120" /><b id="pn-off-v">2 min</b></span>
+          </div>
+          <div class="config-row">
+            <span>Relógio sempre ligado (repouso)</span>
+            <label class="toggle"><input type="checkbox" id="pn-rel" /><span class="slider"></span></label>
+          </div>
+          <div class="config-row">
+            <span>Manter a tela sempre ligada</span>
+            <label class="toggle"><input type="checkbox" id="pn-man" /><span class="slider"></span></label>
+          </div>
+        </div>
+
+        <div class="atuadores-card" id="pn-fans-card">
+          <div class="section-title-row">
+            <div class="section-title">Fans (velocidade)</div>
+          </div>
+          <div class="logs-sub">Controle por PWM de 25 kHz no fio 4 de cada fan de PC (12 V fixo). Escolha uma função para cada fan (as regras ficam no card abaixo) ou deixe em Manual. Com função, o % é calculado pelo aparelho (só com a automação ligada e ciclo ativo; fora disso volta ao % manual). 0 % = velocidade mínima do fan (ele não desliga). Com os 3 fans em 0 %, o CH8 (+12 V dos fans) desliga — e o aquecedor também para, pois só aquece com os fans ligados.</div>
+          <div class="logs-sub pn-nota" id="pn-fans-nota"></div>
+          <div class="config-row">
+            <span>Fans por PWM</span>
+            <label class="toggle"><input type="checkbox" id="pn-fans-ativo" /><span class="slider"></span></label>
+          </div>
+          <div class="config-row">
+            <span>Fan 1 <small class="pn-rpm" id="pn-f1-rpm">tacômetro: —</small><select class="pn-fn" id="pn-fn1" aria-label="Função do fan 1"><option value="0">Manual</option><option value="1">Circulação</option><option value="2">Resfriamento</option><option value="3">Renovação</option></select></span>
+            <span class="pn-ctl"><input type="range" class="config-slider" id="pn-f1" min="0" max="100" step="10" value="100" /><b id="pn-f1-v">100%</b></span>
+          </div>
+          <div class="config-row">
+            <span>Fan 2<select class="pn-fn" id="pn-fn2" aria-label="Função do fan 2"><option value="0">Manual</option><option value="1">Circulação</option><option value="2">Resfriamento</option><option value="3">Renovação</option></select></span>
+            <span class="pn-ctl"><input type="range" class="config-slider" id="pn-f2" min="0" max="100" step="10" value="100" /><b id="pn-f2-v">100%</b></span>
+          </div>
+          <div class="config-row">
+            <span>Fan 3<select class="pn-fn" id="pn-fn3" aria-label="Função do fan 3"><option value="0">Manual</option><option value="1">Circulação</option><option value="2">Resfriamento</option><option value="3">Renovação</option></select></span>
+            <span class="pn-ctl"><input type="range" class="config-slider" id="pn-f3" min="0" max="100" step="10" value="100" /><b id="pn-f3-v">100%</b></span>
+          </div>
+        </div>
+
+
+        <!-- Fase 112 — regras das funções dos fans (painel.js). Compartilhadas por função; o aparelho calcula o % de cada fan que tiver função. -->
+        <div class="atuadores-card" id="rg-card">
+          <div class="section-title-row">
+            <div class="section-title">Regras dos fans</div>
+          </div>
+          <div class="logs-sub" id="rg-nota">Define como cada função calcula a velocidade. Tampa aberta ou sensor sem leitura: velocidade mínima da função.</div>
+          <div class="rg-grupo"><b>Circulação</b> <small>mistura o ar: sobe com o tempo em que o aquecedor fica ligado</small></div>
+          <div class="config-row"><span>Mínimo</span><span class="pn-ctl"><input type="number" id="rg-cmin" min="0" max="100" step="5" value="40" /><b>%</b></span></div>
+          <div class="config-row"><span>Máximo (aquecedor sempre ligado)</span><span class="pn-ctl"><input type="number" id="rg-cmax" min="0" max="100" step="5" value="100" /><b>%</b></span></div>
+          <div class="rg-grupo"><b>Resfriamento</b> <small>sobe quando a temperatura passa do ponto médio da faixa do tipo de ovo</small></div>
+          <div class="config-row"><span>Mínimo</span><span class="pn-ctl"><input type="number" id="rg-rmin" min="0" max="100" step="5" value="0" /><b>%</b></span></div>
+          <div class="config-row"><span>Máximo</span><span class="pn-ctl"><input type="number" id="rg-rmax" min="0" max="100" step="5" value="100" /><b>%</b></span></div>
+          <div class="config-row"><span>Começa acima do ideal</span><span class="pn-ctl"><input type="number" id="rg-rini" min="0" max="9.9" step="0.5" value="0" /><b>°C</b></span></div>
+          <div class="config-row"><span>Máximo acima do ideal</span><span class="pn-ctl"><input type="number" id="rg-rfull" min="0.1" max="10" step="0.5" value="1" /><b>°C</b></span></div>
+          <div class="rg-grupo"><b>Renovação</b> <small>renova o ar: sobe com a umidade acima do máximo da faixa</small></div>
+          <div class="config-row"><span>Mínimo (renovação básica)</span><span class="pn-ctl"><input type="number" id="rg-vmin" min="0" max="100" step="5" value="20" /><b>%</b></span></div>
+          <div class="config-row"><span>Máximo</span><span class="pn-ctl"><input type="number" id="rg-vmax" min="0" max="100" step="5" value="100" /><b>%</b></span></div>
+          <div class="config-row"><span>Umidade: começa acima do máximo</span><span class="pn-ctl"><input type="number" id="rg-vini" min="0" max="29" step="1" value="0" /><b>pts</b></span></div>
+          <div class="config-row"><span>Umidade: máximo acima do máximo</span><span class="pn-ctl"><input type="number" id="rg-vfull" min="1" max="30" step="1" value="5" /><b>pts</b></span></div>
+          <div class="rg-grupo"><b>Renovação por CO₂</b> <small>acelera a renovação quando o CO₂ sobe; na pré-eclosão/eclosão os limites sobem +1000 / +1500 ppm</small></div>
+          <div class="config-row"><span>Usar o CO₂</span><label class="toggle"><input type="checkbox" id="rg-co2on" checked /><span class="slider"></span></label></div>
+          <div class="config-row"><span>CO₂: começa a renovar em</span><span class="pn-ctl"><input type="number" id="rg-co2ini" min="500" max="4900" step="100" value="1500" /><b>ppm</b></span></div>
+          <div class="config-row"><span>CO₂: renovação máxima em</span><span class="pn-ctl"><input type="number" id="rg-co2full" min="600" max="5000" step="100" value="3000" /><b>ppm</b></span></div>
+        </div>
+
+        <!-- Fase 52 — Automação: uma regra por relé (termostato, umidostato, periódico, horário) -->
+        <div class="atuadores-card" id="auto-card">
+          <div class="section-title-row">
+            <div class="section-title">Automação</div>
+          </div>
+          <div class="logs-sub">Regras que o aparelho executa sozinho com os sensores e o relógio. Alvos "do tipo do ciclo" seguem a temperatura/umidade do tipo de ovo (com a temperatura e a umidade de eclosão a partir do dia de eclosão). Segurança: sem leitura do sensor por 2 min, ou temperatura 0,5 °C acima da máxima, o aquecedor é desligado; mexer manualmente num relé pausa a automação dele por 5 min.</div>
+          <div class="config-row">
+            <span>Religar a automação sozinha após <small class="pn-rpm">só com ciclo ativo/pausado</small></span>
+            <span class="pn-ctl"><input type="number" class="config-slider" id="auto-retoma" min="0" max="240" step="5" value="10" style="width:70px" /><b>min</b></span>
+          </div>
+          <div class="config-row">
+            <span>Automação ativa <button type="button" class="ajuda-btn" data-ajuda="ativo" aria-label="Ajuda">?</button></span>
+            <label class="toggle"><input type="checkbox" id="auto-ativo" /><span class="slider"></span></label>
+          </div>
+          <div class="config-row">
+            <span>Só com ciclo em andamento <button type="button" class="ajuda-btn" data-ajuda="soCiclo" aria-label="Ajuda">?</button></span>
+            <label class="toggle"><input type="checkbox" id="auto-socilo" /><span class="slider"></span></label>
+          </div>
+          <div class="auto-lista" id="auto-lista"></div>
+
+          <!-- Fase 57 — regras avançadas: qualquer sensor comanda qualquer combinação de relés -->
+          <div class="auto-adv-titulo">Regras avançadas <small>sensor → relés</small> <button type="button" class="ajuda-btn" data-ajuda="advGeral" aria-label="Ajuda">?</button></div>
+          <div class="logs-sub">Combine sensores e relés livremente. Exemplo: <b>SE</b> temperatura ≥ 37,5 <b>ENTÃO</b> CH1 liga, <b>DESLIGAR quando</b> temperatura ≤ 37,3, <b>SENÃO</b> CH4 liga. Dá para juntar duas condições com E / OU e limitar por horário. Valem junto com as regras por relé acima (se conflitarem, as avançadas prevalecem).</div>
+          <div class="auto-adv-lista" id="auto-adv-lista"></div>
+          <div class="ciclo-actions">
+            <button type="button" class="btn-secondary" id="btn-auto-adv-nova">+ Nova regra avançada</button>
+          </div>
+
+          <div class="ciclo-actions">
+            <button type="button" class="btn-secondary" id="btn-auto-padrao">Restaurar padrão</button>
+            <button type="button" class="btn-warn" id="btn-auto-salvar">Salvar regras</button>
+          </div>
+          <div class="logs-sub" id="auto-feedback"></div>
+        </div>
+
+        <!-- Fase 41 — Arquivos do cartão SD. O PWA não acessa o SD direto: o
+             firmware publica um ÍNDICE (arquivos/indice) e, ao tocar num
+             arquivo, o PWA pede o conteúdo (campo arquivoReq) e o firmware
+             devolve em arquivos/conteudo (base64, até 150 KB). Sob demanda:
+             nada é lido/escrito periodicamente (cota do Firestore). -->
+        <div class="atuadores-card">
+          <div class="section-title-row">
+            <div class="section-title">Arquivos (cartão SD)</div>
+            <div class="logs-header-actions">
+              <button type="button" class="icon-btn" id="btn-arq-refresh" aria-label="Atualizar lista de arquivos" title="Atualizar">
+                <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 10a6 6 0 0 1 10.2-4.2M16 10a6 6 0 0 1-10.2 4.2"/><path d="M14 3.2V6h-2.8"/><path d="M6 16.8V14h2.8"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="logs-sub" id="arq-sub">Aguardando o dispositivo publicar a lista...</div>
+          <div id="arq-prog-slot"></div>
+          <!-- Fase 51 — enviar imagem do celular/PC para o aparelho (cai em /download no cartão SD) -->
+          <div class="up-row">
+            <button type="button" class="btn-secondary" id="btn-up-escolher">📤 Enviar imagem para o aparelho</button>
+            <input type="file" id="up-input" accept="image/*" hidden />
+          </div>
+          <div id="up-prog-slot"></div>
+          <div class="arq-lista" id="arq-lista"><div class="logs-empty">Nenhum arquivo ainda.</div></div>
+        </div>
+
+        <!-- Fase 22 — Áudio, Alertas e Notificações. Estrutura de UI real
+             (não só um texto de placeholder) preparada pro hardware de
+             áudio futuro (MAX98357, já mapeado no CH6 do relé) e pra
+             configuração de alertas -- mas tudo desabilitado e marcado
+             "Em desenvolvimento" até a lógica de verdade existir. -->
+        <div class="atuadores-card">
+          <div class="section-title-row">
+            <div class="section-title">Áudio</div>
+            <span class="em-dev-badge">Em desenvolvimento</span>
+          </div>
+          <div class="config-row">
+            <span>Habilitar áudio</span>
+            <label class="toggle"><input type="checkbox" disabled /><span class="slider"></span></label>
+          </div>
+          <div class="config-row">
+            <span>Volume</span>
+            <input type="range" min="0" max="100" value="50" disabled class="config-slider" />
+          </div>
+          <div class="config-row">
+            <span>Som de alerta (temperatura/umidade fora da faixa)</span>
+            <button class="btn-ghost" type="button" disabled>Testar som</button>
+          </div>
+          <div class="logs-sub">Aguardando módulo de áudio (MAX98357, canal 6 do relé já reservado).</div>
+        </div>
+
+        <div class="atuadores-card">
+          <div class="section-title-row">
+            <div class="section-title">Alertas</div>
+          </div>
+          <div class="config-row">
+            <span>Faixa ideal — Temperatura</span>
+            <span class="config-valor-fixo" id="alerta-temp-faixa">37,2–38,9°C</span>
+          </div>
+          <div class="config-row">
+            <span>Faixa ideal — Umidade</span>
+            <span class="config-valor-fixo" id="alerta-umid-faixa">45–65%</span>
+          </div>
+          <div class="logs-sub">As faixas vêm do <b>tipo de ovo do ciclo em andamento</b> (seção "Tipos de ovos"), automaticamente — na eclosão a umidade passa a seguir a umidade de eclosão. <b>Sem ciclo ativo não há alertas</b> de temperatura/umidade. O aparelho avisa quando sai da faixa, quando volta ao normal e no último dia do ciclo — ative as notificações abaixo.</div>
+        </div>
+
+        <!-- Fase 49 — Notificações push (FCM). O aparelho envia direto (sem servidor):
+             este navegador só registra o token em pushTokens do documento da chocadeira. -->
+        <div class="atuadores-card">
+          <div class="section-title-row">
+            <div class="section-title">Notificações</div>
+          </div>
+          <div class="config-row">
+            <span>Receber notificações neste dispositivo</span>
+            <label class="toggle"><input type="checkbox" id="push-toggle" /><span class="slider"></span></label>
+          </div>
+          <div class="logs-sub" id="push-status">Verificando suporte...</div>
+          <div class="push-opcoes" id="push-opcoes">
+            <div class="logs-sub"><b>O que você quer receber neste dispositivo:</b></div>
+            <div class="config-row"><span>⚡ Queda de energia <small class="push-nota">avisa quando o aparelho volta a ligar</small></span><label class="toggle"><input type="checkbox" id="push-opt-energia" checked /><span class="slider"></span></label></div>
+            <div class="config-row"><span>📶 Perda de conexão com a internet <small class="push-nota">avisa quando a internet volta (e, com o app aberto, quando some)</small></span><label class="toggle"><input type="checkbox" id="push-opt-conexao" checked /><span class="slider"></span></label></div>
+            <div class="config-row"><span>🌡️ Temperatura / umidade fora da faixa</span><label class="toggle"><input type="checkbox" id="push-opt-faixa" checked /><span class="slider"></span></label></div>
+            <div class="config-row"><span>🐣 Fim de ciclo</span><label class="toggle"><input type="checkbox" id="push-opt-fim" checked /><span class="slider"></span></label></div>
+            <div class="config-row"><span>📷 Visão (câmera) <small class="push-nota">sem movimento detectado / possível eclosão perto do dia — estimativa, desligado por padrão</small></span><label class="toggle"><input type="checkbox" id="push-opt-visao" /><span class="slider"></span></label></div>
+          </div>
+          <div class="push-som" id="push-som">
+            <div class="logs-sub"><b>Som e vibração</b></div>
+            <div class="config-row"><span>Tocar som ao chegar aviso <small class="push-nota">com o app aberto (em segundo plano o som segue a configuração do celular)</small></span><label class="toggle"><input type="checkbox" id="som-ativo" checked /><span class="slider"></span></label></div>
+            <div class="config-row"><span>Volume do som</span><input type="range" id="som-volume" min="0" max="100" value="70" class="config-slider" /></div>
+            <div class="config-row"><span>Tom</span>
+              <select id="som-tom" class="som-select"><option value="suave">Suave</option><option value="alerta" selected>Alerta</option><option value="sirene">Sirene</option></select>
+            </div>
+            <div class="config-row"><span>Vibrar (celular)</span><label class="toggle"><input type="checkbox" id="som-vibrar" checked /><span class="slider"></span></label></div>
+            <div class="ciclo-actions"><button type="button" class="btn-secondary" id="btn-som-testar">Testar som e vibração</button></div>
+          </div>
+          <div class="ciclo-actions">
+            <button type="button" class="btn-secondary" id="btn-push-teste" disabled>Enviar notificação de teste</button>
+          </div>
+          <div class="logs-sub">No iPhone/iPad, instale o app na tela inicial (Compartilhar &gt; Adicionar à Tela de Início) antes de ativar.</div>
+        </div>
+
+        <!-- Fase 46 — Segurança: e-mail de recuperação do PIN do aparelho -->
+        <div class="atuadores-card">
+          <div class="section-title-row">
+            <div class="section-title">Segurança</div>
+          </div>
+          <div class="logs-sub">O bloqueio por PIN é definido no próprio aparelho (Configurações &gt; Segurança). Para poder ativá-lo, vincule aqui o e-mail da sua conta: ele é usado para recuperar o PIN caso você o esqueça.</div>
+          <div class="config-row">
+            <span>E-mail de recuperação</span>
+            <span class="config-valor-fixo" id="seg-email">não vinculado</span>
+          </div>
+          <div class="config-row">
+            <span>Bloqueio por PIN no aparelho</span>
+            <span class="config-valor-fixo" id="seg-pin">--</span>
+          </div>
+          <div class="config-row">
+            <span id="seg-app-label">Bloquear este app</span>
+            <label class="toggle"><input type="checkbox" id="seg-app-lock" /><span class="slider"></span></label>
+          </div>
+          <div class="logs-sub" id="seg-app-info"></div>
+          <div class="config-row">
+            <span>Bloqueio de tela do aparelho (PIN)</span>
+            <label class="toggle"><input type="checkbox" id="seg-fw-lock" /><span class="slider"></span></label>
+          </div>
+          <div class="logs-sub">Cada bloqueio é independente: o do app vale só neste navegador/celular (biometria no celular, PIN no computador); o do aparelho é o PIN da tela dele. O PIN do aparelho só pode ser <i>definido</i> nele — daqui dá para desativá-lo.</div>
+          <div class="ciclo-actions">
+            <button type="button" class="btn-warn" id="btn-seg-vincular">Vincular meu e-mail</button>
+            <button type="button" class="btn-secondary" id="btn-seg-desvincular" hidden>Desvincular</button>
+          </div>
+          <div class="seg-rec" id="seg-rec" hidden>
+            <div class="logs-sub"><b>Recuperar PIN:</b> no aparelho, toque em "Esqueci o PIN" e digite aqui o código de 6 dígitos que aparecer na tela dele. Precisa estar logado com o e-mail vinculado.</div>
+            <div class="seg-rec-row">
+              <input type="text" id="seg-rec-codigo" inputmode="numeric" maxlength="6" placeholder="000000" autocomplete="off" />
+              <button type="button" class="btn-warn" id="btn-seg-rec">Confirmar código</button>
+            </div>
+          </div>
+          <div class="logs-sub" id="seg-feedback"></div>
+        </div>
+
+        <!-- Fase 48 — Relatórios dos ciclos encerrados -->
+        <div class="atuadores-card">
+          <div class="section-title-row">
+            <div class="section-title">Relatórios de ciclos</div>
+            <div class="logs-header-actions">
+              <button type="button" class="icon-btn" id="btn-rel-refresh" aria-label="Atualizar relatórios" title="Atualizar">
+                <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 10a6 6 0 0 1 10.2-4.2M16 10a6 6 0 0 1-10.2 4.2"/><path d="M14 3.2V6h-2.8"/><path d="M6 16.8V14h2.8"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="logs-sub" id="rel-sub">Gerado automaticamente quando um ciclo é encerrado (Parar ou Lixeira).</div>
+          <div class="arq-lista" id="rel-lista"><div class="logs-empty">Nenhum relatório ainda.</div></div>
+        </div>
+
+        <div class="config-em-dev">
+          Automação e mais configurações chegam aqui conforme o firmware
+          for assumindo o controle automático dos atuadores.
+        </div>
+      </div>
+    </section>
+
+    <!-- Tela: Histórico por ciclo (Fase 55) -->
+    <section id="screen-historico" class="screen">
+      <div class="topbar">
+        <div class="topbar-left">
+          <button id="btn-hist-voltar" class="btn-ghost" type="button">← Voltar</button>
+          <div class="brand-title" style="font-size:16px;" id="hist-titulo">Histórico de ciclos</div>
+        </div>
+      </div>
+      <div class="config-content">
+        <div id="hist-lista-view">
+          <div class="atuadores-card">
+            <div class="hist-chips" id="hist-filtros">
+              <button type="button" class="hist-chip active" data-filtro="todos">Todos</button>
+              <button type="button" class="hist-chip" data-filtro="andamento">Em andamento</button>
+              <button type="button" class="hist-chip" data-filtro="concluido">Concluídos</button>
+              <button type="button" class="hist-chip" data-filtro="interrompido">Interrompidos</button>
+              <button type="button" class="hist-chip" data-filtro="excluido">Excluídos</button>
+            </div>
+            <div class="hist-toolbar">
+              <input type="search" id="hist-busca" placeholder="Buscar por nome do lote ou tipo..." autocomplete="off" />
+              <select id="hist-ordem" class="som-select" aria-label="Ordenar">
+                <option value="recentes">Mais recentes</option>
+                <option value="antigos">Mais antigos</option>
+                <option value="nome">Nome (A–Z)</option>
+                <option value="duracao">Maior duração</option>
+              </select>
+            </div>
+            <div class="logs-sub" id="hist-sub">Carregando...</div>
+          </div>
+          <div class="hist-ciclos" id="hist-ciclos"></div>
+        </div>
+        <div id="hist-detalhe-view" hidden>
+          <div class="atuadores-card">
+            <div class="hist-det-topo">
+              <button type="button" class="btn-ghost" id="btn-hist-lista">‹ Ciclos</button>
+              <span id="hist-det-badge" class="hist-badge"></span>
+            </div>
+            <h2 class="hist-det-nome" id="hist-det-nome"></h2>
+            <div class="logs-sub" id="hist-det-meta"></div>
+            <div class="logs-sub" id="hist-det-sub"></div>
+          </div>
+          <div class="atuadores-card">
+            <div class="section-title-row"><div class="section-title">Temperatura</div></div>
+            <canvas id="hist-canvas-temp" class="hist-canvas"></canvas>
+            <div class="sensor-stats" id="hist-stats-temp"></div>
+          </div>
+          <div class="atuadores-card">
+            <div class="section-title-row"><div class="section-title">Umidade</div></div>
+            <canvas id="hist-canvas-umid" class="hist-canvas"></canvas>
+            <div class="sensor-stats" id="hist-stats-umid"></div>
+          </div>
+          <div class="ciclo-actions">
+            <button type="button" class="btn-secondary" id="btn-hist-csv">Exportar CSV</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tela: Guia de incubação (Fase 37). Lista de tópicos → tela de
+         detalhe DENTRO da mesma section (sem rota nova). Conteúdo vem de
+         guia-data.js (gerado a partir da mesma fonte do firmware). -->
+    <section id="screen-guia" class="screen">
+      <div class="sheet-card">
+      <div class="topbar">
+        <div class="topbar-left">
+          <button id="btn-guia-voltar" class="btn-ghost" type="button">← Voltar</button>
+          <div class="brand-title" style="font-size:16px;" id="guia-titulo-topbar">Guia de Incubação</div>
+        </div>
+      </div>
+
+      <div class="config-content">
+        <div id="guia-lista" class="guia-lista"></div>
+
+        <article id="guia-detalhe" class="guia-detalhe" hidden>
+          <header class="guia-detalhe-head">
+            <span class="guia-detalhe-icone" id="guia-detalhe-icone" aria-hidden="true"></span>
+            <div>
+              <div class="guia-detalhe-passo" id="guia-detalhe-passo"></div>
+              <h2 class="guia-detalhe-titulo" id="guia-detalhe-titulo"></h2>
+            </div>
+          </header>
+          <div class="guia-detalhe-corpo" id="guia-detalhe-corpo"></div>
+          <nav class="guia-detalhe-nav">
+            <button type="button" class="btn-secondary" id="btn-guia-anterior">‹ Anterior</button>
+            <button type="button" class="btn-secondary" id="btn-guia-proximo">Próximo ›</button>
+          </nav>
+        </article>
+      </div>
+          </div>
+    </section>
+
+    <!-- Fase 98 — tela "Tampa" (sensor ADXL345) ao vivo: espelho da tela do aparelho, com animações e ajustes remotos.
+         A telemetria (campo adxlLive) só é publicada pelo aparelho enquanto esta tela está aberta. -->
+    <section id="screen-tampa" class="screen">
+      <div class="sheet-card tp-sheet">
+        <div class="topbar">
+          <div class="topbar-left">
+            <button id="btn-tampa-voltar" class="btn-ghost" type="button">← Voltar</button>
+            <div class="brand-title" style="font-size:16px;">Tampa · sensor ADXL345</div>
+          </div>
+          <span class="tp-live" id="tp-live" data-on="0"><i></i><b id="tp-live-txt">aguardando</b></span>
+        </div>
+        <div class="config-content tp-content">
+          <div class="tp-banner" id="tp-banner" hidden></div>
+
+          <div class="tp-hero" id="tp-hero" data-est="0">
+            <svg class="tp-svg" viewBox="0 30 360 168" role="img" aria-label="Chocadeira com o módulo ADXL345 sobre a tampa">
+              <defs>
+                <linearGradient id="tpBox" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e293b"/><stop offset="1" stop-color="#0f172a"/></linearGradient>
+                <linearGradient id="tpLidG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#334155"/><stop offset="1" stop-color="#1e293b"/></linearGradient>
+                <radialGradient id="tpGlow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="currentColor" stop-opacity=".55"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></radialGradient>
+              </defs>
+              <ellipse class="tp-glow" cx="170" cy="150" rx="150" ry="62" fill="url(#tpGlow)"/>
+              <rect x="10" y="186" width="340" height="6" rx="3" fill="#0b1220"/>
+              <!-- mesa: módulo "fora" -->
+              <g class="tp-mesa"><rect x="276" y="180" width="64" height="6" rx="3" fill="#162033"/></g>
+              <!-- corpo da chocadeira -->
+              <rect x="70" y="112" width="200" height="74" rx="10" fill="url(#tpBox)" stroke="#334155" stroke-width="1.5"/>
+              <rect x="86" y="128" width="62" height="42" rx="6" fill="#0b1220" stroke="#233048"/>
+              <g stroke="#26364f" stroke-width="2" stroke-linecap="round"><path d="M170 136h84M170 148h84M170 160h84"/></g>
+              <circle class="tp-led" cx="258" cy="124" r="3.2"/>
+              <!-- tampa (gira na dobradiça da esquerda) -->
+              <g class="tp-lid">
+                <rect x="66" y="98" width="208" height="16" rx="6" fill="url(#tpLidG)" stroke="#475569" stroke-width="1.5"/>
+                <rect class="tp-ghost" x="152" y="81" width="36" height="16" rx="4"/>
+              </g>
+              <!-- módulo ADXL: sobre a tampa quando FECHADA, balança quando MOVENDO, vai para a mesa quando ABERTA -->
+              <g class="tp-mod">
+                <g class="tp-vib"><path d="M156 86q-10 8 0 16M148 82q-16 12 0 24"/><path d="M184 86q10 8 0 16M192 82q16 12 0 24"/></g>
+                <rect x="154" y="82" width="32" height="15" rx="3.5" fill="#0ea5e9" stroke="#7dd3fc" stroke-width="1.2"/>
+                <rect x="164" y="85" width="12" height="9" rx="1.6" fill="#0b1220"/>
+                <circle cx="159" cy="89.5" r="1.6" fill="#bbf7d0"/>
+              </g>
+              <text class="tp-svg-txt" x="180" y="30" text-anchor="middle">Módulo</text>
+            </svg>
+            <div class="tp-estado">
+              <div class="tp-chip" id="tp-chip">SEM SENSOR</div>
+              <div class="tp-sub" id="tp-sub">Abra esta tela com o aparelho online para ver ao vivo.</div>
+            </div>
+          </div>
+
+          <div class="tp-grid">
+            <div class="tp-card tp-gauge-card">
+              <div class="tp-card-t">Posição</div>
+              <svg viewBox="0 0 200 118" class="tp-gauge" aria-hidden="true">
+                <path class="tp-g-bg" d="M20 100 A80 80 0 0 1 180 100"/>
+                <path class="tp-g-tol" id="tp-g-tol" d="M20 100 A80 80 0 0 1 180 100"/>
+                <path class="tp-g-val" id="tp-g-val" d="M20 100 A80 80 0 0 1 180 100"/>
+                <g id="tp-needle" class="tp-needle"><line x1="100" y1="100" x2="100" y2="34"/><circle cx="100" cy="100" r="6"/></g>
+                <text x="20" y="116" class="tp-g-lb">0°</text><text x="180" y="116" class="tp-g-lb" text-anchor="end">30°</text>
+              </svg>
+              <div class="tp-num"><b id="tp-ang">--</b><span>graus da posição fechada</span></div>
+              <div class="tp-dim" id="tp-xyz"></div>
+            </div>
+            <div class="tp-card tp-bars">
+              <div class="tp-card-t">Movimento e vibração</div>
+              <div class="tp-bar"><label>Movimento <b id="tp-mov-n">--</b></label><div class="tp-track"><i id="tp-mov-b"></i><u id="tp-mov-m"></u></div></div>
+              <div class="tp-bar"><label>Vibração <b id="tp-vib-n">--</b></label><div class="tp-track"><i id="tp-vib-b" class="vib"></i><u id="tp-vib-r" title="Vibração calibrada com a tampa FECHADA"></u><u id="tp-vib-a" class="aw" title="Vibração calibrada FORA (mesa)"></u></div></div>
+              <canvas id="tp-spark" width="320" height="64" aria-label="Histórico recente de vibração e movimento"></canvas>
+              <div class="tp-legenda"><span class="a">vibração</span><span class="b">movimento</span><span class="c">| fechada</span><span class="d">| fora</span></div>
+            </div>
+          </div>
+
+          <div class="tp-card tp-info" id="tp-info">
+            <div class="tp-pill" id="tp-pill-saude">sensor --</div>
+            <div class="tp-pill" id="tp-pill-sig">assinatura --</div>
+            <div class="tp-pill" id="tp-pill-ign">trancos ignorados: --</div>
+            <div class="tp-pill" id="tp-pill-modo">modo --</div>
+          </div>
+
+          <div class="tp-card tp-ctrl" id="tp-ctrl">
+            <div class="tp-card-t">Ajustes <small id="tp-ctrl-nota"></small></div>
+            <label class="tp-switch"><input type="checkbox" id="tp-det"><span class="tp-sw-t"></span><em>Detectar abertura da tampa</em></label>
+            <div class="tp-slider"><label for="tp-tol">Tolerância da posição fechada <b id="tp-tol-n">5°</b></label><input type="range" id="tp-tol" min="1" max="30" step="1" value="5"></div>
+            <div class="tp-slider"><label for="tp-sens">Sensibilidade ao movimento <b id="tp-sens-n">60 mg</b> <small>(menor = mais sensível)</small></label><input type="range" id="tp-sens" min="20" max="300" step="10" value="60"></div>
+            <div class="tp-cal">
+              <button type="button" class="tp-btn cal-f" id="tp-cal-f"><span class="ico">🔒</span><b>Calibrar FECHADA</b><small>módulo na tampa, caixa funcionando</small></button>
+              <button type="button" class="tp-btn cal-o" id="tp-cal-o"><span class="ico">🪑</span><b>Calibrar FORA</b><small>módulo na mesa, onde você o deixa</small></button>
+            </div>
+            <div class="tp-dica">Segure o módulo parado por ~3 s ao calibrar. As duas calibrações juntas deixam o aparelho distinguir "na tampa" de "na mesa".</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tela cheia do CICLO ATIVO (Fase 42) — sem bordas/cartões, número do dia
+         grande, 3 ações com ícone: Pausar, Parar (só habilita no "Último dia
+         começa às") e Lixeira (modal de confirmação). Substitui o antigo modal
+         "Configurações do Ciclo" (o campo "Duração do ciclo" foi removido). -->
+    <!-- Fase 88 — Aceitar convite (primeiro acesso do convidado) -->
+    <section id="screen-convite" class="screen">
+      <div class="login-card convite-card">
+        <div class="logo">🤝</div>
+        <h1>Convite para a chocadeira</h1>
+        <p id="convite-resumo">Carregando o convite…</p>
+        <div class="convite-info" id="convite-info" hidden>
+          <div class="config-row"><span>Convidado por</span><span class="config-valor-fixo" id="convite-dono">--</span></div>
+          <div class="config-row"><span>Chocadeira</span><span class="config-valor-fixo" id="convite-choc">--</span></div>
+          <div class="config-row"><span>Seu e-mail</span><span class="config-valor-fixo conta-email" id="convite-email">--</span></div>
+          <div class="convite-perms-titulo">O que você poderá fazer</div>
+          <ul class="convite-perms" id="convite-perms"></ul>
+        </div>
+        <div class="ciclo-actions convite-acoes" id="convite-acoes" hidden>
+          <button type="button" class="btn-secondary" id="btn-convite-recusar">Recusar</button>
+          <button type="button" class="btn-primary" id="btn-convite-aceitar">Aceitar</button>
+        </div>
+        <div class="ciclo-actions convite-acoes" id="convite-acoes-erro" hidden>
+          <button type="button" class="btn-warn" id="btn-convite-trocar">Trocar de conta</button>
+          <button type="button" class="btn-secondary" id="btn-convite-sair">Ir para o app</button>
+        </div>
+        <p id="convite-erro" class="login-error"></p>
+      </div>
+    </section>
+
+    <section id="screen-ciclo" class="screen ciclo-tela">
+      <div class="ciclo-card">
+      <header class="ciclo-tela-topo">
+        <button id="btn-ciclo-voltar" class="ciclo-voltar" type="button" aria-label="Voltar">←</button>
+        <div class="ciclo-tela-titulos">
+          <h1 id="ciclo-nome">Ciclo de incubação</h1>
+          <div id="ciclo-tipo-linha" class="ciclo-tipo-linha">--</div>
+        </div>
+        <span class="ciclo-estado" id="ciclo-estado">Em andamento</span>
+      </header>
+
+      <div class="ciclo-tela-corpo">
+        <div id="ciclo-preparo" class="ciclo-preparo" hidden></div>
+        <div class="ciclo-dia-linha">
+          <div class="ciclo-dia"><span id="ciclo-dia-num">--</span><span class="ciclo-dia-tot">/<span id="ciclo-dia-tot">21</span></span></div>
+          <div class="ciclo-pct" id="ciclo-pct">0%</div>
+        </div>
+        <div class="ciclo-barra-wrap"><div class="ciclo-barra"><div id="ciclo-barra-fill" class="ciclo-barra-fill"></div></div><div class="ciclo-marcos" id="ciclo-marcos"></div></div>
+        <div class="ciclo-marcos-leg" id="ciclo-marcos-leg"></div>
+
+        <dl class="ciclo-info">
+          <dt>Início da incubação</dt><dd id="ciclo-info-inicio">--</dd>
+          <dt>Último dia começa às</dt><dd id="ciclo-info-fim">--</dd>
+        </dl>
+        <p class="ciclo-parar-dica" id="ciclo-parar-dica"></p>
+      </div>
+
+      <nav class="ciclo-acoes" aria-label="Ações do ciclo">
+        <button id="btn-ciclo-pausar" class="ciclo-acao-btn acao-pausar" type="button">
+          <svg class="ic-pausa" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4.5" height="14" rx="1.2"/><rect x="13.5" y="5" width="4.5" height="14" rx="1.2"/></svg>
+          <svg class="ic-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12-7.5z"/></svg>
+          <span class="ciclo-acao-rotulo">Pausar</span>
+        </button>
+        <button id="btn-ciclo-parar" class="ciclo-acao-btn acao-parar" type="button" disabled aria-disabled="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5.5" y="5.5" width="13" height="13" rx="2"/></svg>
+          <span class="ciclo-acao-rotulo">Parar</span>
+        </button>
+        <button id="btn-ciclo-lixeira" class="ciclo-acao-btn acao-lixeira" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3.5h6l.8 1.5H20v2H4V5h4.2zM6 8.5h12l-.9 11.2a1.5 1.5 0 0 1-1.5 1.3H8.4a1.5 1.5 0 0 1-1.5-1.3z"/></svg>
+          <span class="ciclo-acao-rotulo">Lixeira</span>
+        </button>
+      </nav>
+          </div>
+    </section>
+
+    <!-- Wizard de INÍCIO DE CICLO (Fase 42) — tela cheia, 4 etapas com indicador -->
+    <section id="screen-ciclo-wizard" class="screen ciclo-tela">
+      <header class="wiz-topo">
+        <button id="btn-wiz-voltar" class="ciclo-voltar" type="button" aria-label="Voltar">←</button>
+        <div class="wiz-indicador" id="wiz-indicador">Etapa 1 de 4</div>
+      </header>
+      <div class="wiz-progresso" id="wiz-progresso" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+
+      <div class="wiz-corpo">
+        <div class="wiz-etapa" data-etapa="1">
+          <h2>Nome do lote</h2>
+          <p class="wiz-ajuda">Um nome para identificar este lote (ex.: "Galinhas da Fazenda 01").</p>
+          <input id="wiz-nome" class="wiz-input" type="text" maxlength="23" placeholder="Nome do lote" autocomplete="off" />
+        </div>
+
+        <div class="wiz-etapa" data-etapa="2" hidden>
+          <h2>Tipo de ovos</h2>
+          <p class="wiz-ajuda">Define a duração da incubação. Os tipos são editáveis em Configurações.</p>
+          <div id="wiz-tipos" class="wiz-tipos"></div>
+          <div id="wiz-pers" class="wiz-pers" hidden>
+            <label for="wiz-pers-dias">Dias de incubação (1 a 60)</label>
+            <input id="wiz-pers-dias" class="wiz-input" type="number" inputmode="numeric" min="1" max="60" value="21" />
+          </div>
+        </div>
+
+        <div class="wiz-etapa" data-etapa="3" hidden>
+          <h2>Caixa e início</h2>
+          <p class="wiz-ajuda">Volume da câmara em litros — o aparelho usa isso para estabilizar mais rápido.</p>
+          <div id="wiz-vol-chips" class="wiz-vol-chips" role="group" aria-label="Volume da caixa"></div>
+          <label for="wiz-vol" class="wiz-rotulo">Ou informe o volume (1 a 500 L)</label>
+          <input id="wiz-vol" class="wiz-input" type="number" inputmode="numeric" min="1" max="500" value="10" />
+          <h3 class="wiz-sub">Quando os ovos entram?</h3>
+          <label class="wiz-radio"><input type="radio" name="wiz-modo" value="preparo" checked />
+            <span><strong>Preparar a chocadeira agora</strong> (recomendado)<br /><small>Ela estabiliza temperatura e umidade sem ovos. O ciclo só começa quando você confirmar que colocou os ovos.</small></span></label>
+          <label class="wiz-radio"><input type="radio" name="wiz-modo" value="ja" />
+            <span><strong>Os ovos já estão na chocadeira</strong><br /><small>Informe a data e hora em que entraram.</small></span></label>
+          <input id="wiz-inicio" class="wiz-input" type="datetime-local" hidden />
+          <p id="wiz-inicio-aviso" class="wiz-aviso" hidden>Escolha uma data e hora válidas, não futuras.</p>
+        </div>
+
+        <div class="wiz-etapa" data-etapa="4" hidden>
+          <h2>Resumo</h2>
+          <p class="wiz-ajuda">Confira e confirme para iniciar o ciclo.</p>
+          <dl id="wiz-resumo" class="wiz-resumo"></dl>
+        </div>
+      </div>
+
+      <footer class="wiz-rodape">
+        <button id="wiz-prev" class="wiz-btn wiz-btn-sec" type="button">‹ Voltar</button>
+        <button id="wiz-next" class="wiz-btn wiz-btn-pri" type="button">Próximo ›</button>
+      </footer>
+    </section>
+
+    <!-- Galeria "Fases do Pintinho" (Fase 38) — tela cheia, só imagem (o dia
+         já vem escrito nelas). 3 zonas de toque invisíveis: esquerda = anterior,
+         direita = próxima, centro = fechar (volta pro Guia). Overlay global,
+         fora de qualquer <section class="screen"> (mesma razão dos modais). -->
+    <div id="fases-overlay" class="fases-overlay" hidden role="dialog" aria-modal="true" aria-label="Fases do pintinho">
+      <div id="fases-fundo" class="fases-fundo" aria-hidden="true"></div>
+      <img id="fases-img" class="fases-img" alt="" draggable="false" />
+      <button type="button" class="fases-zona fases-zona-esq" id="fases-prev" aria-label="Imagem anterior"></button>
+      <button type="button" class="fases-zona fases-zona-centro" id="fases-fechar" aria-label="Fechar galeria"></button>
+      <button type="button" class="fases-zona fases-zona-dir" id="fases-next" aria-label="Próxima imagem"></button>
+    </div>
+
+    <!-- Modais — overlays GLOBAIS, fora de qualquer <section class="screen">
+         de propósito (bug corrigido 2026-09-21): moradia antiga (dentro de
+         #screen-dashboard) fazia o modal de confirmação 220V ficar preso
+         invisível/mal-posicionado quando acionado a partir da tela de
+         Configurações (onde os atuadores moraram desde a Fase 10) — uma
+         .screen inativa tem display:none, que esconde TODO descendente
+         mesmo sendo position:fixed. Aqui fora, funcionam de qualquer tela. -->
+
+    <!-- Fase 88 — Convidar usuário / editar permissões / link do convite -->
+    <div class="modal-backdrop" id="modal-share-backdrop" hidden>
+      <div class="modal-card modal-share">
+        <div class="modal-header">
+          <h3 id="share-modal-titulo">Convidar usuário</h3>
+          <button class="modal-close" id="share-modal-close" type="button" aria-label="Fechar">×</button>
+        </div>
+        <div class="modal-body" id="share-passo1">
+          <label class="share-label" for="share-email">E-mail do convidado (conta Google)</label>
+          <input type="email" id="share-email" placeholder="nome@gmail.com" autocomplete="off" autocapitalize="off" spellcheck="false" />
+
+          <div class="share-label">Permissões</div>
+          <label class="share-opcao"><input type="radio" name="share-nivel" value="ver" checked />
+            <span><b>Visualização</b><small>Só vê temperatura, umidade, gráficos, ciclo e histórico. Não controla nada.</small></span></label>
+          <label class="share-opcao"><input type="radio" name="share-nivel" value="parcial" />
+            <span><b>Controle parcial</b><small>Liga e desliga só os atuadores que você marcar.</small></span></label>
+          <div class="share-atuadores" id="share-atuadores" hidden></div>
+          <label class="share-opcao"><input type="radio" name="share-nivel" value="total" />
+            <span><b>Controle total</b><small>Igual a você: atuadores, ciclo, automação, tipos de ovos e comandos. Não gerencia convidados.</small></span></label>
+          <label class="share-opcao share-ciclo" id="share-ciclo-wrap"><input type="checkbox" id="share-ciclo" />
+            <span><b>Gerenciar o ciclo</b><small>Iniciar, pausar e encerrar o ciclo (já incluído no controle total).</small></span></label>
+
+          <p class="login-error" id="share-erro"></p>
+          <div class="ciclo-actions">
+            <button type="button" class="btn-secondary" id="share-cancelar">Cancelar</button>
+            <button type="button" class="btn-primary" id="share-enviar">Criar convite</button>
+          </div>
+        </div>
+
+        <div class="modal-body" id="share-passo2" hidden>
+          <p class="share-ok" id="share-ok-txt">Convite criado!</p>
+          <p class="share-sub">Envie o link abaixo. O convidado precisa entrar com o e-mail <b id="share-link-email"></b> para aceitar.</p>
+          <input type="text" id="share-link" readonly />
+          <div class="share-envio">
+            <a class="btn-warn share-env" id="share-env-mail" href="#" target="_blank" rel="noopener">✉️ E-mail</a>
+            <a class="btn-warn share-env share-env-wa" id="share-env-wa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+            <button type="button" class="btn-secondary share-env" id="share-env-share">📤 Compartilhar</button>
+            <button type="button" class="btn-secondary share-env" id="share-env-copiar">📋 Copiar link</button>
+          </div>
+          <p class="share-sub share-aviso">O app não envia e-mail sozinho (não há servidor de e-mail neste projeto): o botão "E-mail" abre o seu aplicativo de e-mail com a mensagem pronta; é só enviar.</p>
+          <div class="ciclo-actions"><button type="button" class="btn-primary" id="share-fechar">Concluir</button></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Confirmação genérica (Parar / Lixeira / deletar tipo) — Fase 42 -->
+    <div class="modal-backdrop" id="modal-confirma-backdrop" hidden>
+      <div class="modal-card">
+        <div class="modal-header">
+          <h3 id="confirma-titulo">Confirmar</h3>
+          <button class="modal-close" id="confirma-close" type="button" aria-label="Fechar">×</button>
+        </div>
+        <div class="modal-body">
+          <p id="confirma-texto"></p>
+          <div class="ciclo-actions">
+            <button id="confirma-cancelar" class="btn-secondary" type="button">Cancelar</button>
+            <button id="confirma-ok" class="btn-danger" type="button">Confirmar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tipo de ovo (criar/editar) — Fase 42 -->
+    <div class="modal-backdrop" id="modal-tipo-backdrop" hidden>
+      <div class="modal-card modal-tipo">
+        <div class="modal-header">
+          <h3 id="tipo-modal-titulo">Tipo de ovo</h3>
+          <button class="modal-close" id="tipo-modal-close" type="button" aria-label="Fechar">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="tipo-form">
+            <label>Nome<input id="tipo-f-nome" type="text" maxlength="19" autocomplete="off" /></label>
+            <label>Dias de incubação<input id="tipo-f-dias" type="number" inputmode="numeric" min="1" max="60" /></label>
+            <div class="tipo-grupo">Temperatura (°C)</div>
+            <label>Mínima<input id="tipo-f-tmin" type="number" inputmode="decimal" step="0.1" min="30" max="42" /></label>
+            <label>Ideal<input id="tipo-f-temp" type="number" inputmode="decimal" step="0.1" min="30" max="42" /></label>
+            <label>Máxima<input id="tipo-f-tmax" type="number" inputmode="decimal" step="0.1" min="30" max="42" /></label>
+            <div class="tipo-grupo">Umidade (%)</div>
+            <label>Mínima<input id="tipo-f-umin" type="number" inputmode="numeric" min="10" max="100" /></label>
+            <label>Ideal<input id="tipo-f-umid" type="number" inputmode="numeric" min="20" max="90" /></label>
+            <label>Máxima<input id="tipo-f-umax" type="number" inputmode="numeric" min="20" max="100" /></label>
+            <div class="tipo-grupo">Viragem dos ovos</div>
+            <label>Viragens por dia<input id="tipo-f-vpd" type="number" inputmode="numeric" min="1" max="24" /></label>
+            <label>Primeira viragem (hora)<input id="tipo-f-vhora" type="time" /></label>
+            <label>Virar até o dia<input id="tipo-f-vira" type="number" inputmode="numeric" min="0" max="60" /></label>
+            <div class="tipo-horarios" id="tipo-f-horarios"></div>
+            <div class="tipo-grupo">Ovoscopia e eclosão</div>
+            <label>1ª ovoscopia (dia)<input id="tipo-f-ovo1" type="number" inputmode="numeric" min="1" max="59" /></label>
+            <label>2ª ovoscopia (dia, 0 = nenhuma)<input id="tipo-f-ovo2" type="number" inputmode="numeric" min="0" max="59" /></label>
+            <label>Início da eclosão (dia)<input id="tipo-f-ecl" type="number" inputmode="numeric" min="2" max="60" /></label>
+            <label>Temperatura na eclosão (°C)<input id="tipo-f-tempecl" type="number" inputmode="decimal" step="0.1" min="30" max="42" /></label>
+            <label>Umidade na eclosão (%)<input id="tipo-f-umidecl" type="number" inputmode="numeric" min="30" max="95" /></label>
+            <div class="tipo-horarios">Valem a partir do dia de início da eclosão (alertas e automação). Na eclosão a faixa de temperatura acompanha este valor.</div>
+          </div>
+          <div class="tipo-erro" id="tipo-f-erro" role="alert"></div>
+          <div class="ciclo-actions">
+            <button id="tipo-restaurar" class="btn-secondary" type="button" title="Voltar aos parâmetros originais">↺ Restaurar</button>
+            <button id="tipo-cancelar" class="btn-secondary" type="button">Cancelar</button>
+            <button id="tipo-salvar" class="btn-warn" type="button">Salvar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal: confirmação obrigatória antes de LIGAR (nunca desligar — isso é
+         sempre seguro) um canal de 220V AC remotamente. Ninguém precisa
+         confirmar nada pra desligar; o risco é ligar algo potente sem
+         supervisão física, de qualquer lugar do mundo. -->
+    <div class="modal-backdrop" id="modal-220v-backdrop" hidden>
+      <div class="modal-card">
+        <div class="modal-header">
+          <h3>⚠️ Confirmar ação remota</h3>
+          <button class="modal-close" id="modal-220v-close" type="button" aria-label="Fechar">×</button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Você está prestes a ligar
+            <strong id="confirmar-220v-nome">--</strong> (220V AC)
+            remotamente, sem estar fisicamente presente na chocadeira.
+            Confirme que é seguro fazer isso agora.
+          </p>
+          <div class="ciclo-actions">
+            <button id="btn-cancelar-220v" class="btn-secondary" type="button">Cancelar</button>
+            <button id="btn-confirmar-220v" class="btn-danger" type="button">Ligar mesmo assim</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal: Desligar (deep sleep) ou Reiniciar (software reset) —
+         Desligar deixa o dispositivo totalmente inacessível (sem
+         heartbeat, sem atuadores, sem nada) até alguém apertar um botão
+         físico na placa; Reiniciar (Fase 28) volta sozinho em poucos
+         segundos, sem precisar tocar na placa. -->
+    <!-- Fase 41 — visualizar/compartilhar um arquivo do SD -->
+    <div class="modal-backdrop" id="modal-arquivo-backdrop" hidden>
+      <div class="modal-card modal-arquivo">
+        <div class="modal-header">
+          <h3 id="arq-modal-titulo">Arquivo</h3>
+          <button class="modal-close" id="arq-modal-close" type="button" aria-label="Fechar">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="arq-status" id="arq-modal-status">Buscando no dispositivo...</div>
+          <div id="arq-modal-prog-slot"></div>
+          <div class="arq-preview" id="arq-modal-preview"></div>
+          <div class="ciclo-actions">
+            <button id="arq-btn-baixar" class="btn-secondary" type="button" disabled>Baixar</button>
+            <button id="arq-btn-compartilhar" class="btn-warn" type="button" disabled>Compartilhar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" id="modal-desligar-backdrop" hidden>
+      <div class="modal-card">
+        <div class="modal-header">
+          <h3>⚠️ Desligar ou reiniciar</h3>
+          <button class="modal-close" id="modal-desligar-close" type="button" aria-label="Fechar">×</button>
+        </div>
+        <div class="modal-body">
+          <p>
+            <strong>Reiniciar</strong> reinicia o firmware agora (reset por
+            software) — volta sozinho em poucos segundos, sem precisar
+            tocar na placa.
+          </p>
+          <p>
+            <strong>Desligar</strong> entra em modo de baixo consumo (deep
+            sleep) e fica <strong>totalmente inacessível pelo PWA</strong>
+            — sem heartbeat, sem atuadores, sem nada — até alguém
+            pressionar o botão físico <strong>BOOT</strong> (ou
+            <strong>RST</strong>) direto na placa.
+          </p>
+          <div class="ciclo-actions">
+            <button id="btn-cancelar-desligar" class="btn-secondary" type="button">Cancelar</button>
+            <button id="btn-confirmar-reiniciar" class="btn-warn" type="button">Reiniciar</button>
+            <button id="btn-confirmar-desligar" class="btn-danger" type="button">Desligar mesmo assim</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal: histórico/estatísticas de Temperatura ou Umidade (Fase 21,
+         redesenhado na Fase 23). Aberto pelo clique nos cards da home (ver
+         abrirModalSensor() em app.js). Mesmo dado (chocadeiras/{id}/leituras)
+         já usado pelos cards, só que agrega uma janela de tempo em vez do
+         último valor. Fase 23: valor gigante removido (redundante com o
+         card do dashboard, que continua visível atrás do modal) -- o
+         espaço virou gráfico maior. -->
+    <div class="modal-backdrop" id="sensor-modal-backdrop" hidden>
+      <div class="modal-card sensor-modal-card">
+        <div class="modal-header">
+          <h3 id="sensor-modal-titulo">--</h3>
+          <button class="modal-close" id="sensor-modal-close" type="button" aria-label="Fechar">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="sensor-tabs" id="sensor-tabs" role="tablist">
+            <button type="button" class="sensor-tab active" data-periodo="hoje" role="tab">Hoje</button>
+            <button type="button" class="sensor-tab" data-periodo="7d" role="tab">7 dias</button>
+          </div>
+          <canvas id="sensor-modal-sparkline" class="sensor-sparkline sensor-sparkline-grande" width="600" height="280"></canvas>
+
+          <div class="sensor-stats">
+            <div class="sensor-stat"><span class="sensor-stat-label">Mínimo</span><span class="sensor-stat-value" id="sensor-modal-min">--</span></div>
+            <div class="sensor-stat"><span class="sensor-stat-label">Máximo</span><span class="sensor-stat-value" id="sensor-modal-max">--</span></div>
+            <div class="sensor-stat"><span class="sensor-stat-label">Média</span><span class="sensor-stat-value" id="sensor-modal-media">--</span></div>
+          </div>
+          <!-- Fase 24 — "Faixa ideal" desceu pro rodapé (era logo abaixo do
+               título), cor azul clara igual a linha do gráfico. -->
+          <div class="sensor-faixa" id="sensor-modal-faixa">Faixa ideal: --</div>
+          <div class="sensor-janela">
+            <span id="sensor-modal-contagem">carregando...</span>
+            <span class="live-indicator" id="sensor-modal-live" hidden><span class="live-dot"></span>LIVE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fase 53 — bloqueio do app (biometria no celular / PIN no computador) -->
+    <div class="app-lock" id="app-lock" hidden>
+      <div class="app-lock-card">
+        <div class="app-lock-icone" aria-hidden="true">🔒</div>
+        <h2 id="lock-titulo">ChocaIoT bloqueado</h2>
+        <p id="lock-msg" class="app-lock-msg"></p>
+        <input type="password" id="lock-pin" inputmode="numeric" autocomplete="off" maxlength="8" placeholder="PIN" />
+        <input type="password" id="lock-pin2" inputmode="numeric" autocomplete="off" maxlength="8" placeholder="Repita o PIN" hidden />
+        <div class="app-lock-botoes">
+          <button type="button" class="btn-warn" id="lock-ok">Desbloquear</button>
+          <button type="button" class="btn-secondary" id="lock-bio" hidden>Usar biometria</button>
+          <button type="button" class="btn-secondary" id="lock-cancel" hidden>Cancelar</button>
+        </div>
+        <button type="button" class="btn-ghost" id="lock-sair">Esqueci / sair da conta</button>
+      </div>
+    </div>
+
+    <!-- Fase 48 — detalhe de um relatório de ciclo -->
+    <div class="modal-backdrop" id="modal-rel-backdrop" hidden>
+      <div class="modal-card modal-arquivo">
+        <div class="modal-header">
+          <h3 id="rel-modal-titulo">Relatório do ciclo</h3>
+          <button class="modal-close" id="rel-modal-close" type="button" aria-label="Fechar">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="rel-grid" id="rel-modal-grid"></div>
+          <pre class="arq-preview-texto" id="rel-modal-texto"></pre>
+          <div class="ciclo-actions">
+            <button type="button" class="btn-danger" id="rel-btn-excluir">Excluir</button>
+            <button type="button" class="btn-secondary" id="rel-btn-baixar">Baixar .txt</button>
+            <button type="button" class="btn-warn" id="rel-btn-compartilhar">Compartilhar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Firebase (compat SDK — simples de usar sem build step) -->
+  <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-messaging-compat.js"></script>
+
+  <script src="guia-data.js"></script>
+  <script src="app.js"></script>
+  <script src="extras.js"></script>
+  <script src="share.js"></script>
+  <script src="acessos.js"></script>
+  <script src="tampa.js"></script>
+  <script src="painel.js"></script>
+</body>
+</html>

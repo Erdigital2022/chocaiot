@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="1340" viewBox="0 0 2000 1340"><rect width="100%" height="100%" fill="#f8fafc"/>
+<text x="60" y="62" font-family="Segoe UI, Arial, sans-serif" font-size="36" font-weight="700" fill="#0f172a" text-anchor="start">MCP23017 (Waveshare IO Expansion Board) — ligação ao ESP32 e primeiro uso</text>
+<text x="60" y="98" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="400" fill="#475569" text-anchor="start">Expansor de 16 pinos de entrada/saída pelo barramento I2C que já existe (SDA = GPIO8, SCL = GPIO9). Não ocupa nenhum GPIO novo.</text>
+<rect x="60" y="140" width="300" height="420" rx="14" fill="#e2e8f0" stroke="#334155" stroke-width="3"/>
+<text x="210" y="176" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700" fill="#0f172a" text-anchor="middle">ESP32-S3</text>
+<text x="210" y="200" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#475569" text-anchor="middle">YD-ESP32-S3 44P</text>
+<circle cx="360" cy="270" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<circle cx="360" cy="340" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<circle cx="360" cy="410" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<circle cx="360" cy="480" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="342" y="276" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" fill="#0f172a" text-anchor="end">3V3</text>
+<text x="342" y="346" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" fill="#0f172a" text-anchor="end">GND</text>
+<text x="342" y="416" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" fill="#0f172a" text-anchor="end">GPIO8 (SDA)</text>
+<text x="342" y="486" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" fill="#0f172a" text-anchor="end">GPIO9 (SCL)</text>
+<rect x="60" y="600" width="760" height="260" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="84" y="636" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" fill="#0f172a" text-anchor="start">Já no mesmo barramento I2C (endereços diferentes, sem conflito)</text>
+<rect x="84" y="662" width="225" height="72" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+<text x="196" y="694" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#0f172a" text-anchor="middle">SHT31</text>
+<text x="196" y="718" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="400" fill="#475569" text-anchor="middle">0x44</text>
+<rect x="329" y="662" width="225" height="72" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+<text x="441" y="694" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#0f172a" text-anchor="middle">ADXL345</text>
+<text x="441" y="718" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="400" fill="#475569" text-anchor="middle">0x53</text>
+<rect x="574" y="662" width="225" height="72" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+<text x="686" y="694" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#0f172a" text-anchor="middle">DS3231</text>
+<text x="686" y="718" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="400" fill="#475569" text-anchor="middle">0x68</text>
+<rect x="84" y="752" width="225" height="72" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+<text x="196" y="784" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#0f172a" text-anchor="middle">EEPROM do RTC</text>
+<text x="196" y="808" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="400" fill="#475569" text-anchor="middle">0x57</text>
+<rect x="329" y="752" width="225" height="72" rx="10" fill="#ecfdf5" stroke="#16a34a" stroke-width="2"/>
+<text x="441" y="784" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#0f172a" text-anchor="middle">MCP23017</text>
+<text x="441" y="808" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#166534" text-anchor="middle">0x20  ← novo</text>
+<rect x="560" y="140" width="460" height="420" rx="14" fill="#fef3c7" stroke="#92400e" stroke-width="3"/>
+<text x="790" y="176" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700" fill="#0f172a" text-anchor="middle">Placa MCP23017</text>
+<text x="790" y="200" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#475569" text-anchor="middle">endereço 0x20 (A0 A1 A2 sem solda)</text>
+<circle cx="560" cy="270" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="578" y="276" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" fill="#0f172a" text-anchor="start">VCC</text>
+<circle cx="560" cy="340" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="578" y="346" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" fill="#0f172a" text-anchor="start">GND</text>
+<circle cx="560" cy="410" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="578" y="416" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" fill="#0f172a" text-anchor="start">SDA</text>
+<circle cx="560" cy="480" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="578" y="486" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" fill="#0f172a" text-anchor="start">SCL</text>
+<text x="578" y="520" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#475569" text-anchor="start">INTA / INTB: deixar SOLTOS (não há GPIO livre)</text>
+<path d="M360,270 L560,270" fill="none" stroke="#dc2626" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M360,340 L560,340" fill="none" stroke="#111827" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M360,410 L560,410" fill="none" stroke="#2563eb" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M360,480 L560,480" fill="none" stroke="#16a34a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="460" y="258" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#dc2626" text-anchor="middle">3V3 (NÃO usar 5 V)</text>
+<text x="460" y="464" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="middle">fios curtos (&lt; 30 cm)</text>
+<rect x="1080" y="140" width="880" height="420" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="1104" y="176" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" fill="#0f172a" text-anchor="start">Primeiro uso sugerido: LED externo 'TAMPA ABERTA'</text>
+<circle cx="1020" cy="270" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="1004" y="276" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#0f172a" text-anchor="end">PA0</text>
+<path d="M1020,270 L1140,270" fill="none" stroke="#ea580c" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="1140" y="250" width="130" height="40" rx="8" fill="#fde68a" stroke="#92400e" stroke-width="2"/>
+<text x="1205" y="276" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="middle">330 Ω</text>
+<path d="M1270,270 L1400,270" fill="none" stroke="#ea580c" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="1400,244 1400,296 1450,270" fill="#ef4444" stroke="#7f1d1d" stroke-width="3"/>
+<line x1="1450" y1="244" x2="1450" y2="296" stroke="#7f1d1d" stroke-width="4"/>
+<path d="M1450,270 L1560,270 L1560,340" fill="none" stroke="#111827" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="1560" y="366" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="middle">GND</text>
+<text x="1425" y="322" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#475569" text-anchor="middle">LED vermelho 3 mm</text>
+<text x="1104" y="420" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">PA0 em nível alto acende; o firmware pisca o LED enquanto a tampa estiver aberta</text>
+<text x="1104" y="448" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">(e pode apagar quando fechar). 330 Ω limita a ~5 mA: bem abaixo do limite do chip.</text>
+<text x="1104" y="476" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">Mesmo princípio serve para um buzzer ativo de 3,3 V (com transistor se > 20 mA).</text>
+<rect x="60" y="880" width="960" height="420" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="84" y="916" font-family="Segoe UI, Arial, sans-serif" font-size="21" font-weight="700" fill="#0f172a" text-anchor="start">Endereço I2C (pontes de solda A0 A1 A2 da placa)</text>
+<text x="84" y="952" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">A2 A1 A0 = 0 0 0  →  0x20  (como vem de fábrica; é o que vamos usar)</text>
+<text x="84" y="979" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">A2 A1 A0 = 0 0 1  →  0x21        0 1 0  →  0x22        0 1 1  →  0x23 …</text>
+<text x="84" y="1006" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">Conferir antes de ligar: nenhum endereço pode repetir 0x44, 0x53, 0x57 ou 0x68.</text>
+<text x="84" y="1033" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start"></text>
+<text x="84" y="1060" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">Registradores (referência): IODIRA/B = direção (1 = entrada) · GPPUA/B = pull-up</text>
+<text x="84" y="1087" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">interno de 100 kΩ · OLATA/B = saída · GPIOA/B = leitura das entradas.</text>
+<text x="84" y="1114" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">Cada pino aguenta ~25 mA; o chip todo ~125 mA. Pinos 3,3 V (não tolera 5 V</text>
+<text x="84" y="1141" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">se a placa estiver alimentada com 3,3 V).</text>
+<rect x="1040" y="600" width="920" height="700" rx="14" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+<text x="1064" y="636" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" fill="#9a3412" text-anchor="start">Cuidados e conferências</text>
+<text x="1064" y="672" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">1) Alimente a placa com 3V3 do ESP32. Se for com 5 V, os pull-ups de 10 kΩ da</text>
+<text x="1064" y="699" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">   placa levam 5 V para SDA/SCL e o ESP32 (3,3 V) pode ser danificado.</text>
+<text x="1064" y="726" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">2) Antes de ligar, meça continuidade: VCC–GND NÃO pode apitar.</text>
+<text x="1064" y="753" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">3) Ligue com o aparelho desligado; depois do boot o log deve mostrar o</text>
+<text x="1064" y="780" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">   scan I2C com 0x20 (serial 'I'). Sem 0x20 = fio SDA/SCL trocado ou solto.</text>
+<text x="1064" y="807" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">4) Mantenha SDA/SCL longe dos fios do relé de 220 V (interferência).</text>
+<text x="1064" y="834" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">5) Pull-ups: SHT31 + ADXL + DS3231 + esta placa em paralelo ficam em ~1,6 kΩ;</text>
+<text x="1064" y="861" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">   é aceitável. Se começar a dar erro de leitura, retirar os pull-ups da placa.</text>
+<text x="1064" y="888" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">6) O firmware ainda NÃO tem driver para o MCP23017. É pequeno (probe do 0x20,</text>
+<text x="1064" y="915" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">   direção e escrita de saída) e só ativa quando o chip responde.</text>
+<text x="1064" y="942" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start"></text>
+<text x="1064" y="969" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">Quando vale instalar: quando houver um uso concreto (LED/buzzer de tampa,</text>
+<text x="1064" y="996" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">TCRT5000 do ovoscópio, boia de nível de água, mais relés/entradas). Hoje não</text>
+<text x="1064" y="1023" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">é necessário para nenhuma função que já existe.</text>
+</svg>

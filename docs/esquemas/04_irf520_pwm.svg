@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="1200" viewBox="0 0 2000 1200"><rect width="100%" height="100%" fill="#f8fafc"/>
+<text x="60" y="66" font-family="Segoe UI, Arial, sans-serif" font-size="36" font-weight="700" fill="#0f172a" text-anchor="start">Módulo IRF520 (MOSFET) — PWM do ESP32 controlando um fan de 12 V</text>
+<text x="60" y="102" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="400" fill="#475569" text-anchor="start">O ESP32 só manda o sinal (SIG, 3,3 V, quase sem corrente). Quem alimenta o fan é a fonte de 12 V pelos bornes do módulo. Os GNDs precisam ser comuns.</text>
+<rect x="60" y="150" width="340" height="470" rx="14" fill="#e2e8f0" stroke="#334155" stroke-width="3"/>
+<text x="230" y="192" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="700" fill="#0f172a" text-anchor="middle">ESP32-S3</text>
+<text x="230" y="220" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#475569" text-anchor="middle">YD-ESP32-S3 44P · N16R8</text>
+<circle cx="400" cy="300" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="380" y="306" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" fill="#0f172a" text-anchor="end">GPIO4</text>
+<text x="380" y="328" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="end">fan 1 · PWM 1 kHz</text>
+<circle cx="400" cy="400" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="380" y="406" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" fill="#0f172a" text-anchor="end">GND</text>
+<circle cx="400" cy="500" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="380" y="506" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" fill="#94a3b8" text-anchor="end">3V3</text>
+<text x="380" y="528" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="end">não usado neste módulo</text>
+<text x="230" y="590" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="middle">5 V do ESP32 também não é usado</text>
+<rect x="760" y="170" width="440" height="470" rx="14" fill="#fee2e2" stroke="#b91c1c" stroke-width="3"/>
+<text x="980" y="208" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" fill="#7f1d1d" text-anchor="middle">Módulo MOS IRF520 (placa vermelha “MH”)</text>
+<text x="980" y="234" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#991b1b" text-anchor="middle">SIG aciona o transistor · carga ligada em U+ / U−</text>
+<circle cx="760" cy="300" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="774" y="288" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#7f1d1d" text-anchor="start">SIG</text>
+<circle cx="760" cy="350" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="774" y="338" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#7f1d1d" text-anchor="start">VCC</text>
+<circle cx="760" cy="400" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="774" y="388" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#7f1d1d" text-anchor="start">GND</text>
+<rect x="930" y="320" width="130" height="130" rx="8" fill="#fff" stroke="#7f1d1d" stroke-width="2.5"/>
+<text x="995" y="372" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700" fill="#7f1d1d" text-anchor="middle">IRF520</text>
+<text x="995" y="398" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#7f1d1d" text-anchor="middle">chave no lado −</text>
+<path d="M760,300 L880,300 L880,372 L930,372" fill="none" stroke="#7f1d1d" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="900" y="360" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#7f1d1d" text-anchor="start">G</text>
+<path d="M1060,345 L1080,345 L1080,378 L1165,378 L1165,352" fill="none" stroke="#7f1d1d" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="1068" y="338" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#7f1d1d" text-anchor="start">D</text>
+<path d="M760,400 L830,400 L830,530 L1200,530" fill="none" stroke="#7f1d1d" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M995,450 L995,530" fill="none" stroke="#7f1d1d" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="1002" y="470" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#7f1d1d" text-anchor="start">S</text>
+<rect x="1130" y="262" width="70" height="90" rx="6" fill="#2563eb" stroke="#1e3a8a" stroke-width="2"/>
+<circle cx="1165" cy="285" r="15" fill="#cbd5e1" stroke="#475569" stroke-width="2"/>
+<line x1="1157" y1="285" x2="1173" y2="285" stroke="#475569" stroke-width="3"/>
+<circle cx="1165" cy="330" r="15" fill="#cbd5e1" stroke="#475569" stroke-width="2"/>
+<line x1="1157" y1="330" x2="1173" y2="330" stroke="#475569" stroke-width="3"/>
+<rect x="1130" y="462" width="70" height="90" rx="6" fill="#2563eb" stroke="#1e3a8a" stroke-width="2"/>
+<circle cx="1165" cy="485" r="15" fill="#cbd5e1" stroke="#475569" stroke-width="2"/>
+<line x1="1157" y1="485" x2="1173" y2="485" stroke="#475569" stroke-width="3"/>
+<circle cx="1165" cy="530" r="15" fill="#cbd5e1" stroke="#475569" stroke-width="2"/>
+<line x1="1157" y1="530" x2="1173" y2="530" stroke="#475569" stroke-width="3"/>
+<text x="1118" y="292" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" fill="#7f1d1d" text-anchor="end">U+</text>
+<text x="1118" y="337" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" fill="#7f1d1d" text-anchor="end">U−</text>
+<text x="1120" y="492" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" fill="#7f1d1d" text-anchor="end">VIN</text>
+<text x="1120" y="520" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" fill="#7f1d1d" text-anchor="end">GND</text>
+<text x="960" y="262" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#991b1b" text-anchor="middle">SAÍDA para a carga</text>
+<text x="960" y="575" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#991b1b" text-anchor="middle">ENTRADA da fonte (U+ é ligado ao VIN)</text>
+<path d="M400,300 L760,300" fill="none" stroke="#2563eb" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="580" y="288" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#2563eb" text-anchor="middle">sinal PWM 3,3 V</text>
+<path d="M400,400 L760,400" fill="none" stroke="#111827" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="580" y="388" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#111827" text-anchor="middle">GND comum</text>
+<path d="M610,350 L760,350" fill="none" stroke="#94a3b8" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 8"/>
+<text x="550" y="356" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#b91c1c" text-anchor="end">VCC: NÃO ligar</text>
+<path d="M562,338 l24,24 m0,-24 l-24,24" stroke="#b91c1c" stroke-width="5" stroke-linecap="round"/>
+<rect x="1560" y="170" width="340" height="200" rx="14" fill="#e2e8f0" stroke="#334155" stroke-width="3"/>
+<text x="1730" y="208" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700" fill="#0f172a" text-anchor="middle">Fan 12 V (PC)</text>
+<text x="1730" y="234" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#475569" text-anchor="middle">2 ou 3 fios · até ~0,3 A</text>
+<circle cx="1560" cy="285" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="1582" y="291" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#0f172a" text-anchor="start">+  fio vermelho</text>
+<circle cx="1560" cy="335" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="1582" y="341" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#0f172a" text-anchor="start">−  fio preto</text>
+<path d="M1200,285 L1560,285" fill="none" stroke="#dc2626" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M1200,330 L1380,330 L1380,335 L1560,335" fill="none" stroke="#111827" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="1380" y="266" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#dc2626" text-anchor="middle">carga (+)</text>
+<text x="1380" y="360" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#111827" text-anchor="middle">carga (−) chaveada</text>
+<rect x="1560" y="430" width="340" height="200" rx="14" fill="#fff7ed" stroke="#ea580c" stroke-width="3"/>
+<text x="1730" y="468" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700" fill="#0f172a" text-anchor="middle">Fonte 12 V DC</text>
+<text x="1730" y="494" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#475569" text-anchor="middle">a mesma que já alimenta os fans</text>
+<circle cx="1560" cy="545" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="1582" y="551" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#0f172a" text-anchor="start">+ 12 V</text>
+<circle cx="1560" cy="595" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="1582" y="601" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#0f172a" text-anchor="start">− GND</text>
+<path d="M1200,485 L1380,485 L1380,545 L1560,545" fill="none" stroke="#ea580c" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M1200,530 L1300,530 L1300,595 L1560,595" fill="none" stroke="#111827" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="1290" y="462" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#ea580c" text-anchor="middle">12 V +</text>
+<text x="1430" y="585" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#111827" text-anchor="middle">GND da fonte</text>
+<rect x="60" y="650" width="640" height="60" rx="10" fill="#fff" stroke="#cbd5e1" stroke-width="1.5"/>
+<line x1="80" y1="680" x2="110" y2="680" stroke="#2563eb" stroke-width="6" stroke-linecap="round"/>
+<text x="118" y="686" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#0f172a" text-anchor="start">sinal GPIO</text>
+<line x1="205" y1="680" x2="235" y2="680" stroke="#ea580c" stroke-width="6" stroke-linecap="round"/>
+<text x="243" y="686" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#0f172a" text-anchor="start">12 V +</text>
+<line x1="330" y1="680" x2="360" y2="680" stroke="#111827" stroke-width="6" stroke-linecap="round"/>
+<text x="368" y="686" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#0f172a" text-anchor="start">GND</text>
+<line x1="455" y1="680" x2="485" y2="680" stroke="#dc2626" stroke-width="6" stroke-linecap="round"/>
+<text x="493" y="686" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#0f172a" text-anchor="start">carga +</text>
+<line x1="580" y1="680" x2="610" y2="680" stroke="#94a3b8" stroke-width="6" stroke-linecap="round"/>
+<text x="618" y="686" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#0f172a" text-anchor="start">não ligado</text>
+<rect x="60" y="730" width="440" height="440" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+<text x="80" y="766" font-family="Segoe UI, Arial, sans-serif" font-size="21" font-weight="700" fill="#9a3412" text-anchor="start">1 · Montagem (tudo desligado)</text>
+<text x="80" y="800" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#7c2d12" text-anchor="start">1) Fonte de 12 V desligada da tomada e</text>
+<text x="80" y="824" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#7c2d12" text-anchor="start">   ESP32 sem USB.</text>
+<text x="80" y="848" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#7c2d12" text-anchor="start">2) GPIO4 do ESP32 → pino SIG do módulo</text>
+<text x="80" y="872" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#7c2d12" text-anchor="start">   (fio dupont, lado do cabeçalho).</text>
+<text x="80" y="896" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#7c2d12" text-anchor="start">3) GND do ESP32 → pino GND do cabeçalho.</text>
+<text x="80" y="920" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#7c2d12" text-anchor="start">4) Pino VCC do cabeçalho: deixar SOLTO.</text>
+<text x="80" y="944" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#7c2d12" text-anchor="start">5) Fan: fio vermelho → borne U+ ;</text>
+<text x="80" y="968" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#7c2d12" text-anchor="start">   fio preto → borne U−.</text>
+<text x="80" y="992" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#7c2d12" text-anchor="start">6) Fonte: + 12 V → borne VIN ;</text>
+<text x="80" y="1016" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#7c2d12" text-anchor="start">   − → borne GND (os de baixo).</text>
+<text x="80" y="1040" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#7c2d12" text-anchor="start">7) Só depois ligar fonte e ESP32.</text>
+<text x="80" y="1064" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#7c2d12" text-anchor="start"></text>
+<text x="80" y="1088" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#7c2d12" text-anchor="start">NUNCA ligar 12 V no cabeçalho de 3 pinos:</text>
+<text x="80" y="1112" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#7c2d12" text-anchor="start">ele é o lado do ESP32 (3,3 V).</text>
+<rect x="520" y="730" width="440" height="440" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<text x="540" y="766" font-family="Segoe UI, Arial, sans-serif" font-size="21" font-weight="700" fill="#1e3a8a" text-anchor="start">2 · Conferência sem energia</text>
+<text x="540" y="800" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#1e3a8a" text-anchor="start">Multímetro em continuidade (bipe):</text>
+<text x="540" y="824" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#1e3a8a" text-anchor="start">· VIN ↔ U+ : deve APITAR</text>
+<text x="540" y="848" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#1e3a8a" text-anchor="start">· GND do cabeçalho ↔ GND do borne:</text>
+<text x="540" y="872" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#1e3a8a" text-anchor="start">  deve APITAR</text>
+<text x="540" y="896" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#1e3a8a" text-anchor="start">· U− ↔ GND do borne: NÃO pode dar 0 Ω</text>
+<text x="540" y="920" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#1e3a8a" text-anchor="start">  (é o transistor; no modo diodo pode</text>
+<text x="540" y="944" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#1e3a8a" text-anchor="start">  marcar ~0,5 V, isso é normal).</text>
+<text x="540" y="968" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#1e3a8a" text-anchor="start"></text>
+<text x="540" y="992" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#1e3a8a" text-anchor="start">Se algo divergir, pare e me mande a</text>
+<text x="540" y="1016" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#1e3a8a" text-anchor="start">leitura: este desenho assume que o</text>
+<text x="540" y="1040" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#1e3a8a" text-anchor="start">módulo é igual ao da foto (placa</text>
+<text x="540" y="1064" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#1e3a8a" text-anchor="start">vermelha, silk SIG/VCC/GND e</text>
+<text x="540" y="1088" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#1e3a8a" text-anchor="start">U+ U− / VIN GND).</text>
+<rect x="980" y="730" width="440" height="440" rx="12" fill="#ecfdf5" stroke="#16a34a" stroke-width="2"/>
+<text x="1000" y="766" font-family="Segoe UI, Arial, sans-serif" font-size="21" font-weight="700" fill="#166534" text-anchor="start">3 · Teste com energia</text>
+<text x="1000" y="800" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#14532d" text-anchor="start">1) Ligue a fonte e o ESP32 (com o PWM</text>
+<text x="1000" y="824" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#14532d" text-anchor="start">   ainda DESLIGADO o fan fica parado).</text>
+<text x="1000" y="848" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#14532d" text-anchor="start">2) Se o fan girar sozinho: o pino solto</text>
+<text x="1000" y="872" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#14532d" text-anchor="start">   flutua; 10 kΩ de SIG para GND resolve.</text>
+<text x="1000" y="896" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#14532d" text-anchor="start">3) Tecla P no serial liga o PWM (100 %).</text>
+<text x="1000" y="920" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#14532d" text-anchor="start">4) Medir nos bornes U+ ↔ U− (com o fan):</text>
+<text x="1000" y="944" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#14532d" text-anchor="start">   ≥ 11 V = conduz bem.</text>
+<text x="1000" y="968" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#14532d" text-anchor="start">   &lt; 10 V = o IRF520 não satura em 3,3 V.</text>
+<text x="1000" y="992" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#14532d" text-anchor="start">5) Tocar no MOSFET: morno é normal;</text>
+<text x="1000" y="1016" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#14532d" text-anchor="start">   quente demais = não está saturando.</text>
+<text x="1000" y="1040" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#14532d" text-anchor="start">6) Pare o teste em 100 % se esquentar e</text>
+<text x="1000" y="1064" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#14532d" text-anchor="start">   me diga a tensão medida.</text>
+<rect x="1440" y="730" width="500" height="440" rx="12" fill="#faf5ff" stroke="#7c3aed" stroke-width="2"/>
+<text x="1460" y="766" font-family="Segoe UI, Arial, sans-serif" font-size="21" font-weight="700" fill="#5b21b6" text-anchor="start">4 · Limites e canais preparados</text>
+<text x="1460" y="800" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#4c1d95" text-anchor="start">· IRF520 NÃO é MOSFET lógico: com 3,3 V no</text>
+<text x="1460" y="824" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#4c1d95" text-anchor="start">  gate ele só conduz parcialmente. Para fan</text>
+<text x="1460" y="848" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#4c1d95" text-anchor="start">  de PC (≤ 0,3 A) costuma bastar; se medir</text>
+<text x="1460" y="872" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#4c1d95" text-anchor="start">  &lt; 10 V, trocar por IRLZ44N / IRLB8721</text>
+<text x="1460" y="896" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#4c1d95" text-anchor="start">  ou módulo com driver de 5 V.</text>
+<text x="1460" y="920" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#4c1d95" text-anchor="start">· Zumbido em 1 kHz: normal; se incomodar,</text>
+<text x="1460" y="944" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#4c1d95" text-anchor="start">  subir PWM_FREQ_HZ no firmware.</text>
+<text x="1460" y="968" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#4c1d95" text-anchor="start"></text>
+<text x="1460" y="992" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#4c1d95" text-anchor="start">Canais já previstos (Fase 99, desligados):</text>
+<text x="1460" y="1016" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#4c1d95" text-anchor="start">  GPIO4 → fan 1  ·  GPIO5 → fan 2</text>
+<text x="1460" y="1040" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#4c1d95" text-anchor="start">  GPIO6 → fan 3  ·  GPIO47 → backlight</text>
+<text x="1460" y="1064" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#4c1d95" text-anchor="start">  (backlight: confirmar tensão e corrente</text>
+<text x="1460" y="1088" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#4c1d95" text-anchor="start">  do LED de fundo antes de ligar aqui)</text>
+<text x="1460" y="1112" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#4c1d95" text-anchor="start">· Um módulo por canal, mesmo desenho,</text>
+<text x="1460" y="1136" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#4c1d95" text-anchor="start">  todos com o GND em comum.</text>
+</svg>

@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="1480" viewBox="0 0 2000 1480"><rect width="100%" height="100%" fill="#f8fafc"/>
+<text x="60" y="62" font-family="Segoe UI, Arial, sans-serif" font-size="36" font-weight="700" fill="#0f172a" text-anchor="start">MH-Z19C (sensor de CO₂) — ficha para identificar os 7 fios e ligar ao ESP32</text>
+<text x="60" y="98" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="400" fill="#475569" text-anchor="start">Fonte: manual Winsen MH-Z19C v1.0 (conector de 7 vias). A cor de cada fio NÃO vem em nenhum manual — ela é descoberta com o multímetro (passo 2).</text>
+<rect x="40" y="130" width="1010" height="560" rx="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="64" y="168" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" fill="#0f172a" text-anchor="start">1) Os 7 pinos do conector (numeração do manual: 7 … 1, da esquerda para a direita)</text>
+<text x="64" y="196" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="400" fill="#475569" text-anchor="start">Escreva, em cada caixa tracejada, a COR do fio que você descobrir para aquele pino.</text>
+<rect x="64" y="224" width="128" height="250" rx="12" fill="#f1f5f9" stroke="#94a3b8" stroke-width="3"/>
+<text x="128.0" y="276" font-family="Segoe UI, Arial, sans-serif" font-size="44" font-weight="800" fill="#475569" text-anchor="middle">7</text>
+<text x="128.0" y="312" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700" fill="#0f172a" text-anchor="middle">PWM</text>
+<text x="128.0" y="344" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#475569" text-anchor="middle">saída PWM (não</text>
+<text x="128.0" y="366" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#475569" text-anchor="middle">usar)</text>
+<text x="128.0" y="420" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="middle">cor do fio:</text>
+<rect x="76" y="428" width="104" height="34" rx="8" fill="#ffffff" stroke="#64748b" stroke-width="2" stroke-dasharray="6 5"/>
+<rect x="206" y="224" width="128" height="250" rx="12" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+<text x="270.0" y="276" font-family="Segoe UI, Arial, sans-serif" font-size="44" font-weight="800" fill="#2563eb" text-anchor="middle">6</text>
+<text x="270.0" y="312" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700" fill="#0f172a" text-anchor="middle">TX</text>
+<text x="270.0" y="344" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#475569" text-anchor="middle">saída de dados</text>
+<text x="270.0" y="366" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#475569" text-anchor="middle">UART (3,3 V)</text>
+<text x="270.0" y="420" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="middle">cor do fio:</text>
+<rect x="218" y="428" width="104" height="34" rx="8" fill="#ffffff" stroke="#64748b" stroke-width="2" stroke-dasharray="6 5"/>
+<rect x="348" y="224" width="128" height="250" rx="12" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+<text x="412.0" y="276" font-family="Segoe UI, Arial, sans-serif" font-size="44" font-weight="800" fill="#16a34a" text-anchor="middle">5</text>
+<text x="412.0" y="312" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700" fill="#0f172a" text-anchor="middle">RX</text>
+<text x="412.0" y="344" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#475569" text-anchor="middle">entrada de</text>
+<text x="412.0" y="366" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#475569" text-anchor="middle">dados UART</text>
+<text x="412.0" y="388" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#475569" text-anchor="middle">(3,3 V)</text>
+<text x="412.0" y="420" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="middle">cor do fio:</text>
+<rect x="360" y="428" width="104" height="34" rx="8" fill="#ffffff" stroke="#64748b" stroke-width="2" stroke-dasharray="6 5"/>
+<rect x="490" y="224" width="128" height="250" rx="12" fill="#ffedd5" stroke="#ea580c" stroke-width="3"/>
+<text x="554.0" y="276" font-family="Segoe UI, Arial, sans-serif" font-size="44" font-weight="800" fill="#ea580c" text-anchor="middle">4</text>
+<text x="554.0" y="312" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700" fill="#0f172a" text-anchor="middle">Vin</text>
+<text x="554.0" y="344" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#475569" text-anchor="middle">+5 V DC</text>
+<text x="554.0" y="366" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#475569" text-anchor="middle">(alimentação)</text>
+<text x="554.0" y="420" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="middle">cor do fio:</text>
+<rect x="502" y="428" width="104" height="34" rx="8" fill="#ffffff" stroke="#64748b" stroke-width="2" stroke-dasharray="6 5"/>
+<rect x="632" y="224" width="128" height="250" rx="12" fill="#e5e7eb" stroke="#111827" stroke-width="3"/>
+<text x="696.0" y="276" font-family="Segoe UI, Arial, sans-serif" font-size="44" font-weight="800" fill="#111827" text-anchor="middle">3</text>
+<text x="696.0" y="312" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700" fill="#0f172a" text-anchor="middle">GND</text>
+<text x="696.0" y="344" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#475569" text-anchor="middle">terra (−)</text>
+<text x="696.0" y="420" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="middle">cor do fio:</text>
+<rect x="644" y="428" width="104" height="34" rx="8" fill="#ffffff" stroke="#64748b" stroke-width="2" stroke-dasharray="6 5"/>
+<rect x="774" y="224" width="128" height="250" rx="12" fill="#f1f5f9" stroke="#94a3b8" stroke-width="3"/>
+<text x="838.0" y="276" font-family="Segoe UI, Arial, sans-serif" font-size="44" font-weight="800" fill="#475569" text-anchor="middle">2</text>
+<text x="838.0" y="312" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700" fill="#0f172a" text-anchor="middle">Reservado</text>
+<text x="838.0" y="344" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#475569" text-anchor="middle">não ligar</text>
+<text x="838.0" y="420" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="middle">cor do fio:</text>
+<rect x="786" y="428" width="104" height="34" rx="8" fill="#ffffff" stroke="#64748b" stroke-width="2" stroke-dasharray="6 5"/>
+<rect x="916" y="224" width="128" height="250" rx="12" fill="#f1f5f9" stroke="#94a3b8" stroke-width="3"/>
+<text x="980.0" y="276" font-family="Segoe UI, Arial, sans-serif" font-size="44" font-weight="800" fill="#475569" text-anchor="middle">1</text>
+<text x="980.0" y="312" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700" fill="#0f172a" text-anchor="middle">HD</text>
+<text x="980.0" y="344" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#475569" text-anchor="middle">calibração</text>
+<text x="980.0" y="366" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#475569" text-anchor="middle">zero (não</text>
+<text x="980.0" y="388" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#475569" text-anchor="middle">usar)</text>
+<text x="980.0" y="420" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="middle">cor do fio:</text>
+<rect x="928" y="428" width="104" height="34" rx="8" fill="#ffffff" stroke="#64748b" stroke-width="2" stroke-dasharray="6 5"/>
+<text x="64" y="520" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">Legenda:</text>
+<rect x="64" y="530" width="22" height="20" rx="4" fill="#ffedd5" stroke="#64748b" stroke-width="1"/>
+<text x="98" y="546" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">Vin = +5 V (o único que pode queimar o sensor se errar)</text>
+<rect x="64" y="558" width="22" height="20" rx="4" fill="#e5e7eb" stroke="#64748b" stroke-width="1"/>
+<text x="98" y="574" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">GND</text>
+<rect x="64" y="586" width="22" height="20" rx="4" fill="#dbeafe" stroke="#64748b" stroke-width="1"/>
+<text x="98" y="602" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">TX do sensor → RX do ESP32</text>
+<rect x="64" y="614" width="22" height="20" rx="4" fill="#dcfce7" stroke="#64748b" stroke-width="1"/>
+<text x="98" y="630" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">RX do sensor ← TX do ESP32</text>
+<rect x="64" y="642" width="22" height="20" rx="4" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+<text x="98" y="658" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">pinos que ficam sem ligação</text>
+<text x="64" y="700" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="400" fill="#0f172a" text-anchor="start"></text>
+<rect x="40" y="710" width="1010" height="118" rx="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="64" y="746" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" fill="#0f172a" text-anchor="start">As 7 cores que o seu cabo tem (marque aqui cada uma que for usada):</text>
+<circle cx="90" cy="794" r="17" fill="#facc15" stroke="#334155" stroke-width="2"/>
+<text x="116" y="800" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="400" fill="#0f172a" text-anchor="start">amarelo</text>
+<circle cx="230" cy="794" r="17" fill="#22c55e" stroke="#334155" stroke-width="2"/>
+<text x="256" y="800" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="400" fill="#0f172a" text-anchor="start">verde</text>
+<circle cx="370" cy="794" r="17" fill="#3b82f6" stroke="#334155" stroke-width="2"/>
+<text x="396" y="800" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="400" fill="#0f172a" text-anchor="start">azul</text>
+<circle cx="510" cy="794" r="17" fill="#dc2626" stroke="#334155" stroke-width="2"/>
+<text x="536" y="800" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="400" fill="#0f172a" text-anchor="start">vermelho</text>
+<circle cx="650" cy="794" r="17" fill="#111827" stroke="#334155" stroke-width="2"/>
+<text x="676" y="800" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="400" fill="#0f172a" text-anchor="start">preto</text>
+<circle cx="790" cy="794" r="17" fill="#ffffff" stroke="#334155" stroke-width="2"/>
+<text x="816" y="800" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="400" fill="#0f172a" text-anchor="start">branco</text>
+<circle cx="930" cy="794" r="17" fill="#92400e" stroke="#334155" stroke-width="2"/>
+<text x="956" y="800" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="400" fill="#0f172a" text-anchor="start">marrom</text>
+<rect x="1070" y="130" width="890" height="698" rx="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="1094" y="168" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" fill="#0f172a" text-anchor="start">2) Como descobrir qual fio é qual — multímetro em CONTINUIDADE (bipe)</text>
+<text x="1094" y="196" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#b91c1c" text-anchor="start">Faça com tudo DESLIGADO: sensor fora do ESP32, DC-DC desligado, nada energizado.</text>
+<text x="1094" y="238" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="400" fill="#0f172a" text-anchor="start">a) Encaixe o cabo no sensor. Deixe as pontas do outro lado do cabo soltas, sem encostar umas nas outras.</text>
+<text x="1094" y="274" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="400" fill="#0f172a" text-anchor="start">b) Na placa do sensor, ache as marcações dos furos: Hd, SR, Tx, Rx, Vo (esq.) e PWM, AOT, GND, Vin (dir.).</text>
+<text x="1094" y="310" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="400" fill="#0f172a" text-anchor="start">c) Uma ponta do multímetro em UM furo da placa (ex.: GND); a outra, em cada uma das pontas dos 7 fios.</text>
+<text x="1094" y="346" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="400" fill="#0f172a" text-anchor="start">d) O fio que apitar é o daquele sinal. Anote a cor na caixa do pino correspondente (ex.: GND → pino 3).</text>
+<text x="1094" y="382" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="400" fill="#0f172a" text-anchor="start">e) Repita para Vin (pino 4), Tx (pino 6) e Rx (pino 5). Em PWM e Hd é só para conferir (pinos 7 e 1).</text>
+<text x="1094" y="418" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="400" fill="#0f172a" text-anchor="start">f) Confirmação final: entre o fio Vin e o fio GND NÃO pode apitar (se apitar = curto: não energize).</text>
+<text x="1094" y="454" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="400" fill="#0f172a" text-anchor="start">g) Sem marcações na placa: use a figura 'Fig.4' do manual como referência da ordem dos pinos e confirme</text>
+<text x="1094" y="490" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="400" fill="#0f172a" text-anchor="start">    cada fio com o teste de continuidade antes de energizar.</text>
+<rect x="1094" y="540" width="842" height="262" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+<text x="1114" y="574" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" fill="#9a3412" text-anchor="start">Regra de ouro (segurança)</text>
+<text x="1114" y="604" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">• Só o +5 V no pino errado queima o sensor. TX/RX trocados NÃO queimam nada (são 3,3 V): se o log mostrar</text>
+<text x="1114" y="631" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">   'sem resposta', é só trocar os dois fios de lugar.</text>
+<text x="1114" y="658" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">• Ligue o Vin só depois de a tabela estar completa e conferida.</text>
+<text x="1114" y="685" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">• A alimentação exige 5,0 V ±0,1 V e pelo menos 150 mA. Use a saída 5 V do conversor DC-DC,</text>
+<text x="1114" y="712" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">   não o pino '5V' do adaptador do ESP32 (lá aparecem ~0,6 V, é um diodo) e nunca o 3V3.</text>
+<text x="1114" y="739" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">• Não aperte a câmara dourada; mantenha a janela de difusão (filtro branco) livre e longe da névoa.</text>
+<rect x="40" y="850" width="1190" height="590" rx="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="64" y="888" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" fill="#0f172a" text-anchor="start">3) Ligação final (depois da tabela preenchida)</text>
+<rect x="80" y="920" width="300" height="360" rx="14" fill="#e2e8f0" stroke="#334155" stroke-width="3"/>
+<text x="230" y="954" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700" fill="#0f172a" text-anchor="middle">ESP32-S3</text>
+<text x="230" y="978" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#475569" text-anchor="middle">YD-ESP32-S3 44P</text>
+<circle cx="380" cy="1030" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="362" y="1036" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="end">GPIO16 (RX1)</text>
+<circle cx="380" cy="1100" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="362" y="1106" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="end">GPIO15 (TX1)</text>
+<circle cx="380" cy="1240" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="362" y="1246" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="end">GND</text>
+<rect x="560" y="1140" width="200" height="170" rx="12" fill="#fde68a" stroke="#92400e" stroke-width="3"/>
+<text x="660" y="1176" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" fill="#0f172a" text-anchor="middle">Conversor</text>
+<text x="660" y="1200" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="middle">DC-DC 5 V (3 A)</text>
+<text x="660" y="1226" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="middle">entrada 12/24 V</text>
+<text x="660" y="1290" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="middle">saída 5 V → direita</text>
+<rect x="930" y="920" width="270" height="400" rx="14" fill="#f1f5f9" stroke="#334155" stroke-width="3"/>
+<text x="1065" y="954" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700" fill="#0f172a" text-anchor="middle">MH-Z19C</text>
+<text x="1065" y="978" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#475569" text-anchor="middle">conector 7 vias</text>
+<circle cx="930" cy="1030" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="950" y="1036" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">TX (pino 6)</text>
+<circle cx="930" cy="1100" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="950" y="1106" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">RX (pino 5)</text>
+<circle cx="930" cy="1170" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="950" y="1176" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">Vin (pino 4)</text>
+<circle cx="930" cy="1240" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="950" y="1246" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">GND (pino 3)</text>
+<text x="1065" y="1296" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="middle">HD, PWM, Reservado: sem ligação</text>
+<path d="M380,1030 L930,1030" fill="none" stroke="#16a34a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M380,1100 L930,1100" fill="none" stroke="#2563eb" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M760,1170 L930,1170" fill="none" stroke="#ea580c" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M380,1240 L560,1240" fill="none" stroke="#111827" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M760,1240 L930,1240" fill="none" stroke="#111827" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="560" cy="1240" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<circle cx="760" cy="1240" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<circle cx="760" cy="1170" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="655" y="1018" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#16a34a" text-anchor="middle">TX do sensor  →  GPIO16</text>
+<text x="655" y="1088" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#2563eb" text-anchor="middle">GPIO15  →  RX do sensor</text>
+<text x="845" y="1158" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#ea580c" text-anchor="middle">+5 V</text>
+<text x="845" y="1228" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#0f172a" text-anchor="middle">GND</text>
+<text x="470" y="1228" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#0f172a" text-anchor="middle">GND comum</text>
+<rect x="840" y="1346" width="360" height="76" rx="10" fill="#ecfdf5" stroke="#16a34a" stroke-width="2"/>
+<text x="858" y="1376" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#0f172a" text-anchor="start">Recomendado: 220–470 µF + 100 nF</text>
+<text x="858" y="1402" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#475569" text-anchor="start">entre Vin e GND, junto ao sensor (pico 125 mA)</text>
+<text x="80" y="1330" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">Alimentação: 5,0 V ±0,1 V e ≥ 150 mA (fio curto e grosso).</text>
+<text x="80" y="1356" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">Os fios TX/RX são 3,3 V: ligam direto, sem conversor.</text>
+<text x="80" y="1382" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">HD e PWM ficam soltos; isole as pontas com fita.</text>
+<rect x="1250" y="850" width="710" height="590" rx="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+<text x="1274" y="888" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" fill="#0f172a" text-anchor="start">4) O que o firmware já faz e o que esperar</text>
+<text x="1274" y="930" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">• UART1 9600 8N1: GPIO16 lê o TX do sensor, GPIO15 envia ao RX.</text>
+<text x="1274" y="957" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">• Comando de leitura: FF 01 86 00 00 00 00 00 79 (resposta FF 86 HH LL … CS).</text>
+<text x="1274" y="984" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">• Ignora os 3 primeiros minutos (aquecimento) e valores fora de 300–10000 ppm.</text>
+<text x="1274" y="1011" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">• Desliga a autocalibração (ABC) uma vez: numa caixa fechada com ovos o CO₂</text>
+<text x="1274" y="1038" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">   quase nunca volta a 400 ppm e o ABC faria o sensor 'zerar' no valor errado.</text>
+<text x="1274" y="1065" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">• Faixa do MH-Z19C: 400 a 5000 ppm (precisão ±(50 ppm + 5 %)). Incubadora</text>
+<text x="1274" y="1092" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">   costuma ficar entre 1000 e 3000 ppm: dentro da faixa.</text>
+<text x="1274" y="1119" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">• Sem resposta no log = TX/RX trocados ou 5 V fora de 4,9–5,1 V.</text>
+<text x="1274" y="1146" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">• O valor aparece no card CO₂ do aparelho e do PWA (via heartbeat, ~1 min).</text>
+<text x="1274" y="1173" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">• As regras do fan de Renovação por CO₂ continuam INATIVAS até você pedir.</text>
+<text x="1274" y="1200" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start"></text>
+<text x="1274" y="1227" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">Instalação: longe da resistência (limite 50 °C), da névoa do umidificador</text>
+<text x="1274" y="1254" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">e da saída do ventilador; janela de difusão livre; sem condensação.</text>
+<text x="1274" y="1281" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">Calibração manual a cada ≤ 6 meses: ar livre (~400 ppm) por 20 min e</text>
+<text x="1274" y="1308" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">fio HD em 0 V por 7 s (uma única vez, fora da caixa).</text>
+</svg>

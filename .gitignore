@@ -1,0 +1,31 @@
+# ───────────── SEGREDOS — NUNCA commitar ─────────────
+firmware/src/firebase_credentials.h
+camera/src/servidor/wifi_config.h
+*firebase-adminsdk*.json
+serviceAccount*.json
+.env
+.env.*
+*.pem
+*.key
+pwa/.firebaserc
+
+# ───────────── build / editor / cache ─────────────
+.pio/
+.vscode/
+.idea/
+.firebase/
+node_modules/
+*.elf
+*.bin
+*.map
+__pycache__/
+*.pyc
+
+# ───────────── backups locais ─────────────
+*.bk
+*.orig
+*.rej
+
+# ───────────── sistema ─────────────
+Thumbs.db
+.DS_Store

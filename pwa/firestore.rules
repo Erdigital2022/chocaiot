@@ -1,0 +1,261 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ═══════════════════════════════════════════════════════════
+    // FUNÇÕES AUXILIARES
+    // ═══════════════════════════════════════════════════════════
+
+    function estaLogado() {
+      return request.auth != null;
+    }
+
+    function ehOProprioUsuario(uid) {
+      return estaLogado() && request.auth.uid == uid;
+    }
+
+    function ehDonoDaChocadeira() {
+      return estaLogado() &&
+             request.auth.uid == resource.data.donoId;
+    }
+
+    function ehDonoNaCriacao() {
+      return estaLogado() &&
+             request.auth.uid == request.resource.data.donoId;
+    }
+
+    // NOVO: garante que ninguém (nem o próprio dono, por bug no app)
+    // consiga trocar o donoId de uma chocadeira já existente num update.
+    // Sem isso, um update mal-feito poderia "transferir" a chocadeira
+    // pra outro uid.
+    function donoIdNaoMudou() {
+      return request.resource.data.donoId == resource.data.donoId;
+    }
+
+    // Vínculo (pairing): o documento da chocadeira já existe (criado junto
+    // com o firmware, ID fixo — ver FIRESTORE_DOCUMENT_PATH no main.cpp),
+    // então "vincular" é um update, não um create. Só é permitido quando o
+    // dispositivo ainda não tem dono (senão qualquer um poderia "roubar" uma
+    // chocadeira já vinculada) e a escrita mexe SÓ no campo donoId — nenhum
+    // outro dado pode ser alterado nesse mesmo golpe.
+    function ehClaimValido() {
+      return estaLogado() &&
+             !("donoId" in resource.data) &&
+             request.resource.data.donoId == request.auth.uid &&
+             request.resource.data.diff(resource.data).affectedKeys().hasOnly(["donoId"]);
+    }
+
+    // ═══════════════════════════════════════════════════════════
+    // Fase 88 — COMPARTILHAMENTO: chocadeiras/{id}/shared_with/{email-minusculo}
+    // O convite é um documento cujo ID é o e-mail do convidado (minúsculo). O convidado só
+    // enxerga/aceita o convite se entrar com ESSE e-mail (Google, verificado) e mandar o token
+    // do link. Permissões (array): "ver" · "ch0".."ch7" (atuador) · "ciclo" · "total".
+    // ═══════════════════════════════════════════════════════════
+    function emailLogado() {
+      return request.auth.token.email.lower();
+    }
+    function convPath(id) {
+      return /databases/$(database)/documents/chocadeiras/$(id)/shared_with/$(emailLogado());
+    }
+    function ehConvidado(id) {
+      return estaLogado() && request.auth.token.email != null && request.auth.token.email_verified == true &&
+             exists(convPath(id)) &&
+             get(convPath(id)).data.status == "aceito" &&
+             get(convPath(id)).data.uid == request.auth.uid;
+    }
+    function convPerms(id) {
+      return get(convPath(id)).data.permissoes;
+    }
+    function convTotal(id) {
+      return ehConvidado(id) && ("total" in convPerms(id));
+    }
+    function donoDe(id) {
+      return get(/databases/$(database)/documents/chocadeiras/$(id)).data.donoId == request.auth.uid;
+    }
+    // Leitura das subcoleções de monitoramento: dono OU convidado aceito
+    function podeVer(id) {
+      return estaLogado() && (donoDe(id) || ehConvidado(id));
+    }
+    function cicloCampos() {
+      return ["cicloIniciadoEm","cicloPausadoEm","cicloDuracaoDias","cicloNome","cicloTipoNome","cicloExtra"];
+    }
+    // Fase 89 — registro de auditoria feito pelo APP (quem fez o quê): o dono ou o convidado cria uma linha em logs/ com o
+    // próprio e-mail verificado (não dá para assinar como outra pessoa). Convidado só registra o que a permissão dele permite.
+    function logAppValido(id) {
+      let d = request.resource.data;
+      return d.keys().hasOnly(["categoria","mensagem","ator","papel","origem","timestamp"]) &&
+             d.categoria in ["Atuador","Ciclo","Comando","Automacao","Compartilhamento"] &&
+             d.mensagem is string && d.mensagem.size() > 0 && d.mensagem.size() <= 240 &&
+             d.ator == request.auth.token.email && d.origem == "app" && d.timestamp == request.time &&
+             (donoDe(id) || convTotal(id) ||
+              (ehConvidado(id) && ((d.categoria == "Ciclo" && ("ciclo" in convPerms(id))) ||
+                                   (d.categoria == "Atuador" && convPerms(id).hasAny(["ch0","ch1","ch2","ch3","ch4","ch5","ch6","ch7"])))));
+    }
+    // Fase 90 — registro de ACESSOS (segurança): cada pessoa (dono ou convidado aceito) grava só eventos sobre si mesma, com o próprio e-mail
+    // verificado e hora do servidor. Coleta mínima: quem, quando, tipo de aparelho/navegador, idioma, fuso, tamanho de tela.
+    // NÃO coleta IP, localização nem identificadores de publicidade. O dono lê tudo; cada pessoa lê e apaga o que é dela.
+    function acessoValido(id) {
+      let d = request.resource.data;
+      return d.keys().hasOnly(["evento","ator","uid","papel","deviceId","dispositivo","novo","detalhe","timestamp"]) &&
+             d.evento in ["abertura","novo_dispositivo","negado","convite_aceito","saida"] &&
+             d.ator == request.auth.token.email && d.uid == request.auth.uid && d.timestamp == request.time &&
+             d.deviceId is string && d.deviceId.size() >= 8 && d.deviceId.size() <= 32 &&
+             d.dispositivo is map && d.dispositivo.keys().hasOnly(["plataforma","navegador","instalado","idioma","fuso","tela"]) &&
+             (!("detalhe" in d) || (d.detalhe is string && d.detalhe.size() <= 160)) &&
+             (donoDe(id) || ehConvidado(id));
+    }
+    // Escrita do CONVIDADO no documento da chocadeira (o dono continua com a regra antiga)
+    function convidadoPodeEscrever(id) {
+      let d = request.resource.data;
+      let r = resource.data;
+      let topo = d.diff(r).affectedKeys();
+      let perms = convPerms(id);
+      return ehConvidado(id) && d.donoId == r.donoId && (
+        // controle total: tudo que o dono faz no dia a dia (menos donoId/pushTokens/compartilhamento)
+        ("total" in perms && topo.hasOnly(["atuadores","cmd","comandoDesligar","comandoReiniciar","tiposOvos","nome","arquivoReq"].concat(cicloCampos())))
+        ||
+        // parcial: só os atuadores marcados (+ "cmd.vivo"), e o ciclo se tiver "ciclo"
+        (topo.hasOnly(["atuadores","cmd"].concat("ciclo" in perms ? cicloCampos() : [])) &&
+         (!("atuadores" in topo) || d.get("atuadores", {}).diff(r.get("atuadores", {})).affectedKeys().hasOnly(perms)) &&
+         (!("cmd" in topo) || d.get("cmd", {}).diff(r.get("cmd", {})).affectedKeys().hasOnly(["vivo","convite","seg"].concat("ciclo" in perms ? ["fimTipo"] : []))))
+      );
+    }
+
+    // ═══════════════════════════════════════════════════════════
+    // COLEÇÃO: usuarios/{uid}
+    // ═══════════════════════════════════════════════════════════
+    match /usuarios/{uid} {
+      allow read: if ehOProprioUsuario(uid);
+      allow create: if ehOProprioUsuario(uid);
+      allow update: if ehOProprioUsuario(uid);
+      allow delete: if false; // nunca permitir deletar usuário via cliente
+    }
+
+    // ═══════════════════════════════════════════════════════════
+    // COLEÇÃO: chocadeiras/{chocadeiraId}
+    // ═══════════════════════════════════════════════════════════
+    match /chocadeiras/{chocadeiraId} {
+      allow read: if ehDonoDaChocadeira() || ehConvidado(chocadeiraId);
+      allow create: if ehDonoNaCriacao();
+      allow update: if (ehDonoDaChocadeira() && donoIdNaoMudou()) || ehClaimValido() || convidadoPodeEscrever(chocadeiraId);
+      allow delete: if ehDonoDaChocadeira();
+
+      match /configuracoes/{configId} {
+        allow read, write: if get(/databases/$(database)/documents/chocadeiras/$(chocadeiraId)).data.donoId == request.auth.uid;
+      }
+
+      // O ESP32 escreve via Service Account/Admin SDK (não passa por
+      // estas regras — Admin SDK ignora Security Rules por padrão).
+      // Estas regras de "create" abaixo só importam se um dia o PWA
+      // também passar a escrever leituras diretamente pelo client SDK.
+      match /leituras/{leituraId} {
+        allow read: if get(/databases/$(database)/documents/chocadeiras/$(chocadeiraId)).data.donoId == request.auth.uid || ehConvidado(chocadeiraId);
+        allow create: if get(/databases/$(database)/documents/chocadeiras/$(chocadeiraId)).data.donoId == request.auth.uid;
+        allow update: if false;
+        allow delete: if false;
+      }
+
+      // Fase 29 — descoberto que esta subcoleção NUNCA tinha uma regra
+      // própria (subcoleções não herdam `allow` do documento pai no
+      // Firestore — precisam de `match` explícito, igual `leituras`
+      // acima). Resultado: a seção "Logs" do PWA sempre rodava
+      // `onSnapshot` contra esta coleção, mas todo `read` batia em
+      // permission-denied por baixo do bloqueio padrão no fim deste
+      // arquivo — a lista sempre aparecia vazia, mesmo com o firmware
+      // gravando normalmente via Admin SDK (que ignora estas regras).
+      // O ESP32 continua sendo o único a CRIAR (`create: false` aqui);
+      // `delete` liberado pro dono porque o botão de lixeira do PWA
+      // (Fase 29) agora apaga o histórico sincronizado direto pelo
+      // client SDK.
+      match /logs/{logId} {
+        allow read: if get(/databases/$(database)/documents/chocadeiras/$(chocadeiraId)).data.donoId == request.auth.uid || ehConvidado(chocadeiraId);
+        allow create: if estaLogado() && logAppValido(chocadeiraId);   // Fase 89: auditoria feita pelo app (firmware grava via Admin)
+        allow update: if false;
+        allow delete: if get(/databases/$(database)/documents/chocadeiras/$(chocadeiraId)).data.donoId == request.auth.uid;
+      }
+
+      // Fase 41 — gerenciador de arquivos do SD: `indice` (lista de arquivos)
+      // e `conteudo` (o arquivo pedido, em base64) são escritos só pelo
+      // firmware (Admin, ignora Rules). O dono só LÊ; o pedido em si vai
+      // pelo campo `arquivoReq` do doc da chocadeira (update do dono, já liberado).
+      match /arquivos/{docId} {
+        allow read: if get(/databases/$(database)/documents/chocadeiras/$(chocadeiraId)).data.donoId == request.auth.uid || convTotal(chocadeiraId);
+        allow write: if false;
+      }
+
+      // Fase 47 — historico de temperatura/umidade: 1 documento por dia (AAAA-MM-DD), escrito
+      // so pelo firmware (Admin). O dono le (7 leituras = 7 dias no grafico).
+      match /historico/{diaId} {
+        allow read: if get(/databases/$(database)/documents/chocadeiras/$(chocadeiraId)).data.donoId == request.auth.uid || ehConvidado(chocadeiraId);
+        allow write: if false;
+      }
+
+      // Fase 48 — relatorios de ciclos encerrados: criados pelo firmware; o dono le e pode excluir.
+      match /ciclos/{cicloId} {
+        allow read: if get(/databases/$(database)/documents/chocadeiras/$(chocadeiraId)).data.donoId == request.auth.uid || ehConvidado(chocadeiraId);
+        allow create, update: if false;
+        allow delete: if get(/databases/$(database)/documents/chocadeiras/$(chocadeiraId)).data.donoId == request.auth.uid;
+      }
+
+      // Fase 51 — envio de midia do PWA para o aparelho: o dono cria/atualiza/le/apaga o documento
+      // "atual" (imagem em base64 + pedido); o firmware (Admin) le, grava no SD e responde em "status".
+      match /uploads/{docId} {
+        allow read, create, update, delete: if get(/databases/$(database)/documents/chocadeiras/$(chocadeiraId)).data.donoId == request.auth.uid;
+      }
+
+      // Fase 88 — convites/compartilhamento. ID do documento = e-mail do convidado (minúsculo).
+      match /shared_with/{convId} {
+        // dono lê tudo; o convidado lê SÓ o próprio convite (get pelo e-mail dele)
+        allow read: if estaLogado() && (donoDe(chocadeiraId) ||
+                       (request.auth.token.email != null && request.auth.token.email_verified == true && request.auth.token.email.lower() == convId));
+        // só o dono cria convites (id = e-mail do convidado; nasce "pendente"; token obrigatório; nunca para si mesmo como convidado)
+        allow create: if estaLogado() && donoDe(chocadeiraId) &&
+                       request.resource.data.email.lower() == convId &&
+                       request.resource.data.status == "pendente" &&
+                       request.resource.data.token is string && request.resource.data.token.size() >= 16 &&
+                       request.resource.data.permissoes is list && request.resource.data.permissoes.hasAny(["ver"]);
+        // dono: edita permissões, revoga, reenvia (novo token / volta a "pendente"); nunca troca o e-mail
+        allow update: if estaLogado() && donoDe(chocadeiraId) && request.resource.data.email == resource.data.email
+                       ||
+                       // convidado: aceitar/recusar o convite pendente com o token do link
+                       (estaLogado() && request.auth.token.email != null && request.auth.token.email_verified == true &&
+                        request.auth.token.email.lower() == convId &&
+                        resource.data.status == "pendente" &&
+                        request.resource.data.status in ["aceito","recusado"] &&
+                        request.resource.data.tokenAceite == resource.data.token &&
+                        (request.resource.data.status == "recusado" || request.resource.data.uid == request.auth.uid) &&
+                        request.resource.data.diff(resource.data).affectedKeys().hasOnly(["status","uid","respondidoEm","tokenAceite","nomeConvidado","ultimoAcesso"]))
+                       ||
+                       // convidado já aceito: só atualiza o "último acesso"
+                       (estaLogado() && request.auth.token.email != null && request.auth.token.email.lower() == convId &&
+                        resource.data.status == "aceito" && resource.data.uid == request.auth.uid &&
+                        request.resource.data.diff(resource.data).affectedKeys().hasOnly(["ultimoAcesso"]));
+        // dono remove; o convidado pode sair (apagar o próprio convite)
+        allow delete: if estaLogado() && (donoDe(chocadeiraId) ||
+                       (request.auth.token.email != null && request.auth.token.email.lower() == convId));
+      }
+
+      // Fase 90 — acessos (auditoria de segurança do PWA)
+      match /acessos/{docId} {
+        allow read: if estaLogado() && (donoDe(chocadeiraId) || resource.data.uid == request.auth.uid);
+        allow create: if estaLogado() && acessoValido(chocadeiraId);
+        allow update: if false;
+        allow delete: if estaLogado() && (donoDe(chocadeiraId) || resource.data.uid == request.auth.uid);
+      }
+
+      // Fase 50 — foto da camera (doc "ultima"): escrita so pelo modulo de camera (Admin).
+      match /camera/{docId} {
+        allow read: if get(/databases/$(database)/documents/chocadeiras/$(chocadeiraId)).data.donoId == request.auth.uid || ehConvidado(chocadeiraId);
+        allow write: if false;
+      }
+    }
+
+    // ═══════════════════════════════════════════════════════════
+    // BLOQUEIO PADRÃO
+    // ═══════════════════════════════════════════════════════════
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

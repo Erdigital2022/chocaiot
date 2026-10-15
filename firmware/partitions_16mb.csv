@@ -1,0 +1,17 @@
+# partitions_16mb.csv
+# ChocaIoT — tabela de partições customizada para ESP32-S3-WROOM-1 N16R8 (16MB flash)
+#
+# Por que isso existe: o default_16MB.csv que apareceu no seu projeto só tem
+# nvs + phy_init + factory (1MB de app, sem nenhuma partição de sistema de
+# arquivos). Isso bate de frente com `board_build.filesystem = littlefs` no
+# platformio.ini, e 1MB de app é pouco com TFT_eSPI + FirebaseClient + WiFiManager
+# todos juntos. Esta tabela usa o espaço real dos 16MB e inclui OTA (2 slots,
+# pra você reaproveitar o padrão que já usa no MotoControl Pro) + LittleFS.
+#
+# Name,     Type, SubType,  Offset,    Size,     Flags
+nvs,        data, nvs,      0x9000,    0x5000,
+otadata,    data, ota,      0xe000,    0x2000,
+app0,       app,  ota_0,    0x10000,   0x500000,
+app1,       app,  ota_1,    0x510000,  0x500000,
+littlefs,   data, spiffs,   0xa10000,  0x5e0000,
+coredump,   data, coredump, 0xff0000,  0x10000,

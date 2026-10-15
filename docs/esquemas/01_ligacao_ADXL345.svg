@@ -1,0 +1,229 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2560" height="1740" viewBox="0 0 2560 1740"><rect width="100%" height="100%" fill="#f8fafc"/><text x="60" y="70" font-family="Segoe UI, Arial, sans-serif" font-size="38" font-weight="700" fill="#0f172a" text-anchor="start">ADXL345 — ligação ao ChocaIoT (I2C, mesmo barramento do relógio e do SHT31)</text>
+<text x="60" y="106" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="400" fill="#475569" text-anchor="start">Peças já ligadas em cinza; ADXL345 (NOVO) em destaque. Ajustado ao esquemático do fabricante (ME6206-33, R4/R5 0 Ω, R6 10 kΩ). Confira a fiação real antes de energizar.</text>
+<rect x="80" y="160" width="440" height="960" rx="14" fill="#e2e8f0" stroke="#334155" stroke-width="3"/>
+<text x="300" y="200" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="700" fill="#0f172a" text-anchor="middle">ESP32-S3</text>
+<text x="300" y="228" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="400" fill="#475569" text-anchor="middle">YD-ESP32-S3 44P · N16R8</text>
+<text x="104" y="640" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#334155" text-anchor="start">Outros usos dos pinos (já ligados):</text>
+<text x="104" y="662" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#334155" text-anchor="start">· Display ILI9341 / touch / SD:</text>
+<text x="104" y="684" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#334155" text-anchor="start">  GPIO 11 MOSI · 13 MISO · 12 SCK</text>
+<text x="104" y="706" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#334155" text-anchor="start">  10 CS · 14 DC · 21 RST · 48 T_CS · 18 SD_CS</text>
+<text x="104" y="728" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#334155" text-anchor="start">· Módulo de relé (IN1…IN8):</text>
+<text x="104" y="750" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#334155" text-anchor="start">  GPIO 1 · 2 · 38 · 39 · 40 · 41 · 42 · 7</text>
+<text x="104" y="772" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#334155" text-anchor="start">· Reservados (futuro): 4/5/6 PWM fans,</text>
+<text x="104" y="794" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#334155" text-anchor="start">  15/16/17 tacômetro, 47 backlight</text>
+<text x="500" y="226" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#0f172a" text-anchor="end">3V3</text>
+<circle cx="520" cy="220" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="500" y="306" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#0f172a" text-anchor="end">GPIO8  ·  SDA</text>
+<circle cx="520" cy="300" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="500" y="386" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#0f172a" text-anchor="end">GPIO9  ·  SCL</text>
+<circle cx="520" cy="380" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="500" y="466" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#0f172a" text-anchor="end">GND</text>
+<circle cx="520" cy="460" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<circle cx="360" cy="1120" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="360" y="1100" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#0f172a" text-anchor="middle">5V</text>
+<circle cx="440" cy="1120" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="440" y="1100" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#0f172a" text-anchor="middle">GND</text>
+<path d="M520,220 L880,220 L880,770" fill="none" stroke="#ea580c" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M520,300 L820,300 L820,1000" fill="none" stroke="#16a34a" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M520,380 L760,380 L760,1030" fill="none" stroke="#d4a000" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M520,460 L700,460 L700,1560" fill="none" stroke="#111827" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="880" cy="220" r="7" fill="#ea580c" stroke="#fff" stroke-width="2"/>
+<circle cx="820" cy="300" r="7" fill="#16a34a" stroke="#fff" stroke-width="2"/>
+<circle cx="760" cy="380" r="7" fill="#d4a000" stroke="#fff" stroke-width="2"/>
+<circle cx="700" cy="460" r="7" fill="#111827" stroke="#fff" stroke-width="2"/>
+<text x="700" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="400" fill="#475569" text-anchor="start">barramento I2C + alimentação dos sensores</text>
+<text x="692" y="190" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#111827" text-anchor="start">GND</text>
+<text x="752" y="190" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#d4a000" text-anchor="start">SCL</text>
+<text x="812" y="190" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#16a34a" text-anchor="start">SDA</text>
+<text x="872" y="190" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#ea580c" text-anchor="start">3V3</text>
+<rect x="1000" y="500" width="330" height="220" rx="12" fill="#e2e8f0" stroke="#475569" stroke-width="2.5"/>
+<text x="1185.0" y="532" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" fill="#0f172a" text-anchor="middle">Relógio DS3231</text>
+<text x="1185.0" y="556" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#475569" text-anchor="middle">I2C 0x68 (+ EEPROM 0x57)</text>
+<circle cx="1000" cy="550" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="1018" y="556" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#0f172a" text-anchor="start">VCC</text>
+<circle cx="1000" cy="590" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="1018" y="596" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#0f172a" text-anchor="start">SDA</text>
+<circle cx="1000" cy="630" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="1018" y="636" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#0f172a" text-anchor="start">SCL</text>
+<circle cx="1000" cy="670" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="1018" y="676" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#0f172a" text-anchor="start">GND</text>
+<path d="M880,550 L1000,550" fill="none" stroke="#ea580c" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="880" cy="550" r="6" fill="#ea580c" stroke="#fff" stroke-width="2"/>
+<path d="M820,590 L871,590 A9,9 0 0 1 889,590 L1000,590" fill="none" stroke="#16a34a" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="820" cy="590" r="6" fill="#16a34a" stroke="#fff" stroke-width="2"/>
+<path d="M760,630 L811,630 A9,9 0 0 1 829,630 L871,630 A9,9 0 0 1 889,630 L1000,630" fill="none" stroke="#d4a000" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="760" cy="630" r="6" fill="#d4a000" stroke="#fff" stroke-width="2"/>
+<path d="M700,670 L751,670 A9,9 0 0 1 769,670 L811,670 A9,9 0 0 1 829,670 L871,670 A9,9 0 0 1 889,670 L1000,670" fill="none" stroke="#111827" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="700" cy="670" r="6" fill="#111827" stroke="#fff" stroke-width="2"/>
+<rect x="1000" y="740" width="330" height="220" rx="12" fill="#e2e8f0" stroke="#475569" stroke-width="2.5"/>
+<text x="1185.0" y="772" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" fill="#0f172a" text-anchor="middle">Sonda SHT31 (IP68)</text>
+<text x="1185.0" y="796" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#475569" text-anchor="middle">I2C 0x44 · temperatura e umidade</text>
+<circle cx="1000" cy="810" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="1018" y="816" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#0f172a" text-anchor="start">VCC  (vermelho)</text>
+<circle cx="1000" cy="850" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="1018" y="856" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#0f172a" text-anchor="start">SDA  (verde)</text>
+<circle cx="1000" cy="890" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="1018" y="896" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#0f172a" text-anchor="start">SCL  (amarelo)</text>
+<circle cx="1000" cy="930" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="1018" y="936" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" fill="#0f172a" text-anchor="start">GND  (preto)</text>
+<path d="M880,810 L1000,810" fill="none" stroke="#ea580c" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="880" cy="810" r="6" fill="#ea580c" stroke="#fff" stroke-width="2"/>
+<path d="M820,850 L1000,850" fill="none" stroke="#16a34a" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="820" cy="850" r="6" fill="#16a34a" stroke="#fff" stroke-width="2"/>
+<path d="M760,890 L811,890 A9,9 0 0 1 829,890 L1000,890" fill="none" stroke="#d4a000" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="760" cy="890" r="6" fill="#d4a000" stroke="#fff" stroke-width="2"/>
+<path d="M700,930 L751,930 A9,9 0 0 1 769,930 L811,930 A9,9 0 0 1 829,930 L1000,930" fill="none" stroke="#111827" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="700" cy="930" r="6" fill="#111827" stroke="#fff" stroke-width="2"/>
+<path d="M880,770 L880,810" fill="none" stroke="#ea580c" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="1080" y="1020" width="560" height="320" rx="18" fill="none" stroke="#16a34a" stroke-width="4" stroke-dasharray="14 8"/>
+<rect x="1100" y="1060" width="520" height="240" rx="14" fill="#1e5fa8" stroke="#0b3a6e" stroke-width="3"/>
+<rect x="1140" y="1100" width="150" height="110" rx="6" fill="#111" stroke="#444" stroke-width="2"/>
+<text x="1215" y="1148" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" fill="#e5e7eb" text-anchor="middle">ADXL345</text>
+<text x="1215" y="1175" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#cbd5e1" text-anchor="middle">U1 · acelerômetro 3 eixos</text>
+<rect x="1380" y="1105" width="100" height="70" rx="6" fill="#222" stroke="#555" stroke-width="2"/>
+<text x="1430" y="1136" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#e5e7eb" text-anchor="middle">regulador</text>
+<text x="1430" y="1156" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#cbd5e1" text-anchor="middle">5V → 3,3V</text>
+<circle cx="1330" cy="1230" r="9" fill="#ef4444" stroke="#7f1d1d" stroke-width="2"/>
+<text x="1346" y="1236" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#e5e7eb" text-anchor="start">D1 (LED)</text>
+<g stroke="#fff" stroke-width="3" fill="none"><line x1="1530" y1="1230" x2="1530" y2="1160"/><line x1="1530" y1="1230" x2="1590" y2="1200"/><line x1="1530" y1="1230" x2="1500" y2="1200"/></g>
+<text x="1536" y="1152" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#fff" text-anchor="start">Z (cima)</text>
+<text x="1592" y="1200" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#fff" text-anchor="start">X</text>
+<text x="1480" y="1196" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#fff" text-anchor="start">Y</text>
+<rect x="1100" y="1000" width="0" height="0"/>
+<rect x="1420" y="990" width="200" height="34" rx="17" fill="#16a34a" stroke="#166534" stroke-width="2"/>
+<text x="1520" y="1013" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#fff" text-anchor="middle">NOVO · ADXL345</text>
+<circle cx="1150" cy="1060" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="1150" y="1086" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">SCL</text>
+<circle cx="1230" cy="1060" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="1230" y="1086" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">SDA</text>
+<circle cx="1310" cy="1060" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="1310" y="1086" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">SDO</text>
+<circle cx="1390" cy="1060" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="1390" y="1086" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">INT2</text>
+<circle cx="1470" cy="1060" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="1470" y="1086" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">INT1</text>
+<path d="M820,1000 L1230,1000 L1230,1060" fill="none" stroke="#16a34a" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="820" cy="1000" r="6" fill="#16a34a" stroke="#fff" stroke-width="2"/>
+<path d="M760,1030 L1150,1030 L1150,1060" fill="none" stroke="#d4a000" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="760" cy="1030" r="6" fill="#d4a000" stroke="#fff" stroke-width="2"/>
+<text x="1060" y="992" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#16a34a" text-anchor="end">SDA</text>
+<text x="1060" y="1022" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#d4a000" text-anchor="end">SCL</text>
+<text x="1310" y="1046" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#475569" text-anchor="middle">livre</text>
+<text x="1390" y="1046" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#475569" text-anchor="middle">livre</text>
+<text x="1470" y="1046" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#475569" text-anchor="middle">livre</text>
+<circle cx="1150" cy="1300" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="1150" y="1288" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">5V</text>
+<circle cx="1230" cy="1300" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="1230" y="1288" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">3V3</text>
+<circle cx="1310" cy="1300" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="1310" y="1288" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">GND</text>
+<circle cx="1390" cy="1300" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="1390" y="1288" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">VS</text>
+<circle cx="1470" cy="1300" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="1470" y="1288" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">CS</text>
+<path d="M1150,1300 L1150,1400" fill="none" stroke="#dc2626" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M1310,1300 L1310,1560" fill="none" stroke="#111827" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M1470,1300 L1470,1350 L1319,1350 A9,9 0 0 0 1301,1350 L1230,1350 L1230,1300" fill="none" stroke="#ea580c" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="1330" y="1378" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#ea580c" text-anchor="start">jumper CS → 3V3 (como no esquema do fabricante)</text>
+<text x="1390" y="1330" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#475569" text-anchor="middle">livre</text>
+<rect x="60" y="1300" width="240" height="320" rx="14" fill="#fef3c7" stroke="#a16207" stroke-width="3"/>
+<text x="180" y="1338" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" fill="#0f172a" text-anchor="middle">Conversor</text>
+<text x="180" y="1364" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" fill="#0f172a" text-anchor="middle">DC-DC step-down</text>
+<text x="80" y="1410" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#475569" text-anchor="start">entrada 12/24 V DC</text>
+<text x="80" y="1432" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#475569" text-anchor="start">saída 5 V · 3 A</text>
+<text x="180" y="1490" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="middle">alimenta: bobinas dos relés,</text>
+<text x="180" y="1510" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#475569" text-anchor="middle">display e pino 5V do ESP32</text>
+<circle cx="300" cy="1400" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="318" y="1388" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#dc2626" text-anchor="start">+5V</text>
+<circle cx="300" cy="1560" r="7" fill="#e5b73b" stroke="#7a5b00" stroke-width="2"/>
+<text x="318" y="1548" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#111827" text-anchor="start">GND</text>
+<path d="M300,1400 L691,1400 A9,9 0 0 1 709,1400 L1150,1400" fill="none" stroke="#dc2626" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M300,1560 L1310,1560" fill="none" stroke="#111827" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="1310" cy="1560" r="6" fill="#111827" stroke="#fff" stroke-width="2"/>
+<circle cx="700" cy="1560" r="6" fill="#111827" stroke="#fff" stroke-width="2"/>
+<path d="M360,1120 L360,1400" fill="none" stroke="#dc2626" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="360" cy="1400" r="6" fill="#dc2626" stroke="#fff" stroke-width="2"/>
+<path d="M440,1120 L440,1560" fill="none" stroke="#111827" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="440" cy="1560" r="6" fill="#111827" stroke="#fff" stroke-width="2"/>
+<text x="1140" y="1426" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#dc2626" text-anchor="end">+5 V do mesmo trilho do relé/display</text>
+<text x="1000" y="1584" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#111827" text-anchor="start">GND comum (todos os GND ligados juntos)</text>
+<rect x="1980" y="150" width="530" height="470" rx="12" fill="#fff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="2000" y="190" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" fill="#0f172a" text-anchor="start">Tabela de ligação do ADXL345</text>
+<text x="2000" y="226" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#475569" text-anchor="start">Pino do módulo</text>
+<text x="2160" y="226" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#475569" text-anchor="start">Vai para</text>
+<text x="2420" y="226" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#475569" text-anchor="start">Fio</text>
+<rect x="1992" y="236" width="6" height="28" fill="#d4a000" rx="3"/>
+<text x="2008" y="258" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">SCL</text>
+<text x="2160" y="258" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">GPIO9 (SCL)</text>
+<text x="2420" y="258" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#475569" text-anchor="start">amarelo</text>
+<rect x="1992" y="272" width="6" height="28" fill="#16a34a" rx="3"/>
+<text x="2008" y="294" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">SDA</text>
+<text x="2160" y="294" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">GPIO8 (SDA)</text>
+<text x="2420" y="294" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#475569" text-anchor="start">verde</text>
+<rect x="1992" y="308" width="6" height="28" fill="#dc2626" rx="3"/>
+<text x="2008" y="330" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">5V</text>
+<text x="2160" y="330" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">+5 V do DC-DC</text>
+<text x="2420" y="330" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#475569" text-anchor="start">vermelho</text>
+<rect x="1992" y="344" width="6" height="28" fill="#111827" rx="3"/>
+<text x="2008" y="366" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">GND</text>
+<text x="2160" y="366" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">GND comum</text>
+<text x="2420" y="366" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#475569" text-anchor="start">preto</text>
+<rect x="1992" y="380" width="6" height="28" fill="#ea580c" rx="3"/>
+<text x="2008" y="402" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">CS</text>
+<text x="2160" y="402" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">pino 3V3 do módulo (jumper)</text>
+<text x="2420" y="402" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#475569" text-anchor="start">laranja</text>
+<rect x="1992" y="416" width="6" height="28" fill="#94a3b8" rx="3"/>
+<text x="2008" y="438" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">3V3</text>
+<text x="2160" y="438" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">SAÍDA 3,3 V (só o jumper do CS)</text>
+<text x="2420" y="438" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#475569" text-anchor="start">—</text>
+<rect x="1992" y="452" width="6" height="28" fill="#94a3b8" rx="3"/>
+<text x="2008" y="474" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">SDO</text>
+<text x="2160" y="474" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">livre (R4 0 Ω já põe no GND)</text>
+<text x="2420" y="474" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#475569" text-anchor="start">—</text>
+<rect x="1992" y="488" width="6" height="28" fill="#94a3b8" rx="3"/>
+<text x="2008" y="510" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">VS</text>
+<text x="2160" y="510" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">livre (R5 0 Ω já liga ao 3,3 V)</text>
+<text x="2420" y="510" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#475569" text-anchor="start">—</text>
+<rect x="1992" y="524" width="6" height="28" fill="#94a3b8" rx="3"/>
+<text x="2008" y="546" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">INT1/INT2</text>
+<text x="2160" y="546" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#0f172a" text-anchor="start">livres (rótulo IN1/IN2)</text>
+<text x="2420" y="546" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#475569" text-anchor="start">—</text>
+<rect x="1980" y="640" width="530" height="250" rx="12" fill="#ecfdf5" stroke="#16a34a" stroke-width="2"/>
+<text x="2000" y="676" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" fill="#166534" text-anchor="start">O que a placa já faz (esquemático do fabricante)</text>
+<text x="2000" y="706" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#14532d" text-anchor="start">· U2 ME6206-33: regulador 3,3 V alimentado pelo pino 5V.</text>
+<text x="2000" y="730" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#14532d" text-anchor="start">· Pino 3V3 é SAÍDA 3,3 V — não ligue o 3V3 do ESP32 nele.</text>
+<text x="2000" y="754" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#14532d" text-anchor="start">· R2/R3 10 kΩ: pull-ups de SCL/SDA em 3,3 V.</text>
+<text x="2000" y="778" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#14532d" text-anchor="start">· R4 0 Ω: SDO ligado ao GND → endereço I2C 0x53.</text>
+<text x="2000" y="802" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#14532d" text-anchor="start">· R5 0 Ω: VS ligado ao 3,3 V (VS e SDO ficam livres).</text>
+<text x="2000" y="826" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#14532d" text-anchor="start">· R6 10 kΩ: CS puxado a 3,3 V (o jumper CS→3V3 reforça).</text>
+<text x="2000" y="850" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#14532d" text-anchor="start">· D1 + R1: LED de energia.</text>
+<rect x="1980" y="910" width="530" height="340" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+<text x="2000" y="946" font-family="Segoe UI, Arial, sans-serif" font-size="21" font-weight="700" fill="#9a3412" text-anchor="start">Montagem em cima da tampa</text>
+<text x="2000" y="978" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#7c2d12" text-anchor="start">· Fixe o módulo numa massa pesada e rígida (parafuso ou</text>
+<text x="2000" y="1002" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#7c2d12" text-anchor="start">  cola forte) — o peso mantém o sensor firme na tampa.</text>
+<text x="2000" y="1026" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#7c2d12" text-anchor="start">· Chip virado PARA CIMA: o eixo Z fica na vertical.</text>
+<text x="2000" y="1050" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#7c2d12" text-anchor="start">  Marque X/Y na massa para lembrar a orientação.</text>
+<text x="2000" y="1074" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#7c2d12" text-anchor="start">· Cabo I2C curto (até ~50 cm), com folga em laço e</text>
+<text x="2000" y="1098" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#7c2d12" text-anchor="start">  preso na dobradiça para não puxar o módulo.</text>
+<text x="2000" y="1122" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#7c2d12" text-anchor="start">· Longe dos fios de 220 V (resistência/bomba/LED).</text>
+<text x="2000" y="1146" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#7c2d12" text-anchor="start">· Se o cabo for longo ou ruidoso: I2C a 100 kHz.</text>
+<text x="2000" y="1170" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#7c2d12" text-anchor="start">· Endereço 0x53 não conflita com 0x44 (SHT31) e</text>
+<text x="2000" y="1194" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#7c2d12" text-anchor="start">  0x68/0x57 (relógio). MCP23017 (0x20) cabe no mesmo par.</text>
+<rect x="1980" y="1270" width="530" height="170" rx="12" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+<text x="2000" y="1304" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="700" fill="#991b1b" text-anchor="start">Antes de ligar / conferir</text>
+<text x="2000" y="1332" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#7f1d1d" text-anchor="start">· Tudo desenergizado ao mexer na fiação.</text>
+<text x="2000" y="1354" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#7f1d1d" text-anchor="start">· LED D1 aceso = módulo energizado com 3,3 V.</text>
+<text x="2000" y="1376" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#7f1d1d" text-anchor="start">· Um scanner I2C deve achar 0x53, 0x44 e 0x68.</text>
+<text x="2000" y="1398" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#7f1d1d" text-anchor="start">· SDA/SCL invertidos: o módulo só não responde.</text>
+<rect x="1980" y="1480" width="380" height="168" rx="10" fill="#fff" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="1996" y="1508" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700" fill="#0f172a" text-anchor="start">Cores dos fios</text>
+<line x1="1996" y1="1529" x2="2044" y2="1529" stroke="#16a34a" stroke-width="6" stroke-linecap="round"/>
+<text x="2056" y="1534" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#0f172a" text-anchor="start">SDA (dados I2C)</text>
+<line x1="1996" y1="1551" x2="2044" y2="1551" stroke="#d4a000" stroke-width="6" stroke-linecap="round"/>
+<text x="2056" y="1556" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#0f172a" text-anchor="start">SCL (clock I2C)</text>
+<line x1="1996" y1="1573" x2="2044" y2="1573" stroke="#ea580c" stroke-width="6" stroke-linecap="round"/>
+<text x="2056" y="1578" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#0f172a" text-anchor="start">3V3</text>
+<line x1="1996" y1="1595" x2="2044" y2="1595" stroke="#dc2626" stroke-width="6" stroke-linecap="round"/>
+<text x="2056" y="1600" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#0f172a" text-anchor="start">+5 V</text>
+<line x1="1996" y1="1617" x2="2044" y2="1617" stroke="#111827" stroke-width="6" stroke-linecap="round"/>
+<text x="2056" y="1622" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#0f172a" text-anchor="start">GND (comum)</text></svg>
