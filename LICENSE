@@ -19,8 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-AVISO ADICIONAL (nao faz parte da licenca): este projeto comanda cargas de 220 V e
-equipamentos que podem causar choque eletrico, incendio ou morte de animais. Use por
-sua conta e risco, com protecoes eletricas adequadas. Veja docs/05-seguranca.md.
