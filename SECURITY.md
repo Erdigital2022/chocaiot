@@ -14,6 +14,15 @@ Informe: o que é, como reproduzir, impacto e (se possível) uma sugestão de co
 * firmware (`firmware/`) — comandos remotos, PIN do aparelho, limites de segurança das cargas;
 * documentação que possa induzir a uma montagem insegura.
 
+## Proteções ativas neste repositório
+
+* Conta do mantenedor com **autenticação em duas etapas**.
+* **Ruleset** na branch `main`: não pode ser apagada, não aceita *force-push* e exige *pull request* de colaboradores
+  (apenas o administrador do repositório tem exceção).
+* **Secret scanning** e **push protection** do GitHub ativos.
+* A chave web do Firebase da instância do mantenedor é **restrita por referrer HTTP** e por API; as regras do
+  Firestore (`pwa/firestore.rules`) é que protegem os dados.
+
 ## Se você acabou de forkar este projeto
 
 * **Gere suas próprias chaves** (Firebase e conta de serviço); jamais reutilize valores de terceiros.
