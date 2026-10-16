@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1100" viewBox="0 0 1800 1100">
+<defs><linearGradient id="gfundo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d1430"/><stop offset="1" stop-color="#0b1020"/></linearGradient><linearGradient id="gcalor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb199"/><stop offset="1" stop-color="#ff7a45"/></linearGradient><linearGradient id="gagua" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7dd3fc"/><stop offset="1" stop-color="#0369a1"/></linearGradient><linearGradient id="gouro" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6d27a"/><stop offset="1" stop-color="#a87a1e"/></linearGradient><filter id="brilho" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="6"/></filter><marker id="seta" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="context-stroke"/></marker></defs>
+<rect width="100%" height="100%" fill="url(#gfundo)"/>
+<text x="50" y="66" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="38" font-weight="700" fill="#e6ebff" text-anchor="start">Instalação do sensor de temperatura e umidade (SHT31)</text>
+<text x="50" y="102" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="19" font-weight="400" fill="#8da0c8" text-anchor="start">Medir o ar que os ovos sentem: nem colado no aquecedor, nem no jato do umidificador ou dos fans.</text>
+<text x="1750" y="1076" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#5b6b92" text-anchor="end">ChocaIoT · guia de instalação · tema escuro</text>
+<text x="60" y="150" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="700" fill="#8da0c8" text-anchor="start">Vista de cima</text>
+<rect x="70" y="170" width="780" height="500" rx="16" fill="#0f1730" stroke="#4a5f9c" stroke-width="5"/>
+<rect x="90" y="180" width="400" height="150" rx="14" fill="#f87171" stroke="#f87171" stroke-width="1" opacity="0.13"/>
+<rect x="540" y="540" width="290" height="110" rx="14" fill="#f87171" stroke="#f87171" stroke-width="1" opacity="0.13"/>
+<rect x="90" y="520" width="230" height="130" rx="14" fill="#f87171" stroke="#f87171" stroke-width="1" opacity="0.13"/>
+<rect x="120" y="200" width="300" height="30" rx="8" fill="url(#gcalor)" stroke="#ff7a45" stroke-width="2"/>
+<text x="270" y="192" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="700" fill="#ff7a45" text-anchor="middle">resistência</text>
+<rect x="620" y="580" width="150" height="40" rx="8" fill="url(#gagua)" stroke="#38bdf8" stroke-width="2" opacity="0.9"/>
+<text x="695" y="650" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#38bdf8" text-anchor="middle">umidificador (névoa)</text>
+<rect x="90" y="530" width="60" height="60" rx="10" fill="#18213d" stroke="#4a5a8a" stroke-width="3"/>
+<circle cx="120" cy="560" r="24" fill="#0f1730" stroke="#3a4a7a" stroke-width="2"/>
+<polygon points="120,560 142.3455179747803,555.4703392578726 139.44965741081782,569.3952555368026" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="120,560 137.47363394762124,574.6462321661422 124.78115648078673,581.0642005000482" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="120,560 119.4437471607285,582.7932135246174 106.5123472029048,576.8713728553728" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="120,560 101.83273010729728,573.7764402022328 98.40001557921272,559.9740573373142" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="120,560 97.90203782784079,554.3857264194003 106.55291278375842,543.0962771733919" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="120,560 110.61156178030005,539.2226751530694 124.83174093272413,538.9473450710121" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="120,560 130.39077120143185,539.7053732766652 139.47216960979537,550.6514915260582" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<circle cx="120" cy="560" r="5.28" fill="#243053" stroke="#8da0c8" stroke-width="2"/>
+<path d="M150,560 L250,560" fill="none" stroke="#67e8f9" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 5" marker-end="url(#seta)"/>
+<text x="135" y="612" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#67e8f9" text-anchor="start">jato do fan</text>
+<rect x="250" y="330" width="420" height="180" rx="12" fill="#16203e" stroke="#6b86c9" stroke-width="3" stroke-dasharray="8 6"/>
+<ellipse cx="290" cy="372" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<ellipse cx="338" cy="372" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<ellipse cx="386" cy="372" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<ellipse cx="434" cy="372" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<ellipse cx="482" cy="372" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<ellipse cx="530" cy="372" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<ellipse cx="578" cy="372" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<ellipse cx="626" cy="372" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<ellipse cx="310" cy="426" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<ellipse cx="358" cy="426" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<ellipse cx="406" cy="426" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<ellipse cx="454" cy="426" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<ellipse cx="502" cy="426" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<ellipse cx="550" cy="426" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<ellipse cx="598" cy="426" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<ellipse cx="646" cy="426" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<ellipse cx="290" cy="480" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<ellipse cx="338" cy="480" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<ellipse cx="386" cy="480" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<ellipse cx="434" cy="480" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<ellipse cx="482" cy="480" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<ellipse cx="530" cy="480" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<ellipse cx="578" cy="480" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<ellipse cx="626" cy="480" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<circle cx="460" cy="292" r="44" fill="#0e3a30" stroke="#34d399" stroke-width="2"/>
+<rect x="452" y="258" width="16" height="68" rx="8" fill="#c9d3ee" stroke="#7d8fb8" stroke-width="2"/>
+<circle cx="460" cy="330" r="9" fill="#34d399" stroke="#0b1020" stroke-width="2"/>
+<circle cx="520" cy="262" r="17" fill="#34d399" stroke="#0b1020" stroke-width="3"/>
+<text x="520" y="268" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">1</text>
+<text x="520" y="322" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="700" fill="#34d399" text-anchor="start">posição ideal</text>
+<line x1="420" y1="232" x2="460" y2="258" stroke="#8da0c8" stroke-width="2" stroke-linecap="round" stroke-dasharray="5 5"/>
+<text x="380" y="252" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#8da0c8" text-anchor="start">5–10 cm</text>
+<rect x="560" y="687" width="196" height="29" rx="10" fill="#f87171" stroke="#f87171" stroke-width="1" opacity="0.18"/>
+<rect x="560" y="687" width="196" height="29" rx="10" fill="none" stroke="#f87171" stroke-width="2"/>
+<text x="570" y="709" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="700" fill="#f87171" text-anchor="start">zona vermelha = evite</text>
+<text x="60" y="720" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="700" fill="#8da0c8" text-anchor="start">Passagem do cabo (corte)</text>
+<rect x="120" y="750" width="40" height="260" rx="6" fill="#1a2342" stroke="#4a5f9c" stroke-width="3"/>
+<text x="140" y="1030" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#8da0c8" text-anchor="middle">parede</text>
+<rect x="112" y="840" width="56" height="36" rx="6" fill="#475569" stroke="#94a3b8" stroke-width="2"/>
+<text x="140" y="862" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="12" font-weight="700" fill="#e6ebff" text-anchor="middle">prensa</text>
+<path d="M40,858 L112,858" fill="none" stroke="#8da0c8" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M168,858 L230,858 L290,940 L350,940 L410,858 L470,858" fill="none" stroke="#8da0c8" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="320" y="980" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#38bdf8" text-anchor="middle">laço de gotejamento</text>
+<path d="M320,968 L320,950" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#seta)"/>
+<text x="60" y="836" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#34d399" text-anchor="start">sonda</text>
+<text x="480" y="862" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#8da0c8" text-anchor="start">→ eletrônica</text>
+<circle cx="250" cy="800" r="17" fill="#fbbf24" stroke="#0b1020" stroke-width="3"/>
+<text x="250" y="806" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">2</text>
+<circle cx="380" cy="1000" r="17" fill="#fbbf24" stroke="#0b1020" stroke-width="3"/>
+<text x="380" y="1006" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">3</text>
+<rect x="900" y="150" width="850" height="890" rx="16" fill="#121a30" stroke="#2a3558" stroke-width="2"/>
+<text x="922" y="188" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="21" font-weight="700" fill="#8da0c8" text-anchor="start">Passo a passo</text>
+<line x1="922" y1="202" x2="1728" y2="202" stroke="#2a3558" stroke-width="2" stroke-linecap="round"/>
+<circle cx="946" cy="222" r="17" fill="#34d399" stroke="#0b1020" stroke-width="3"/>
+<text x="946" y="228" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">1</text>
+<text x="976" y="228" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="400" fill="#e6ebff" text-anchor="start">Instale o SHT31 na altura dos ovos, no meio da bandeja ou levemente deslocado para o</text>
+<text x="976" y="251" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="400" fill="#e6ebff" text-anchor="start">lado oposto ao aquecedor (5–10 cm de distância).</text>
+<circle cx="946" cy="280" r="17" fill="#34d399" stroke="#0b1020" stroke-width="3"/>
+<text x="946" y="286" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">2</text>
+<text x="976" y="286" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="400" fill="#e6ebff" text-anchor="start">Passe o cabo por um prensa-cabo (ou furo vedado com silicone) na parede. Sem folga:</text>
+<text x="976" y="309" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="400" fill="#e6ebff" text-anchor="start">vapor sai por ali.</text>
+<circle cx="946" cy="338" r="17" fill="#34d399" stroke="#0b1020" stroke-width="3"/>
+<text x="946" y="344" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">3</text>
+<text x="976" y="344" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="400" fill="#e6ebff" text-anchor="start">Faça um laço de gotejamento do lado de fora para a água escorrer em vez de entrar</text>
+<text x="976" y="367" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="400" fill="#e6ebff" text-anchor="start">pelo furo.</text>
+<circle cx="946" cy="396" r="17" fill="#34d399" stroke="#0b1020" stroke-width="3"/>
+<text x="946" y="402" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">4</text>
+<text x="976" y="402" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="400" fill="#e6ebff" text-anchor="start">Fixe o cabo com abraçadeira sem apertar o isolante; mantenha-o longe de cabos de 220</text>
+<text x="976" y="425" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="400" fill="#e6ebff" text-anchor="start">V (interferência no I2C).</text>
+<circle cx="946" cy="454" r="17" fill="#34d399" stroke="#0b1020" stroke-width="3"/>
+<text x="946" y="460" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">5</text>
+<text x="976" y="460" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="400" fill="#e6ebff" text-anchor="start">Não encoste a ponta metálica no isopor/plástico quente nem em ovos: leia o ar, não a</text>
+<text x="976" y="483" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="400" fill="#e6ebff" text-anchor="start">superfície.</text>
+<circle cx="946" cy="512" r="17" fill="#34d399" stroke="#0b1020" stroke-width="3"/>
+<text x="946" y="518" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">6</text>
+<text x="976" y="518" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="400" fill="#e6ebff" text-anchor="start">Sonda IP68 selada tem atraso de 2–4 min: não 'persiga' a leitura; deixe o PI</text>
+<text x="976" y="541" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="400" fill="#e6ebff" text-anchor="start">aprender.</text>
+<text x="930" y="596" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="20" font-weight="700" fill="#e6ebff" text-anchor="start">Ligação (4 fios)</text>
+<circle cx="950" cy="622" r="11" fill="#ef4444" stroke="#0b1020" stroke-width="2"/>
+<text x="975" y="628" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="700" fill="#e6ebff" text-anchor="start">vermelho</text>
+<text x="1110" y="628" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="400" fill="#8da0c8" text-anchor="start">VCC</text>
+<text x="1230" y="628" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="400" fill="#5b6b92" text-anchor="start">→</text>
+<text x="1260" y="628" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="700" fill="#fbbf24" text-anchor="start">3V3</text>
+<circle cx="950" cy="666" r="11" fill="#e5e7eb" stroke="#0b1020" stroke-width="2"/>
+<text x="975" y="672" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="700" fill="#e6ebff" text-anchor="start">preto</text>
+<text x="1110" y="672" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="400" fill="#8da0c8" text-anchor="start">GND</text>
+<text x="1230" y="672" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="400" fill="#5b6b92" text-anchor="start">→</text>
+<text x="1260" y="672" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="700" fill="#fbbf24" text-anchor="start">GND</text>
+<circle cx="950" cy="710" r="11" fill="#facc15" stroke="#0b1020" stroke-width="2"/>
+<text x="975" y="716" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="700" fill="#e6ebff" text-anchor="start">amarelo</text>
+<text x="1110" y="716" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="400" fill="#8da0c8" text-anchor="start">SCL</text>
+<text x="1230" y="716" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="400" fill="#5b6b92" text-anchor="start">→</text>
+<text x="1260" y="716" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="700" fill="#fbbf24" text-anchor="start">GPIO9</text>
+<circle cx="950" cy="754" r="11" fill="#22c55e" stroke="#0b1020" stroke-width="2"/>
+<text x="975" y="760" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="700" fill="#e6ebff" text-anchor="start">verde</text>
+<text x="1110" y="760" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="400" fill="#8da0c8" text-anchor="start">SDA</text>
+<text x="1230" y="760" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="400" fill="#5b6b92" text-anchor="start">→</text>
+<text x="1260" y="760" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="700" fill="#fbbf24" text-anchor="start">GPIO8</text>
+<text x="930" y="814" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#8da0c8" text-anchor="start">Cores seguem a convenção do cabo da sonda IP68 (SHT30/PVC68). Se não responder, troque amarelo ↔</text>
+<text x="930" y="835" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#8da0c8" text-anchor="start">verde — não há risco. Endereço I2C 0x44.</text>
+</svg>

@@ -1,0 +1,218 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1100" viewBox="0 0 1800 1100">
+<defs><linearGradient id="gfundo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d1430"/><stop offset="1" stop-color="#0b1020"/></linearGradient><linearGradient id="gcalor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb199"/><stop offset="1" stop-color="#ff7a45"/></linearGradient><linearGradient id="gagua" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7dd3fc"/><stop offset="1" stop-color="#0369a1"/></linearGradient><linearGradient id="gouro" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6d27a"/><stop offset="1" stop-color="#a87a1e"/></linearGradient><filter id="brilho" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="6"/></filter><marker id="seta" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="context-stroke"/></marker></defs>
+<rect width="100%" height="100%" fill="url(#gfundo)"/>
+<text x="50" y="66" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="38" font-weight="700" fill="#e6ebff" text-anchor="start">Layout interno da chocadeira (corte lateral)</text>
+<text x="50" y="102" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="19" font-weight="400" fill="#8da0c8" text-anchor="start">Onde instalar cada item — resistência no alto, fans por função, sensores na altura dos ovos, água e eletrônica fora da área quente.</text>
+<text x="1750" y="1076" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#5b6b92" text-anchor="end">ChocaIoT · guia de instalação · tema escuro</text>
+<rect x="110" y="262" width="800" height="590" rx="18" fill="#0f1730" stroke="#4a5f9c" stroke-width="6"/>
+<rect x="98" y="228" width="824" height="36" rx="8" fill="#1a2342" stroke="#4a5f9c" stroke-width="4"/>
+<text x="110" y="252" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#8da0c8" text-anchor="start">tampa</text>
+<rect x="740" y="198" width="96" height="32" rx="5" fill="#111827" stroke="#8da0c8" stroke-width="3"/>
+<text x="788" y="219" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="13" font-weight="700" fill="#a3e635" text-anchor="middle">ADXL345</text>
+<circle cx="868" cy="214" r="17" fill="#fbbf24" stroke="#0b1020" stroke-width="3"/>
+<text x="868" y="220" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">10</text>
+<rect x="250" y="270" width="240" height="26" rx="6" fill="#2a2f45" stroke="#3a4a7a" stroke-width="2"/>
+<circle cx="370.0" cy="310" r="60" fill="#ff7a45" opacity="0.45" filter="url(#brilho)"/>
+<rect x="264" y="296" width="212" height="22" rx="8" fill="url(#gcalor)" stroke="#ff7a45" stroke-width="2"/>
+<path d="M280.0,326 L280.0,370" fill="none" stroke="#ff7a45" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 6" marker-end="url(#seta)"/>
+<path d="M325.0,326 L325.0,370" fill="none" stroke="#ff7a45" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 6" marker-end="url(#seta)"/>
+<path d="M370.0,326 L370.0,370" fill="none" stroke="#ff7a45" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 6" marker-end="url(#seta)"/>
+<path d="M415.0,326 L415.0,370" fill="none" stroke="#ff7a45" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 6" marker-end="url(#seta)"/>
+<path d="M460.0,326 L460.0,370" fill="none" stroke="#ff7a45" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 6" marker-end="url(#seta)"/>
+<circle cx="228" cy="296" r="17" fill="#ff7a45" stroke="#0b1020" stroke-width="3"/>
+<text x="228" y="302" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">1</text>
+<text x="370" y="392" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#ff7a45" text-anchor="middle">calor ↓</text>
+<rect x="330" y="604" width="440" height="22" rx="6" fill="#2a3558" stroke="#6b86c9" stroke-width="2"/>
+<ellipse cx="374" cy="578" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<ellipse cx="424" cy="578" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<ellipse cx="474" cy="578" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<ellipse cx="524" cy="578" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<ellipse cx="574" cy="578" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<ellipse cx="624" cy="578" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<ellipse cx="674" cy="578" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<ellipse cx="724" cy="578" rx="19" ry="25" fill="#f1dfbb" stroke="#b79b62" stroke-width="2"/>
+<text x="550" y="656" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#8da0c8" text-anchor="middle">bandeja de ovos</text>
+<rect x="832" y="526" width="16" height="68" rx="8" fill="#c9d3ee" stroke="#7d8fb8" stroke-width="2"/>
+<circle cx="840" cy="598" r="9" fill="#34d399" stroke="#0b1020" stroke-width="2"/>
+<circle cx="878" cy="552" r="17" fill="#34d399" stroke="#0b1020" stroke-width="3"/>
+<text x="878" y="558" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">6</text>
+<path d="M840,600 L840,640 L905,640" fill="none" stroke="#8da0c8" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="150" y="520" width="120" height="70" rx="10" fill="none" stroke="#fbbf24" stroke-width="2" stroke-dasharray="6 5"/>
+<rect x="166" y="534" width="76" height="52" rx="6" fill="url(#gouro)" stroke="#7a5b14" stroke-width="2"/>
+<rect x="174" y="564" width="36" height="18" rx="3" fill="#f5f1e6" stroke="#9a8f70" stroke-width="1"/>
+<rect x="242" y="542" width="14" height="36" rx="3" fill="#e9e6dc" stroke="#8d8774" stroke-width="1"/>
+<circle cx="130" cy="540" r="17" fill="#fbbf24" stroke="#0b1020" stroke-width="3"/>
+<text x="130" y="546" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">7</text>
+<text x="210" y="612" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="13" font-weight="400" fill="#fbbf24" text-anchor="middle">capa aberta embaixo</text>
+<rect x="804" y="298" width="64" height="64" rx="10" fill="#18213d" stroke="#4a5a8a" stroke-width="3"/>
+<circle cx="836" cy="330" r="26" fill="#0f1730" stroke="#3a4a7a" stroke-width="2"/>
+<polygon points="836,330 860.2076444726787,325.09286752936197 857.0704621950526,340.1781934982028" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="836,330 854.929770109923,345.8667515133207 841.1795861875189,352.8195505417189" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="836,330 835.3973927574559,354.6926479850022 821.3883761364802,348.27732059332055" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="836,330 816.3187909495721,344.92447688575226 812.6000168774805,329.97189544875704" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="836,330 812.0605409801608,323.9178702876836 821.432322182405,311.6876336045079" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="836,330 825.8291919286584,307.49123141582527 841.2343860104512,307.1929571602631" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="836,330 847.2566688015512,308.01415438305395 857.0948504106117,319.8724491532297" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<circle cx="836" cy="330" r="5.72" fill="#243053" stroke="#8da0c8" stroke-width="2"/>
+<circle cx="790" cy="292" r="17" fill="#a78bfa" stroke="#0b1020" stroke-width="3"/>
+<text x="790" y="298" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">4</text>
+<circle cx="910" cy="306" r="6" fill="#05070f" stroke="#8da0c8" stroke-width="2"/>
+<path d="M918,306 L985,306" fill="none" stroke="#67e8f9" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="4 5" marker-end="url(#seta)"/>
+<circle cx="910" cy="330" r="6" fill="#05070f" stroke="#8da0c8" stroke-width="2"/>
+<path d="M918,330 L985,330" fill="none" stroke="#67e8f9" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="4 5" marker-end="url(#seta)"/>
+<circle cx="910" cy="354" r="6" fill="#05070f" stroke="#8da0c8" stroke-width="2"/>
+<path d="M918,354 L985,354" fill="none" stroke="#67e8f9" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="4 5" marker-end="url(#seta)"/>
+<path d="M866,330 L898,330" fill="none" stroke="#67e8f9" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#seta)"/>
+<text x="1000" y="336" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#67e8f9" text-anchor="start">saída de ar</text>
+<circle cx="110" cy="820" r="7" fill="#05070f" stroke="#8da0c8" stroke-width="2"/>
+<path d="M40,820 L128,820" fill="none" stroke="#34d399" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#seta)"/>
+<text x="40" y="806" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#34d399" text-anchor="start">ar novo</text>
+<circle cx="70" cy="850" r="17" fill="#34d399" stroke="#0b1020" stroke-width="3"/>
+<text x="70" y="856" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">5</text>
+<rect x="270" y="782" width="60" height="60" rx="10" fill="#18213d" stroke="#4a5a8a" stroke-width="3"/>
+<circle cx="300" cy="812" r="24" fill="#0f1730" stroke="#3a4a7a" stroke-width="2"/>
+<polygon points="300,812 322.3455179747803,807.4703392578726 319.44965741081785,821.3952555368026" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="300,812 317.47363394762124,826.6462321661422 304.7811564807867,833.0642005000482" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="300,812 299.4437471607285,834.7932135246174 286.51234720290483,828.8713728553728" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="300,812 281.83273010729727,825.7764402022328 278.4000155792127,811.9740573373142" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="300,812 277.9020378278408,806.3857264194003 286.5529127837584,795.0962771733919" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="300,812 290.61156178030006,791.2226751530694 304.83174093272413,790.9473450710121" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="300,812 310.39077120143185,791.7053732766652 319.4721696097954,802.6514915260582" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<circle cx="300" cy="812" r="5.28" fill="#243053" stroke="#8da0c8" stroke-width="2"/>
+<circle cx="262" cy="770" r="17" fill="#67e8f9" stroke="#0b1020" stroke-width="3"/>
+<text x="262" y="776" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">2</text>
+<path d="M270,812 L170,812 L140,780 L140,690" fill="none" stroke="#67e8f9" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 5" marker-end="url(#seta)"/>
+<path d="M330,812 L420,812" fill="none" stroke="#67e8f9" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 5" marker-end="url(#seta)"/>
+<rect x="470" y="730" width="60" height="60" rx="10" fill="#18213d" stroke="#4a5a8a" stroke-width="3"/>
+<circle cx="500" cy="760" r="24" fill="#0f1730" stroke="#3a4a7a" stroke-width="2"/>
+<polygon points="500,760 522.3455179747803,755.4703392578726 519.4496574108178,769.3952555368026" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="500,760 517.4736339476212,774.6462321661422 504.7811564807867,781.0642005000482" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="500,760 499.4437471607285,782.7932135246174 486.51234720290483,776.8713728553728" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="500,760 481.83273010729727,773.7764402022328 478.4000155792127,759.9740573373142" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="500,760 477.9020378278408,754.3857264194003 486.5529127837584,743.0962771733919" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="500,760 490.61156178030006,739.2226751530694 504.83174093272413,738.9473450710121" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="500,760 510.39077120143185,739.7053732766652 519.4721696097954,750.6514915260582" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<circle cx="500" cy="760" r="5.28" fill="#243053" stroke="#8da0c8" stroke-width="2"/>
+<circle cx="462" cy="722" r="17" fill="#a78bfa" stroke="#0b1020" stroke-width="3"/>
+<text x="462" y="728" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">3</text>
+<path d="M500,726 L500,664" fill="none" stroke="#67e8f9" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#seta)"/>
+<text x="520" y="700" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="13" font-weight="400" fill="#8da0c8" text-anchor="start">5 cm do piso</text>
+<rect x="640" y="800" width="190" height="46" rx="8" fill="url(#gagua)" stroke="#38bdf8" stroke-width="3" opacity="0.9"/>
+<text x="735" y="830" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="13" font-weight="700" fill="#0b1020" text-anchor="middle">reservatório ~150 ml</text>
+<path d="M680,790 L672,770 L688,750 L680,730" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="3 4"/>
+<path d="M735,790 L727,770 L743,750 L735,730" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="3 4"/>
+<path d="M790,790 L782,770 L798,750 L790,730" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="3 4"/>
+<circle cx="612" cy="826" r="17" fill="#38bdf8" stroke="#0b1020" stroke-width="3"/>
+<text x="612" y="832" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">8</text>
+<rect x="990" y="700" width="170" height="210" rx="14" fill="#0f1730" stroke="#6b86c9" stroke-width="3"/>
+<rect x="993" y="763.0" width="164" height="144.0" rx="10" fill="url(#gagua)" stroke="none" stroke-width="0" opacity="0.9"/>
+<rect x="982" y="688" width="186" height="16" rx="6" fill="#2a3558" stroke="#6b86c9" stroke-width="2"/>
+<rect x="1010" y="880" width="56" height="24" rx="4" fill="#475569" stroke="#94a3b8" stroke-width="2"/>
+<text x="1038" y="896" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="12" font-weight="700" fill="#e6ebff" text-anchor="middle">bomba</text>
+<circle cx="1075" cy="676" r="17" fill="#38bdf8" stroke="#0b1020" stroke-width="3"/>
+<text x="1075" y="682" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">9</text>
+<path d="M1038,880 L1038,650 L930,650" fill="none" stroke="#38bdf8" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M930,650 L905,650" fill="none" stroke="#38bdf8" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M905,650 L790,650 L790,798" fill="none" stroke="#38bdf8" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="910" cy="650" r="6" fill="#05070f" stroke="#8da0c8" stroke-width="2"/>
+<text x="1060" y="636" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="13" font-weight="400" fill="#38bdf8" text-anchor="start">mangueira acima do nível</text>
+<path d="M830,836 L905,836 L990,836" fill="none" stroke="#7dd3fc" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="7 5" marker-end="url(#seta)"/>
+<text x="912" y="824" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="13" font-weight="400" fill="#7dd3fc" text-anchor="start">ladrão</text>
+<rect x="110" y="900" width="800" height="150" rx="12" fill="#0c1124" stroke="#3a4a7a" stroke-width="3"/>
+<text x="124" y="924" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="700" fill="#8da0c8" text-anchor="start">caixa eletrônica (fora da área úmida/quente)</text>
+<rect x="130" y="936" width="200" height="96" rx="10" fill="#10261f" stroke="#1fbf8e" stroke-width="3"/>
+<rect x="148" y="950" width="90" height="52" rx="6" fill="#0b1020" stroke="#5eead4" stroke-width="2"/>
+<text x="193" y="982" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="20" font-weight="700" fill="#5eead4" text-anchor="middle">S3</text>
+<rect x="144" y="1014" width="10" height="12" rx="2" fill="#d9a441" stroke="none" stroke-width="0"/>
+<rect x="166" y="1014" width="10" height="12" rx="2" fill="#d9a441" stroke="none" stroke-width="0"/>
+<rect x="188" y="1014" width="10" height="12" rx="2" fill="#d9a441" stroke="none" stroke-width="0"/>
+<rect x="210" y="1014" width="10" height="12" rx="2" fill="#d9a441" stroke="none" stroke-width="0"/>
+<rect x="232" y="1014" width="10" height="12" rx="2" fill="#d9a441" stroke="none" stroke-width="0"/>
+<rect x="254" y="1014" width="10" height="12" rx="2" fill="#d9a441" stroke="none" stroke-width="0"/>
+<rect x="276" y="1014" width="10" height="12" rx="2" fill="#d9a441" stroke="none" stroke-width="0"/>
+<rect x="298" y="1014" width="10" height="12" rx="2" fill="#d9a441" stroke="none" stroke-width="0"/>
+<rect x="320" y="1014" width="10" height="12" rx="2" fill="#d9a441" stroke="none" stroke-width="0"/>
+<rect x="342" y="1014" width="10" height="12" rx="2" fill="#d9a441" stroke="none" stroke-width="0"/>
+<text x="316" y="968" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="700" fill="#5eead4" text-anchor="end">ESP32-S3</text>
+<rect x="350" y="936" width="300" height="96" rx="10" fill="#2b0f19" stroke="#b91c4a" stroke-width="3"/>
+<rect x="362.0" y="950" width="27.0" height="44" rx="4" fill="#1e2540" stroke="#4a5a8a" stroke-width="2"/>
+<text x="375.5" y="980" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="700" fill="#e6ebff" text-anchor="middle">1</text>
+<circle cx="375.5" cy="1016" r="5" fill="#34d399" stroke="#0b1020" stroke-width="1"/>
+<rect x="397.0" y="950" width="27.0" height="44" rx="4" fill="#1e2540" stroke="#4a5a8a" stroke-width="2"/>
+<text x="410.5" y="980" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="700" fill="#e6ebff" text-anchor="middle">2</text>
+<circle cx="410.5" cy="1016" r="5" fill="#34d399" stroke="#0b1020" stroke-width="1"/>
+<rect x="432.0" y="950" width="27.0" height="44" rx="4" fill="#1e2540" stroke="#4a5a8a" stroke-width="2"/>
+<text x="445.5" y="980" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="700" fill="#e6ebff" text-anchor="middle">3</text>
+<circle cx="445.5" cy="1016" r="5" fill="#34d399" stroke="#0b1020" stroke-width="1"/>
+<rect x="467.0" y="950" width="27.0" height="44" rx="4" fill="#1e2540" stroke="#4a5a8a" stroke-width="2"/>
+<text x="480.5" y="980" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="700" fill="#e6ebff" text-anchor="middle">4</text>
+<circle cx="480.5" cy="1016" r="5" fill="#34d399" stroke="#0b1020" stroke-width="1"/>
+<rect x="502.0" y="950" width="27.0" height="44" rx="4" fill="#1e2540" stroke="#4a5a8a" stroke-width="2"/>
+<text x="515.5" y="980" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="700" fill="#e6ebff" text-anchor="middle">5</text>
+<circle cx="515.5" cy="1016" r="5" fill="#34d399" stroke="#0b1020" stroke-width="1"/>
+<rect x="537.0" y="950" width="27.0" height="44" rx="4" fill="#1e2540" stroke="#4a5a8a" stroke-width="2"/>
+<text x="550.5" y="980" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="700" fill="#e6ebff" text-anchor="middle">6</text>
+<circle cx="550.5" cy="1016" r="5" fill="#34d399" stroke="#0b1020" stroke-width="1"/>
+<rect x="572.0" y="950" width="27.0" height="44" rx="4" fill="#1e2540" stroke="#4a5a8a" stroke-width="2"/>
+<text x="585.5" y="980" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="700" fill="#e6ebff" text-anchor="middle">7</text>
+<circle cx="585.5" cy="1016" r="5" fill="#34d399" stroke="#0b1020" stroke-width="1"/>
+<rect x="607.0" y="950" width="27.0" height="44" rx="4" fill="#1e2540" stroke="#4a5a8a" stroke-width="2"/>
+<text x="620.5" y="980" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="700" fill="#e6ebff" text-anchor="middle">8</text>
+<circle cx="620.5" cy="1016" r="5" fill="#34d399" stroke="#0b1020" stroke-width="1"/>
+<rect x="680" y="944" width="110" height="80" rx="8" fill="#3a2a08" stroke="#fbbf24" stroke-width="2"/>
+<text x="735" y="980" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="700" fill="#fbbf24" text-anchor="middle">DC-DC</text>
+<text x="735" y="1002" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#fbbf24" text-anchor="middle">12→5 V</text>
+<circle cx="100" cy="940" r="17" fill="#8da0c8" stroke="#0b1020" stroke-width="3"/>
+<text x="100" y="946" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">11</text>
+<path d="M560,936 L560,862" fill="none" stroke="#f43f5e" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="4 5"/>
+<path d="M590,936 L590,862" fill="none" stroke="#f43f5e" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="4 5"/>
+<path d="M620,936 L620,862" fill="none" stroke="#f43f5e" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="4 5"/>
+<rect x="1230" y="150" width="520" height="900" rx="16" fill="#121a30" stroke="#2a3558" stroke-width="2"/>
+<text x="1252" y="188" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="21" font-weight="700" fill="#8da0c8" text-anchor="start">Legenda e regras de posição</text>
+<line x1="1252" y1="202" x2="1728" y2="202" stroke="#2a3558" stroke-width="2" stroke-linecap="round"/>
+<circle cx="1262" cy="232" r="17" fill="#ff7a45" stroke="#0b1020" stroke-width="3"/>
+<text x="1262" y="238" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">1</text>
+<text x="1292" y="238" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">Resistência / lâmpada cerâmica: no alto, ≥ 12 cm</text>
+<text x="1292" y="260" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">acima dos ovos, longe de plástico e isopor. Proteção</text>
+<text x="1292" y="282" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">térmica independente do firmware.</text>
+<circle cx="1262" cy="308" r="17" fill="#67e8f9" stroke="#0b1020" stroke-width="3"/>
+<text x="1262" y="314" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">2</text>
+<text x="1292" y="314" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">Fan 1 · Circulação: no piso, empurra o ar quente</text>
+<text x="1292" y="336" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">para as paredes.</text>
+<circle cx="1262" cy="362" r="17" fill="#a78bfa" stroke="#0b1020" stroke-width="3"/>
+<text x="1262" y="368" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">3</text>
+<text x="1292" y="368" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">Fan 2 · Resfriamento: ~5 cm do piso, empurrando para</text>
+<text x="1292" y="390" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">cima.</text>
+<circle cx="1262" cy="416" r="17" fill="#a78bfa" stroke="#0b1020" stroke-width="3"/>
+<text x="1262" y="422" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">4</text>
+<text x="1292" y="422" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">Fan 3 · Renovação: no alto, soprando para a parede</text>
+<text x="1292" y="444" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">com 3 furos (saída).</text>
+<circle cx="1262" cy="470" r="17" fill="#34d399" stroke="#0b1020" stroke-width="3"/>
+<text x="1262" y="476" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">5</text>
+<text x="1292" y="476" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">Entrada de ar: furo baixo no lado oposto, com tela</text>
+<text x="1292" y="498" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">fina contra insetos.</text>
+<circle cx="1262" cy="524" r="17" fill="#34d399" stroke="#0b1020" stroke-width="3"/>
+<text x="1262" y="530" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">6</text>
+<text x="1292" y="530" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">SHT31: na altura dos ovos, 5–10 cm do aquecedor e</text>
+<text x="1292" y="552" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">fora do jato do umidificador.</text>
+<circle cx="1262" cy="578" r="17" fill="#fbbf24" stroke="#0b1020" stroke-width="3"/>
+<text x="1262" y="584" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">7</text>
+<text x="1292" y="584" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">MH-Z19C (CO₂): na altura dos ovos, janela de lado ou</text>
+<text x="1292" y="606" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">para baixo, com capa aberta embaixo.</text>
+<circle cx="1262" cy="632" r="17" fill="#38bdf8" stroke="#0b1020" stroke-width="3"/>
+<text x="1262" y="638" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">8</text>
+<text x="1292" y="638" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">Umidificador com reservatório interno (~150 ml) e</text>
+<text x="1292" y="660" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">ladrão (extravasor).</text>
+<circle cx="1262" cy="686" r="17" fill="#38bdf8" stroke="#0b1020" stroke-width="3"/>
+<text x="1262" y="692" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">9</text>
+<text x="1292" y="692" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">Reservatório externo + bomba: mangueira ACIMA do</text>
+<text x="1292" y="714" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">nível da água (sem sifão).</text>
+<circle cx="1262" cy="740" r="17" fill="#e2e8f0" stroke="#0b1020" stroke-width="3"/>
+<text x="1262" y="746" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">10</text>
+<text x="1292" y="746" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">ADXL345 sobre a tampa como peso: ao ser retirado,</text>
+<text x="1292" y="768" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">"tampa aberta".</text>
+<circle cx="1262" cy="794" r="17" fill="#8da0c8" stroke="#0b1020" stroke-width="3"/>
+<text x="1262" y="800" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">11</text>
+<text x="1292" y="800" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">Eletrônica fora da caixa, longe do vapor; cabos de</text>
+<text x="1292" y="822" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">220 V separados dos de sinal.</text>
+</svg>

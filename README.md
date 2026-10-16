@@ -8,6 +8,13 @@ e é operado tanto pela **tela touch do aparelho** quanto por um **app web (PWA)
 > a chocadeira **desligada da tomada**, use fusível/DR e leia [`docs/05-seguranca.md`](docs/05-seguranca.md) antes de
 > energizar. Você é responsável pela sua montagem.
 
+<p align="center">
+  <img src="docs/fotos/01_tela_home_firmware.jpg" width="48%" alt="Tela inicial do aparelho">
+  <img src="docs/instalacao/01_layout_interno_da_caixa.png" width="48%" alt="Layout interno da caixa">
+</p>
+<p align="center"><sub>À esquerda, a tela real do aparelho; à direita, o layout interno recomendado
+(<a href="docs/08-guia-de-instalacao.md">guia de instalação ilustrado</a>).</sub></p>
+
 ---
 
 ## O que ele faz
@@ -104,6 +111,8 @@ Ligações, pinagem completa e esquemas: [`docs/02-hardware.md`](docs/02-hardwar
 | [05 — Segurança](docs/05-seguranca.md) | Segredos, regras, 220 V, o que nunca publicar |
 | [06 — Exemplos](docs/06-exemplos.md) | Receitas prontas: regras, comandos, histórico, novos sensores |
 | [07 — Solução de problemas](docs/07-solucao-de-problemas.md) | Sintoma → causa → correção |
+| [08 — Guia de instalação](docs/08-guia-de-instalacao.md) | **8 guias ilustrados (tema escuro)**: layout, sensores, fans, água, aquecedor, quadro elétrico |
+| [09 — Galeria de fotos](docs/09-galeria-de-fotos.md) | Fotos reais da montagem e das telas |
 | [Histórico](docs/historico-de-desenvolvimento.md) | Diário técnico fase a fase (decisões, bugs e medições) |
 
 ## Estado do projeto (honesto)

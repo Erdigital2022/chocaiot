@@ -1,6 +1,7 @@
 # 02 — Hardware e ligações
 
-> Esquemas prontos em [`docs/esquemas/`](esquemas/) (PNG para ver, SVG para editar; os `.py` os geram).
+> Esquemas elétricos em [`docs/esquemas/`](esquemas/) (PNG para ver, SVG para editar; os `.py` os geram).
+> **Como instalar cada item na caixa**, com ilustrações: [`08-guia-de-instalacao.md`](08-guia-de-instalacao.md); fotos reais: [`09-galeria-de-fotos.md`](09-galeria-de-fotos.md).
 > **Nada aqui substitui bom senso elétrico**: 220 V mata. Veja [`05-seguranca.md`](05-seguranca.md).
 
 ## Pinagem do ESP32-S3 (YD-ESP32-S3 44P, N16R8)

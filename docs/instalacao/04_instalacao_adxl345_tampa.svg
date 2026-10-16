@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1100" viewBox="0 0 1800 1100">
+<defs><linearGradient id="gfundo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d1430"/><stop offset="1" stop-color="#0b1020"/></linearGradient><linearGradient id="gcalor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb199"/><stop offset="1" stop-color="#ff7a45"/></linearGradient><linearGradient id="gagua" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7dd3fc"/><stop offset="1" stop-color="#0369a1"/></linearGradient><linearGradient id="gouro" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6d27a"/><stop offset="1" stop-color="#a87a1e"/></linearGradient><filter id="brilho" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="6"/></filter><marker id="seta" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="context-stroke"/></marker></defs>
+<rect width="100%" height="100%" fill="url(#gfundo)"/>
+<text x="50" y="66" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="38" font-weight="700" fill="#e6ebff" text-anchor="start">Instalação do acelerômetro ADXL345 (detecção de tampa aberta)</text>
+<text x="50" y="102" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="19" font-weight="400" fill="#8da0c8" text-anchor="start">O módulo fica sobre a tampa como um peso: quando alguém o retira para abrir a caixa, o firmware entende "tampa aberta".</text>
+<text x="1750" y="1076" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#5b6b92" text-anchor="end">ChocaIoT · guia de instalação · tema escuro</text>
+<rect x="80" y="300" width="300" height="90" rx="10" fill="#0f1730" stroke="#4a5f9c" stroke-width="4"/>
+<text x="230" y="355" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#8da0c8" text-anchor="middle">caixa</text>
+<rect x="74" y="270" width="312" height="30" rx="6" fill="#1a2342" stroke="#4a5f9c" stroke-width="4"/>
+<rect x="80" y="409" width="258" height="31" rx="10" fill="#34d399" stroke="#34d399" stroke-width="1" opacity="0.18"/>
+<rect x="80" y="409" width="258" height="31" rx="10" fill="none" stroke="#34d399" stroke-width="2"/>
+<text x="90" y="433" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="700" fill="#34d399" text-anchor="start">FECHADA — módulo na tampa</text>
+<rect x="180" y="238" width="100" height="34" rx="5" fill="#111827" stroke="#8da0c8" stroke-width="3"/>
+<text x="230" y="261" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="700" fill="#a3e635" text-anchor="middle">ADXL345</text>
+<text x="230" y="226" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="13" font-weight="400" fill="#8da0c8" text-anchor="middle">vibra com fans/bomba</text>
+<rect x="520" y="300" width="300" height="90" rx="10" fill="#0f1730" stroke="#4a5f9c" stroke-width="4"/>
+<text x="670" y="355" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#8da0c8" text-anchor="middle">caixa</text>
+<polygon points="520,298 820,298 860,220 560,220" fill="#1a2342" stroke="#4a5f9c" stroke-width="4" stroke-linejoin="round"/>
+<rect x="520" y="409" width="315" height="31" rx="10" fill="#f87171" stroke="#f87171" stroke-width="1" opacity="0.18"/>
+<rect x="520" y="409" width="315" height="31" rx="10" fill="none" stroke="#f87171" stroke-width="2"/>
+<text x="530" y="433" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="700" fill="#f87171" text-anchor="start">ABERTA — módulo retirado/movido</text>
+<rect x="660" y="300" width="100" height="34" rx="5" fill="#111827" stroke="#8da0c8" stroke-width="3"/>
+<text x="710" y="323" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="700" fill="#a3e635" text-anchor="middle">ADXL345</text>
+<path d="M640,236 L700,296" fill="none" stroke="#fbbf24" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="5 5" marker-end="url(#seta)"/>
+<text x="100" y="560" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="700" fill="#8da0c8" text-anchor="start">Calibração (tela Configurações → Tampa)</text>
+<rect x="80" y="640" width="300" height="24" rx="6" fill="#2a3558" stroke="#6b86c9" stroke-width="2"/>
+<text x="230" y="690" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#8da0c8" text-anchor="middle">mesa / bancada</text>
+<rect x="180" y="604" width="100" height="34" rx="5" fill="#111827" stroke="#8da0c8" stroke-width="3"/>
+<text x="230" y="627" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="700" fill="#a3e635" text-anchor="middle">ADXL345</text>
+<rect x="80" y="720" width="342" height="30" rx="10" fill="#34d399" stroke="#34d399" stroke-width="1" opacity="0.18"/>
+<rect x="80" y="720" width="342" height="30" rx="10" fill="none" stroke="#34d399" stroke-width="2"/>
+<text x="90" y="743" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="700" fill="#34d399" text-anchor="start">1) CALIBRAR FECHADA: módulo na tampa</text>
+<rect x="80" y="770" width="306" height="30" rx="10" fill="#fbbf24" stroke="#fbbf24" stroke-width="1" opacity="0.18"/>
+<rect x="80" y="770" width="306" height="30" rx="10" fill="none" stroke="#fbbf24" stroke-width="2"/>
+<text x="90" y="793" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="700" fill="#fbbf24" text-anchor="start">2) CALIBRAR FORA: módulo na mesa</text>
+<text x="80" y="850" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#8da0c8" text-anchor="start">Cada calibração exige 3 s parado. A diferença entre as duas posições (ângulo e</text>
+<text x="80" y="872" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#8da0c8" text-anchor="start">vibração) é o que o firmware usa. Se tampa e mesa tiverem inclinação e vibração</text>
+<text x="80" y="894" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#8da0c8" text-anchor="start">parecidas, o fechamento será inferido pela temperatura.</text>
+<text x="520" y="560" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="700" fill="#8da0c8" text-anchor="start">Módulo com regulador (pinos)</text>
+<rect x="520" y="590" width="330" height="150" rx="10" fill="#0c1730" stroke="#3a5fb0" stroke-width="3"/>
+<text x="540" y="620" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="700" fill="#fbbf24" text-anchor="start">5V</text>
+<text x="600" y="620" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#8da0c8" text-anchor="start">→ +5 V do DC-DC</text>
+<text x="540" y="642" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="700" fill="#f87171" text-anchor="start">3V3</text>
+<text x="600" y="642" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#8da0c8" text-anchor="start">→ saída — NÃO ligar</text>
+<text x="540" y="664" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="700" fill="#e6ebff" text-anchor="start">GND</text>
+<text x="600" y="664" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#8da0c8" text-anchor="start">→ GND comum</text>
+<text x="540" y="686" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="700" fill="#a3e635" text-anchor="start">SDA</text>
+<text x="600" y="686" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#8da0c8" text-anchor="start">→ GPIO8</text>
+<text x="540" y="708" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="700" fill="#a3e635" text-anchor="start">SCL</text>
+<text x="600" y="708" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#8da0c8" text-anchor="start">→ GPIO9</text>
+<text x="540" y="730" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="700" fill="#34d399" text-anchor="start">CS</text>
+<text x="600" y="730" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#8da0c8" text-anchor="start">→ pino 3V3 do módulo</text>
+<text x="520" y="770" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#8da0c8" text-anchor="start">SDO e VS: livres. Endereço I2C 0x53.</text>
+<rect x="960" y="150" width="790" height="890" rx="16" fill="#121a30" stroke="#2a3558" stroke-width="2"/>
+<text x="982" y="188" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="21" font-weight="700" fill="#8da0c8" text-anchor="start">Passo a passo</text>
+<line x1="982" y1="202" x2="1728" y2="202" stroke="#2a3558" stroke-width="2" stroke-linecap="round"/>
+<circle cx="1006" cy="222" r="17" fill="#fbbf24" stroke="#0b1020" stroke-width="3"/>
+<text x="1006" y="228" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">1</text>
+<text x="1036" y="228" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">Use o ADXL345 em uma caixinha e coloque-o SOBRE a tampa, apoiado, como um peso. Não</text>
+<text x="1036" y="250" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">precisa colar na tampa.</text>
+<circle cx="1006" cy="278" r="17" fill="#fbbf24" stroke="#0b1020" stroke-width="3"/>
+<text x="1006" y="284" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">2</text>
+<text x="1036" y="284" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">Ligue com cabo flexível e com folga para a tampa abrir sem esticar: 5V, GND, SDA,</text>
+<text x="1036" y="306" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">SCL e CS ao pino 3V3 do módulo.</text>
+<circle cx="1006" cy="334" r="17" fill="#fbbf24" stroke="#0b1020" stroke-width="3"/>
+<text x="1006" y="340" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">3</text>
+<text x="1036" y="340" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">No aparelho: Configurações → Tampa → "Detectar abertura" Ligado.</text>
+<circle cx="1006" cy="368" r="17" fill="#fbbf24" stroke="#0b1020" stroke-width="3"/>
+<text x="1006" y="374" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">4</text>
+<text x="1036" y="374" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">Com o módulo na tampa fechada, toque CALIBRAR FECHADA e aguarde 3 s.</text>
+<circle cx="1006" cy="402" r="17" fill="#fbbf24" stroke="#0b1020" stroke-width="3"/>
+<text x="1006" y="408" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">5</text>
+<text x="1036" y="408" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">Coloque o módulo sobre a mesa e toque CALIBRAR FORA.</text>
+<circle cx="1006" cy="436" r="17" fill="#fbbf24" stroke="#0b1020" stroke-width="3"/>
+<text x="1006" y="442" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">6</text>
+<text x="1036" y="442" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">Teste: retire o módulo — o card Status deve mostrar "TAMPA" e os alertas pausam;</text>
+<text x="1036" y="464" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">recoloque e ele volta a "recuperando".</text>
+<circle cx="1006" cy="492" r="17" fill="#fbbf24" stroke="#0b1020" stroke-width="3"/>
+<text x="1006" y="498" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">7</text>
+<text x="1036" y="498" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">Ajuste a sensibilidade (mg) e a tolerância (graus) se der alarme falso; veja o</text>
+<text x="1036" y="520" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">contador "ign" na tela.</text>
+<rect x="990" y="564" width="352" height="144" rx="12" fill="#0f2a22" stroke="#34d399" stroke-width="2"/>
+<text x="1006" y="592" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="700" fill="#34d399" text-anchor="start">✔ FAÇA</text>
+<text x="1006" y="620" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#e6ebff" text-anchor="start">Fixar o módulo num lugar que sinta a</text>
+<text x="1006" y="641" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#e6ebff" text-anchor="start">vibração dos fans</text>
+<text x="1006" y="668" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#e6ebff" text-anchor="start">Deixar folga no cabo</text>
+<rect x="1358" y="564" width="352" height="144" rx="12" fill="#2b1216" stroke="#f87171" stroke-width="2"/>
+<text x="1374" y="592" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="700" fill="#f87171" text-anchor="start">✖ NÃO FAÇA</text>
+<text x="1374" y="620" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#e6ebff" text-anchor="start">Ligar o pino 3V3 do módulo ao 3V3 do</text>
+<text x="1374" y="641" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#e6ebff" text-anchor="start">ESP32</text>
+<text x="1374" y="668" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#e6ebff" text-anchor="start">Usar cabo curto e esticado: ele puxa o</text>
+<text x="1374" y="689" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#e6ebff" text-anchor="start">módulo</text>
+</svg>

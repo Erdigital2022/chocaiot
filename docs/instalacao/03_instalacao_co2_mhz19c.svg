@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1100" viewBox="0 0 1800 1100">
+<defs><linearGradient id="gfundo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d1430"/><stop offset="1" stop-color="#0b1020"/></linearGradient><linearGradient id="gcalor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb199"/><stop offset="1" stop-color="#ff7a45"/></linearGradient><linearGradient id="gagua" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7dd3fc"/><stop offset="1" stop-color="#0369a1"/></linearGradient><linearGradient id="gouro" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6d27a"/><stop offset="1" stop-color="#a87a1e"/></linearGradient><filter id="brilho" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="6"/></filter><marker id="seta" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="context-stroke"/></marker></defs>
+<rect width="100%" height="100%" fill="url(#gfundo)"/>
+<text x="50" y="66" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="38" font-weight="700" fill="#e6ebff" text-anchor="start">Instalação do sensor de CO₂ (MH-Z19C)</text>
+<text x="50" y="102" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="19" font-weight="400" fill="#8da0c8" text-anchor="start">Sensor infravermelho NDIR: precisa trocar ar pela janela, ficar longe do calor e da névoa e receber 5,0 V estáveis.</text>
+<text x="1750" y="1076" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#5b6b92" text-anchor="end">ChocaIoT · guia de instalação · tema escuro</text>
+<text x="60" y="150" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="700" fill="#8da0c8" text-anchor="start">Conector de 7 vias (vista da etiqueta)</text>
+<rect x="80" y="180" width="320" height="230" rx="10" fill="url(#gouro)" stroke="#7a5b14" stroke-width="3"/>
+<rect x="100" y="330" width="120" height="60" rx="4" fill="#f5f1e6" stroke="#9a8f70" stroke-width="2"/>
+<text x="160" y="366" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="700" fill="#6b5d34" text-anchor="middle">janela</text>
+<rect x="400" y="230" width="22" height="130" rx="4" fill="#eee9dc" stroke="#8d8774" stroke-width="2"/>
+<circle cx="460" cy="200" r="13" fill="#92400e" stroke="#8da0c8" stroke-width="2"/>
+<text x="484" y="206" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="700" fill="#e6ebff" text-anchor="start">pino 1 · marrom</text>
+<text x="650" y="206" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#8da0c8" text-anchor="start">HD</text>
+<text x="750" y="206" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="700" fill="#8da0c8" text-anchor="start">→ isolar</text>
+<circle cx="460" cy="248" r="13" fill="#f8fafc" stroke="#8da0c8" stroke-width="2"/>
+<text x="484" y="254" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="700" fill="#e6ebff" text-anchor="start">pino 2 · branco</text>
+<text x="650" y="254" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#8da0c8" text-anchor="start">reservado</text>
+<text x="750" y="254" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="700" fill="#8da0c8" text-anchor="start">→ isolar</text>
+<circle cx="460" cy="296" r="13" fill="#111827" stroke="#8da0c8" stroke-width="2"/>
+<text x="484" y="302" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="700" fill="#e6ebff" text-anchor="start">pino 3 · preto</text>
+<text x="650" y="302" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#8da0c8" text-anchor="start">GND</text>
+<text x="750" y="302" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="700" fill="#e6ebff" text-anchor="start">→ GND comum</text>
+<circle cx="460" cy="344" r="13" fill="#ef4444" stroke="#8da0c8" stroke-width="2"/>
+<text x="484" y="350" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="700" fill="#e6ebff" text-anchor="start">pino 4 · vermelho</text>
+<text x="650" y="350" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#8da0c8" text-anchor="start">Vin +5 V</text>
+<text x="750" y="350" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="700" fill="#fbbf24" text-anchor="start">→ +5 V do DC-DC</text>
+<circle cx="460" cy="392" r="13" fill="#2563eb" stroke="#8da0c8" stroke-width="2"/>
+<text x="484" y="398" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="700" fill="#e6ebff" text-anchor="start">pino 5 · azul</text>
+<text x="650" y="398" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#8da0c8" text-anchor="start">RX</text>
+<text x="750" y="398" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="700" fill="#a3e635" text-anchor="start">→ GPIO15 (TX do ESP)</text>
+<circle cx="460" cy="440" r="13" fill="#16a34a" stroke="#8da0c8" stroke-width="2"/>
+<text x="484" y="446" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="700" fill="#e6ebff" text-anchor="start">pino 6 · verde</text>
+<text x="650" y="446" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#8da0c8" text-anchor="start">TX</text>
+<text x="750" y="446" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="700" fill="#a3e635" text-anchor="start">→ GPIO16 (RX do ESP)</text>
+<circle cx="460" cy="488" r="13" fill="#facc15" stroke="#8da0c8" stroke-width="2"/>
+<text x="484" y="494" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="700" fill="#e6ebff" text-anchor="start">pino 7 · amarelo</text>
+<text x="650" y="494" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#8da0c8" text-anchor="start">PWM</text>
+<text x="750" y="494" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="700" fill="#8da0c8" text-anchor="start">→ isolar</text>
+<path d="M422,295 L440,295 L440,200" fill="none" stroke="#8da0c8" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M440,295 L440,488" fill="none" stroke="#8da0c8" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="60" y="560" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="700" fill="#8da0c8" text-anchor="start">Montagem (vista lateral)</text>
+<rect x="140" y="640" width="460" height="20" rx="6" fill="#2a3558" stroke="#6b86c9" stroke-width="2"/>
+<text x="370" y="632" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#8da0c8" text-anchor="middle">suporte / parede interna</text>
+<rect x="180" y="664" width="18" height="40" rx="3" fill="#94a3b8" stroke="#cbd5e1" stroke-width="2"/>
+<rect x="540" y="664" width="18" height="40" rx="3" fill="#94a3b8" stroke="#cbd5e1" stroke-width="2"/>
+<text x="100" y="690" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="13" font-weight="400" fill="#8da0c8" text-anchor="start">espaçador</text>
+<text x="100" y="706" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="13" font-weight="400" fill="#8da0c8" text-anchor="start">5 mm</text>
+<rect x="160" y="704" width="420" height="36" rx="6" fill="url(#gouro)" stroke="#7a5b14" stroke-width="2"/>
+<rect x="220" y="740" width="100" height="12" rx="3" fill="#f5f1e6" stroke="#9a8f70" stroke-width="1"/>
+<text x="270" y="770" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#fbbf24" text-anchor="middle">janela de difusão ↓</text>
+<path d="M140,760 L140,800 L620,800 L620,760" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="7 6"/>
+<text x="380" y="826" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#38bdf8" text-anchor="middle">capa/anteparo aberta embaixo (contra respingo e penugem)</text>
+<path d="M260,880 L260,830" fill="none" stroke="#67e8f9" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#seta)"/>
+<text x="300" y="890" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#67e8f9" text-anchor="start">o ar sobe e entra pela janela</text>
+<rect x="100" y="920" width="530" height="30" rx="10" fill="#fbbf24" stroke="#fbbf24" stroke-width="1" opacity="0.18"/>
+<rect x="100" y="920" width="530" height="30" rx="10" fill="none" stroke="#fbbf24" stroke-width="2"/>
+<text x="110" y="943" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="700" fill="#fbbf24" text-anchor="start">5,0 V ±0,1 V · ≥ 150 mA · 470 µF + 100 nF junto ao sensor</text>
+<rect x="100" y="970" width="441" height="30" rx="10" fill="#34d399" stroke="#34d399" stroke-width="1" opacity="0.18"/>
+<rect x="100" y="970" width="441" height="30" rx="10" fill="none" stroke="#34d399" stroke-width="2"/>
+<text x="110" y="993" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="700" fill="#34d399" text-anchor="start">faixa de operação: −10 a 50 °C, sem condensação</text>
+<rect x="960" y="150" width="790" height="890" rx="16" fill="#121a30" stroke="#2a3558" stroke-width="2"/>
+<text x="982" y="188" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="21" font-weight="700" fill="#8da0c8" text-anchor="start">Passo a passo</text>
+<line x1="982" y1="202" x2="1728" y2="202" stroke="#2a3558" stroke-width="2" stroke-linecap="round"/>
+<circle cx="1006" cy="222" r="17" fill="#fbbf24" stroke="#0b1020" stroke-width="3"/>
+<text x="1006" y="228" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">1</text>
+<text x="1036" y="228" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">Fixe pelos 2 furos da placa, com espaçadores de ~5 mm. Nunca aperte a câmara</text>
+<text x="1036" y="250" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">dourada.</text>
+<circle cx="1006" cy="278" r="17" fill="#fbbf24" stroke="#0b1020" stroke-width="3"/>
+<text x="1006" y="284" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">2</text>
+<text x="1036" y="284" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">Posição: altura dos ovos, longe do aquecedor (limite 50 °C), da névoa e da saída</text>
+<text x="1036" y="306" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">dos fans.</text>
+<circle cx="1006" cy="334" r="17" fill="#fbbf24" stroke="#0b1020" stroke-width="3"/>
+<text x="1006" y="340" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">3</text>
+<text x="1036" y="340" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">Janela branca para baixo ou de lado; deixe 1 cm livre ao redor para o ar difundir.</text>
+<circle cx="1006" cy="368" r="17" fill="#fbbf24" stroke="#0b1020" stroke-width="3"/>
+<text x="1006" y="374" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">4</text>
+<text x="1036" y="374" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">Proteção LEVE: uma capa aberta embaixo ou tela fina a ~5 mm; nunca fita, filme,</text>
+<text x="1036" y="396" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">espuma úmida ou recipiente fechado.</text>
+<circle cx="1006" cy="424" r="17" fill="#fbbf24" stroke="#0b1020" stroke-width="3"/>
+<text x="1006" y="430" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">5</text>
+<text x="1036" y="430" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">Alimente com o 5 V do conversor (não 3V3, não o pino 5V do adaptador). Adicione 470</text>
+<text x="1036" y="452" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">µF + 100 nF entre Vin e GND.</text>
+<circle cx="1006" cy="480" r="17" fill="#fbbf24" stroke="#0b1020" stroke-width="3"/>
+<text x="1006" y="486" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">6</text>
+<text x="1036" y="486" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">Ligue TX/RX em GPIO15/16 — NUNCA nos bornes rotulados RX/TX do adaptador (são a</text>
+<text x="1036" y="508" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">USB).</text>
+<circle cx="1006" cy="536" r="17" fill="#fbbf24" stroke="#0b1020" stroke-width="3"/>
+<text x="1006" y="542" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">7</text>
+<text x="1036" y="542" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">Aguarde ~1 min de aquecimento; confira o valor no card de CO₂ e o log "CO2: Sensor</text>
+<text x="1036" y="564" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">respondeu".</text>
+<rect x="990" y="608" width="352" height="144" rx="12" fill="#0f2a22" stroke="#34d399" stroke-width="2"/>
+<text x="1006" y="636" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="700" fill="#34d399" text-anchor="start">✔ FAÇA</text>
+<text x="1006" y="664" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#e6ebff" text-anchor="start">Ar de sala ao ar livre ≈ 400–600 ppm:</text>
+<text x="1006" y="685" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#e6ebff" text-anchor="start">use para conferir</text>
+<text x="1006" y="712" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#e6ebff" text-anchor="start">Isolar HD, PWM e o fio reservado</text>
+<rect x="1358" y="608" width="352" height="144" rx="12" fill="#2b1216" stroke="#f87171" stroke-width="2"/>
+<text x="1374" y="636" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="700" fill="#f87171" text-anchor="start">✖ NÃO FAÇA</text>
+<text x="1374" y="664" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#e6ebff" text-anchor="start">Soprar ou lavar a membrana</text>
+<text x="1374" y="691" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#e6ebff" text-anchor="start">Deixar o fio HD no GND por 7 s (calibra</text>
+<text x="1374" y="712" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#e6ebff" text-anchor="start">o zero!)</text>
+</svg>

@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1100" viewBox="0 0 1800 1100">
+<defs><linearGradient id="gfundo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d1430"/><stop offset="1" stop-color="#0b1020"/></linearGradient><linearGradient id="gcalor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb199"/><stop offset="1" stop-color="#ff7a45"/></linearGradient><linearGradient id="gagua" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7dd3fc"/><stop offset="1" stop-color="#0369a1"/></linearGradient><linearGradient id="gouro" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6d27a"/><stop offset="1" stop-color="#a87a1e"/></linearGradient><filter id="brilho" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="6"/></filter><marker id="seta" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="context-stroke"/></marker></defs>
+<rect width="100%" height="100%" fill="url(#gfundo)"/>
+<text x="50" y="66" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="38" font-weight="700" fill="#e6ebff" text-anchor="start">Instalação dos fans de PC (4 fios) com PWM de 25 kHz</text>
+<text x="50" y="102" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="19" font-weight="400" fill="#8da0c8" text-anchor="start">+12 V fixo no fio 2, velocidade pelo sinal PWM no fio 4, RPM no fio 3. Sem módulo MOSFET.</text>
+<text x="1750" y="1076" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#5b6b92" text-anchor="end">ChocaIoT · guia de instalação · tema escuro</text>
+<text x="60" y="150" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="700" fill="#8da0c8" text-anchor="start">Conector do fan (vista de frente)</text>
+<rect x="100" y="180" width="330" height="110" rx="8" fill="#101826" stroke="#8da0c8" stroke-width="3"/>
+<rect x="100" y="180" width="330" height="24" rx="8" fill="#1a2342" stroke="#8da0c8" stroke-width="2"/>
+<text x="265" y="198" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="13" font-weight="400" fill="#8da0c8" text-anchor="middle">▼ chave (entalhe)</text>
+<rect x="122" y="222" width="36" height="50" rx="5" fill="#05070f" stroke="#e6ebff" stroke-width="3"/>
+<text x="140" y="254" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="24" font-weight="800" fill="#e6ebff" text-anchor="middle">1</text>
+<text x="140" y="318" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="700" fill="#e6ebff" text-anchor="middle">GND</text>
+<text x="470" y="214" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="700" fill="#e6ebff" text-anchor="start">1  GND</text>
+<text x="570" y="214" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#8da0c8" text-anchor="start">fio com a marca “1”</text>
+<rect x="197" y="222" width="36" height="50" rx="5" fill="#05070f" stroke="#fbbf24" stroke-width="3"/>
+<text x="215" y="254" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="24" font-weight="800" fill="#fbbf24" text-anchor="middle">2</text>
+<text x="215" y="318" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="700" fill="#fbbf24" text-anchor="middle">+12 V</text>
+<text x="470" y="244" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="700" fill="#fbbf24" text-anchor="start">2  +12 V</text>
+<text x="570" y="244" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#8da0c8" text-anchor="start">fixo, via relé CH8</text>
+<rect x="272" y="222" width="36" height="50" rx="5" fill="#05070f" stroke="#a3e635" stroke-width="3"/>
+<text x="290" y="254" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="24" font-weight="800" fill="#a3e635" text-anchor="middle">3</text>
+<text x="290" y="318" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="700" fill="#a3e635" text-anchor="middle">TACH</text>
+<text x="470" y="274" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="700" fill="#a3e635" text-anchor="start">3  TACH</text>
+<text x="570" y="274" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#8da0c8" text-anchor="start">→ GPIO17</text>
+<rect x="347" y="222" width="36" height="50" rx="5" fill="#05070f" stroke="#a78bfa" stroke-width="3"/>
+<text x="365" y="254" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="24" font-weight="800" fill="#a78bfa" text-anchor="middle">4</text>
+<text x="365" y="318" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="700" fill="#a78bfa" text-anchor="middle">PWM</text>
+<text x="470" y="304" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="700" fill="#a78bfa" text-anchor="start">4  PWM</text>
+<text x="570" y="304" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#8da0c8" text-anchor="start">← GPIO4/5/6 (1 kΩ)</text>
+<text x="60" y="420" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="700" fill="#8da0c8" text-anchor="start">Ligação</text>
+<rect x="100" y="450" width="160" height="70" rx="8" fill="#3a2a08" stroke="#fbbf24" stroke-width="2"/>
+<text x="180" y="492" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="700" fill="#fbbf24" text-anchor="middle">DC-DC / 12 V</text>
+<rect x="330" y="450" width="150" height="70" rx="8" fill="#2b0f19" stroke="#b91c4a" stroke-width="2"/>
+<text x="405" y="478" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="700" fill="#e6ebff" text-anchor="middle">relé CH8</text>
+<text x="405" y="502" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#8da0c8" text-anchor="middle">contato NA</text>
+<rect x="560" y="450" width="150" height="70" rx="8" fill="#101826" stroke="#8da0c8" stroke-width="2"/>
+<text x="635" y="492" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="20" font-weight="700" fill="#e6ebff" text-anchor="middle">FAN</text>
+<path d="M260,485 L330,485" fill="none" stroke="#fbbf24" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M480,485 L560,485" fill="none" stroke="#fbbf24" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="300" y="470" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#fbbf24" text-anchor="middle">+12 V</text>
+<text x="520" y="470" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#fbbf24" text-anchor="middle">pino 2</text>
+<path d="M180,520 L180,570 L635,570 L635,520" fill="none" stroke="#e6ebff" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="400" y="590" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#8da0c8" text-anchor="middle">GND comum (pino 1) — liga com o GND do ESP32</text>
+<rect x="100" y="640" width="260" height="120" rx="10" fill="#10261f" stroke="#1fbf8e" stroke-width="3"/>
+<rect x="118" y="654" width="90" height="52" rx="6" fill="#0b1020" stroke="#5eead4" stroke-width="2"/>
+<text x="163" y="686" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="20" font-weight="700" fill="#5eead4" text-anchor="middle">S3</text>
+<rect x="114" y="742" width="10" height="12" rx="2" fill="#d9a441" stroke="none" stroke-width="0"/>
+<rect x="136" y="742" width="10" height="12" rx="2" fill="#d9a441" stroke="none" stroke-width="0"/>
+<rect x="158" y="742" width="10" height="12" rx="2" fill="#d9a441" stroke="none" stroke-width="0"/>
+<rect x="180" y="742" width="10" height="12" rx="2" fill="#d9a441" stroke="none" stroke-width="0"/>
+<rect x="202" y="742" width="10" height="12" rx="2" fill="#d9a441" stroke="none" stroke-width="0"/>
+<rect x="224" y="742" width="10" height="12" rx="2" fill="#d9a441" stroke="none" stroke-width="0"/>
+<rect x="246" y="742" width="10" height="12" rx="2" fill="#d9a441" stroke="none" stroke-width="0"/>
+<rect x="268" y="742" width="10" height="12" rx="2" fill="#d9a441" stroke="none" stroke-width="0"/>
+<rect x="290" y="742" width="10" height="12" rx="2" fill="#d9a441" stroke="none" stroke-width="0"/>
+<rect x="312" y="742" width="10" height="12" rx="2" fill="#d9a441" stroke="none" stroke-width="0"/>
+<text x="346" y="672" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="17" font-weight="700" fill="#5eead4" text-anchor="end">ESP32-S3</text>
+<text x="368" y="656" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="700" fill="#a78bfa" text-anchor="start">GPIO4/5/6</text>
+<path d="M360,668 L470,668" fill="none" stroke="#a78bfa" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="470" y="650" width="90" height="36" rx="6" fill="#2a2f45" stroke="#94a3b8" stroke-width="2"/>
+<text x="515" y="674" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="700" fill="#e6ebff" text-anchor="middle">1 kΩ</text>
+<path d="M560,668 L640,668 L640,522" fill="none" stroke="#a78bfa" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="368" y="708" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="700" fill="#a3e635" text-anchor="start">GPIO17 (tacômetro)</text>
+<path d="M360,720 L700,720 L700,522 L710,522" fill="none" stroke="#a3e635" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="560" y1="720" x2="560" y2="748" stroke="#a3e635" stroke-width="3" stroke-linecap="round"/>
+<circle cx="560" cy="720" r="5" fill="#a3e635" stroke="#0b1020" stroke-width="1"/>
+<line x1="690" y1="720" x2="690" y2="748" stroke="#a3e635" stroke-width="3" stroke-linecap="round"/>
+<circle cx="690" cy="720" r="5" fill="#a3e635" stroke="#0b1020" stroke-width="1"/>
+<rect x="500" y="748" width="120" height="34" rx="6" fill="#2a2f45" stroke="#94a3b8" stroke-width="2"/>
+<text x="560" y="771" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="700" fill="#e6ebff" text-anchor="middle">10 kΩ → 3V3</text>
+<rect x="640" y="748" width="100" height="34" rx="6" fill="#2a2f45" stroke="#94a3b8" stroke-width="2"/>
+<text x="690" y="771" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="700" fill="#e6ebff" text-anchor="middle">10 nF → GND</text>
+<text x="100" y="826" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#8da0c8" text-anchor="start">Filtro RC no tacômetro: estabiliza o RPM com PWM &lt; 100 % (fio 3 longe do fio 4).</text>
+<text x="60" y="890" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="700" fill="#8da0c8" text-anchor="start">Posição e sentido do ar</text>
+<rect x="98" y="918" width="84" height="84" rx="10" fill="#18213d" stroke="#4a5a8a" stroke-width="3"/>
+<circle cx="140" cy="960" r="36" fill="#0f1730" stroke="#3a4a7a" stroke-width="2"/>
+<polygon points="140,960 173.51827696217046,953.205508886809 169.17448611622672,974.0928833052038" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="140,960 166.21045092143186,981.9693482492133 147.1717347211801,991.5963007500723" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="140,960 139.16562074109277,994.1898202869261 119.76852080435722,985.3070592830592" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="140,960 112.74909516094593,980.6646603033493 107.6000233688191,959.9610860059713" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="140,960 106.85305674176118,951.5785896291004 119.82936917563762,934.6444157600878" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="140,960 125.91734267045008,928.8340127296042 147.2476113990862,928.4210176065181" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="140,960 155.58615680214774,929.5580599149978 169.20825441469304,945.9772372890873" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<circle cx="140" cy="960" r="7.92" fill="#243053" stroke="#8da0c8" stroke-width="2"/>
+<text x="140" y="1030" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#67e8f9" text-anchor="middle">Fan 1 · Circulação</text>
+<rect x="358" y="918" width="84" height="84" rx="10" fill="#18213d" stroke="#4a5a8a" stroke-width="3"/>
+<circle cx="400" cy="960" r="36" fill="#0f1730" stroke="#3a4a7a" stroke-width="2"/>
+<polygon points="400,960 433.5182769621705,953.205508886809 429.1744861162267,974.0928833052038" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="400,960 426.21045092143186,981.9693482492133 407.1717347211801,991.5963007500723" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="400,960 399.16562074109277,994.1898202869261 379.7685208043572,985.3070592830592" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="400,960 372.7490951609459,980.6646603033493 367.6000233688191,959.9610860059713" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="400,960 366.8530567417612,951.5785896291004 379.8293691756376,934.6444157600878" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="400,960 385.91734267045007,928.8340127296042 407.2476113990862,928.4210176065181" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="400,960 415.58615680214774,929.5580599149978 429.20825441469304,945.9772372890873" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<circle cx="400" cy="960" r="7.92" fill="#243053" stroke="#8da0c8" stroke-width="2"/>
+<text x="400" y="1030" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#a78bfa" text-anchor="middle">Fan 2 · Resfriamento</text>
+<rect x="618" y="918" width="84" height="84" rx="10" fill="#18213d" stroke="#4a5a8a" stroke-width="3"/>
+<circle cx="660" cy="960" r="36" fill="#0f1730" stroke="#3a4a7a" stroke-width="2"/>
+<polygon points="660,960 693.5182769621705,953.205508886809 689.1744861162267,974.0928833052038" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="660,960 686.2104509214319,981.9693482492133 667.1717347211801,991.5963007500723" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="660,960 659.1656207410928,994.1898202869261 639.7685208043572,985.3070592830592" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="660,960 632.7490951609459,980.6646603033493 627.600023368819,959.9610860059713" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="660,960 626.8530567417612,951.5785896291004 639.8293691756376,934.6444157600878" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="660,960 645.9173426704501,928.8340127296042 667.2476113990862,928.4210176065181" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="660,960 675.5861568021478,929.5580599149978 689.2082544146931,945.9772372890873" fill="#67e8f9" stroke="#0b1020" stroke-width="1" stroke-linejoin="round"/>
+<circle cx="660" cy="960" r="7.92" fill="#243053" stroke="#8da0c8" stroke-width="2"/>
+<text x="660" y="1030" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#a78bfa" text-anchor="middle">Fan 3 · Renovação</text>
+<path d="M80,905 L200,905" fill="none" stroke="#67e8f9" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#seta)"/>
+<path d="M340,905 L460,905" fill="none" stroke="#67e8f9" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#seta)"/>
+<path d="M600,905 L720,905" fill="none" stroke="#67e8f9" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#seta)"/>
+<text x="260" y="890" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="13" font-weight="400" fill="#5b6b92" text-anchor="start">setas na lateral do fan = sentido do ar e da rotação</text>
+<rect x="960" y="150" width="790" height="890" rx="16" fill="#121a30" stroke="#2a3558" stroke-width="2"/>
+<text x="982" y="188" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="21" font-weight="700" fill="#8da0c8" text-anchor="start">Passo a passo</text>
+<line x1="982" y1="202" x2="1728" y2="202" stroke="#2a3558" stroke-width="2" stroke-linecap="round"/>
+<circle cx="1006" cy="222" r="17" fill="#fbbf24" stroke="#0b1020" stroke-width="3"/>
+<text x="1006" y="228" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">1</text>
+<text x="1036" y="228" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">Identifique os fios: com 4 fios iguais, a contagem começa no lado marcado com “1”:</text>
+<text x="1036" y="250" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">1 GND, 2 +12 V, 3 tacômetro, 4 PWM.</text>
+<circle cx="1006" cy="278" r="17" fill="#fbbf24" stroke="#0b1020" stroke-width="3"/>
+<text x="1006" y="284" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">2</text>
+<text x="1036" y="284" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">Alimente o pino 2 com +12 V através do contato NA do relé CH8; o GND do fan e o do</text>
+<text x="1036" y="306" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">ESP32 são o mesmo.</text>
+<circle cx="1006" cy="334" r="17" fill="#fbbf24" stroke="#0b1020" stroke-width="3"/>
+<text x="1006" y="340" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">3</text>
+<text x="1036" y="340" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">PWM: GPIO4 (fan 1), GPIO5 (fan 2), GPIO6 (fan 3) → resistor de 1 kΩ → pino 4. A</text>
+<text x="1036" y="362" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">frequência é 25 kHz.</text>
+<circle cx="1006" cy="390" r="17" fill="#fbbf24" stroke="#0b1020" stroke-width="3"/>
+<text x="1006" y="396" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">4</text>
+<text x="1036" y="396" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">Tacômetro (só o fan 1): pino 3 → GPIO17, com pull-up de 10 kΩ ao 3V3 e 10 nF ao</text>
+<text x="1036" y="418" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">GND.</text>
+<circle cx="1006" cy="446" r="17" fill="#fbbf24" stroke="#0b1020" stroke-width="3"/>
+<text x="1006" y="452" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">5</text>
+<text x="1036" y="452" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">Confira o sentido do ar pelas setas moldadas na carcaça; fixe com coxins de</text>
+<text x="1036" y="474" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">borracha para não vibrar a caixa.</text>
+<circle cx="1006" cy="502" r="17" fill="#fbbf24" stroke="#0b1020" stroke-width="3"/>
+<text x="1006" y="508" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">6</text>
+<text x="1036" y="508" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">No aparelho: tela Fans → ligue o PWM, escolha a função de cada fan e confira o RPM</text>
+<text x="1036" y="530" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">(500–2000 rpm no MSI APA1225M12).</text>
+<rect x="990" y="574" width="352" height="144" rx="12" fill="#0f2a22" stroke="#34d399" stroke-width="2"/>
+<text x="1006" y="602" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="700" fill="#34d399" text-anchor="start">✔ FAÇA</text>
+<text x="1006" y="630" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#e6ebff" text-anchor="start">Fan de 3 fios: use o esquema com MOSFET</text>
+<text x="1006" y="651" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#e6ebff" text-anchor="start">(04_irf520_pwm)</text>
+<text x="1006" y="678" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#e6ebff" text-anchor="start">Cortar o +12 V pelo relé para parar de</text>
+<text x="1006" y="699" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#e6ebff" text-anchor="start">verdade</text>
+<rect x="1358" y="574" width="352" height="144" rx="12" fill="#2b1216" stroke="#f87171" stroke-width="2"/>
+<text x="1374" y="602" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="700" fill="#f87171" text-anchor="start">✖ NÃO FAÇA</text>
+<text x="1374" y="630" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#e6ebff" text-anchor="start">Ligar o fio 3 em +12 V ou ao lado do</text>
+<text x="1374" y="651" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#e6ebff" text-anchor="start">fio 4 (ruído no RPM)</text>
+<text x="1374" y="678" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#e6ebff" text-anchor="start">Esperar que 0 % pare o fan: ele gira no</text>
+<text x="1374" y="699" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#e6ebff" text-anchor="start">mínimo</text>
+</svg>

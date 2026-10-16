@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1100" viewBox="0 0 1800 1100">
+<defs><linearGradient id="gfundo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d1430"/><stop offset="1" stop-color="#0b1020"/></linearGradient><linearGradient id="gcalor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb199"/><stop offset="1" stop-color="#ff7a45"/></linearGradient><linearGradient id="gagua" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7dd3fc"/><stop offset="1" stop-color="#0369a1"/></linearGradient><linearGradient id="gouro" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6d27a"/><stop offset="1" stop-color="#a87a1e"/></linearGradient><filter id="brilho" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="6"/></filter><marker id="seta" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="context-stroke"/></marker></defs>
+<rect width="100%" height="100%" fill="url(#gfundo)"/>
+<text x="50" y="66" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="38" font-weight="700" fill="#e6ebff" text-anchor="start">Instalação do umidificador e da bomba de água</text>
+<text x="50" y="102" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="19" font-weight="400" fill="#8da0c8" text-anchor="start">Reservatório externo de 5 L → bomba submersa → mangueira → reservatório interno (~150 ml) com ladrão. Sem sifão, sem transbordar.</text>
+<text x="1750" y="1076" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#5b6b92" text-anchor="end">ChocaIoT · guia de instalação · tema escuro</text>
+<rect x="110" y="250" width="220" height="300" rx="14" fill="#0f1730" stroke="#6b86c9" stroke-width="3"/>
+<rect x="113" y="316.0" width="214" height="231.0" rx="10" fill="url(#gagua)" stroke="none" stroke-width="0" opacity="0.9"/>
+<rect x="102" y="238" width="236" height="16" rx="6" fill="#2a3558" stroke="#6b86c9" stroke-width="2"/>
+<text x="220" y="590" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="700" fill="#8da0c8" text-anchor="middle">reservatório externo · 5 L</text>
+<rect x="170" y="500" width="100" height="36" rx="6" fill="#475569" stroke="#94a3b8" stroke-width="2"/>
+<text x="220" y="524" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="700" fill="#e6ebff" text-anchor="middle">BOMBA</text>
+<path d="M240,500 L240,440 L360,440 L360,470 L420,470 L420,380 L500,380" fill="none" stroke="#f43f5e" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="7 5"/>
+<text x="340" y="330" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="13" font-weight="700" fill="#f43f5e" text-anchor="start">cabo 220 V da bomba</text>
+<text x="340" y="348" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="13" font-weight="400" fill="#f43f5e" text-anchor="start">→ relé CH3 (com laço)</text>
+<path d="M200,500 L200,200 L480,200" fill="none" stroke="#38bdf8" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="200" cy="440" r="15" fill="#0b2a3d" stroke="#38bdf8" stroke-width="3"/>
+<path d="M192,444 L208,436" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#seta)"/>
+<text x="60" y="446" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#38bdf8" text-anchor="start">válvula de retenção</text>
+<text x="60" y="176" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#38bdf8" text-anchor="start">mangueira sobe acima do nível d'água (sem sifão)</text>
+<rect x="480" y="150" width="30" height="600" rx="6" fill="#1a2342" stroke="#4a5f9c" stroke-width="4"/>
+<text x="495" y="770" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#8da0c8" text-anchor="middle">parede da caixa</text>
+<path d="M510,200 L780,200 L780,300" fill="none" stroke="#38bdf8" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="560" y="141" width="246" height="29" rx="10" fill="#34d399" stroke="#34d399" stroke-width="1" opacity="0.18"/>
+<rect x="560" y="141" width="246" height="29" rx="10" fill="none" stroke="#34d399" stroke-width="2"/>
+<text x="570" y="163" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="700" fill="#34d399" text-anchor="start">ponta ACIMA do nível máximo</text>
+<rect x="660" y="300" width="260" height="200" rx="12" fill="#0f1730" stroke="#6b86c9" stroke-width="4"/>
+<rect x="664" y="380" width="252" height="116" rx="8" fill="url(#gagua)" stroke="none" stroke-width="0" opacity="0.9"/>
+<line x1="660" y1="380" x2="920" y2="380" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-dasharray="6 5"/>
+<text x="930" y="386" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="13" font-weight="400" fill="#38bdf8" text-anchor="start">nível máx.</text>
+<text x="790" y="530" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="700" fill="#8da0c8" text-anchor="middle">reservatório interno (~150 ml)</text>
+<rect x="740" y="450" width="100" height="36" rx="6" fill="#334155" stroke="#94a3b8" stroke-width="2"/>
+<text x="790" y="473" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="13" font-weight="700" fill="#e6ebff" text-anchor="middle">umidificador</text>
+<path d="M760,440 L752,410 L768,380 L760,350 L754,320" fill="none" stroke="#bae6fd" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="3 4"/>
+<path d="M790,440 L782,410 L798,380 L790,350 L784,320" fill="none" stroke="#bae6fd" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="3 4"/>
+<path d="M820,440 L812,410 L828,380 L820,350 L814,320" fill="none" stroke="#bae6fd" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="3 4"/>
+<path d="M920,430 L960,430 L960,640 L330,640 L330,470" fill="none" stroke="#7dd3fc" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 6" marker-end="url(#seta)"/>
+<text x="640" y="660" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#7dd3fc" text-anchor="middle">ladrão: o excesso volta ao galão por gravidade</text>
+<text x="60" y="740" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="700" fill="#8da0c8" text-anchor="start">Teste do copo (fora da caixa)</text>
+<rect x="100" y="790" width="90" height="110" rx="10" fill="#0f1730" stroke="#8da0c8" stroke-width="3"/>
+<rect x="103" y="850" width="84" height="47" rx="6" fill="url(#gagua)" stroke="none" stroke-width="0" opacity="0.9"/>
+<path d="M40,780 L140,780 L140,800" fill="none" stroke="#38bdf8" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="210" y="810" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#e6ebff" text-anchor="start">1) bombeie ~5 s e meça os ml  →  vazão (ml/s)</text>
+<text x="210" y="838" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#e6ebff" text-anchor="start">2) mangueira vazia: cronometre até a água sair</text>
+<text x="210" y="866" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="700" fill="#fbbf24" text-anchor="start">3) informe em Configurações → Hardware (pág. 3)</text>
+<rect x="1000" y="150" width="750" height="890" rx="16" fill="#121a30" stroke="#2a3558" stroke-width="2"/>
+<text x="1022" y="188" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="21" font-weight="700" fill="#8da0c8" text-anchor="start">Passo a passo e limites do firmware</text>
+<line x1="1022" y1="202" x2="1728" y2="202" stroke="#2a3558" stroke-width="2" stroke-linecap="round"/>
+<circle cx="1046" cy="222" r="17" fill="#38bdf8" stroke="#0b1020" stroke-width="3"/>
+<text x="1046" y="228" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">1</text>
+<text x="1076" y="228" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">Posicione o galão ao lado da caixa. A bomba fica submersa e a mangueira sobe</text>
+<text x="1076" y="250" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">acima do nível da água antes de entrar na caixa.</text>
+<circle cx="1046" cy="278" r="17" fill="#38bdf8" stroke="#0b1020" stroke-width="3"/>
+<text x="1046" y="284" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">2</text>
+<text x="1076" y="284" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">Coloque uma válvula de retenção perto da bomba; sem ela a mangueira esvazia de</text>
+<text x="1076" y="306" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">volta e cada pulso gasta ~3 s só para encher.</text>
+<circle cx="1046" cy="334" r="17" fill="#38bdf8" stroke="#0b1020" stroke-width="3"/>
+<text x="1046" y="340" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">3</text>
+<text x="1076" y="340" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">A ponta da mangueira termina ACIMA do nível máximo do reservatório interno;</text>
+<text x="1076" y="362" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">instale o ladrão devolvendo o excesso ao galão.</text>
+<circle cx="1046" cy="390" r="17" fill="#38bdf8" stroke="#0b1020" stroke-width="3"/>
+<text x="1046" y="396" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">4</text>
+<text x="1076" y="396" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">Meça com o teste do copo: tempo de enchimento (s) e vazão (ml/s) e informe em</text>
+<text x="1076" y="418" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">Hardware. Sem a medida, o firmware não bombeia.</text>
+<circle cx="1046" cy="446" r="17" fill="#38bdf8" stroke="#0b1020" stroke-width="3"/>
+<text x="1046" y="452" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">5</text>
+<text x="1076" y="452" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">CH3 é 220 V (bomba classe II): fusível, DR, emendas isoladas, cabo com laço de</text>
+<text x="1076" y="474" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">gotejamento e longe da névoa.</text>
+<circle cx="1046" cy="502" r="17" fill="#38bdf8" stroke="#0b1020" stroke-width="3"/>
+<text x="1046" y="508" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="800" fill="#0b1020" text-anchor="middle">6</text>
+<text x="1076" y="508" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#e6ebff" text-anchor="start">O comando do CH3 existe só no aparelho: o app e a nuvem nunca ligam a bomba.</text>
+<text x="1030" y="558" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="19" font-weight="700" fill="#e6ebff" text-anchor="start">Como o firmware dosa a água</text>
+<text x="1030" y="590" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#8da0c8" text-anchor="start">• pulso = tempo de enchimento + 15 ml ÷ vazão (máximo 8 s, vigiado em ms);</text>
+<text x="1030" y="616" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#8da0c8" text-anchor="start">• só age após ~6,5 min com o umidificador ligado e a umidade sem reagir;</text>
+<text x="1030" y="642" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#8da0c8" text-anchor="start">• até 4 pulsos por sequência, 1 sequência por hora, 120 ml por dia;</text>
+<text x="1030" y="668" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="16" font-weight="400" fill="#8da0c8" text-anchor="start">• sem hora válida (NTP/RTC) ele não bombeia; contadores ficam salvos.</text>
+<rect x="1030" y="710" width="337" height="144" rx="12" fill="#0f2a22" stroke="#34d399" stroke-width="2"/>
+<text x="1046" y="738" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="700" fill="#34d399" text-anchor="start">✔ FAÇA</text>
+<text x="1046" y="766" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#e6ebff" text-anchor="start">Fixar a bomba para não virar nem</text>
+<text x="1046" y="787" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#e6ebff" text-anchor="start">aspirar ar</text>
+<text x="1046" y="814" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#e6ebff" text-anchor="start">Testar com a ponta num copo antes de</text>
+<text x="1046" y="835" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#e6ebff" text-anchor="start">ligar na caixa</text>
+<rect x="1383" y="710" width="337" height="144" rx="12" fill="#2b1216" stroke="#f87171" stroke-width="2"/>
+<text x="1399" y="738" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="18" font-weight="700" fill="#f87171" text-anchor="start">✖ NÃO FAÇA</text>
+<text x="1399" y="766" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#e6ebff" text-anchor="start">Deixar a bomba funcionar a seco</text>
+<text x="1399" y="793" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#e6ebff" text-anchor="start">Pôr a ponta da mangueira abaixo da</text>
+<text x="1399" y="814" font-family="Segoe UI, Roboto, Arial, sans-serif" font-size="15" font-weight="400" fill="#e6ebff" text-anchor="start">água (sifão)</text>
+</svg>
